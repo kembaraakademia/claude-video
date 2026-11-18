@@ -1,0 +1,308 @@
+{
+ "text": " Rajinah dakwah Kemudian Kita maklum lah Rajinah ekonomi pun berapa hari? 4 hari 4 hari buat perkongsian 4 hari x 5 hari 6 hari",
+ "segments": [
+  {
+   "id": 0,
+   "seek": 0,
+   "start": 1.5400000000000014,
+   "end": 2.46,
+   "text": " Rajinah dakwah",
+   "tokens": [
+    50365,
+    16745,
+    259,
+    545,
+    25329,
+    37360,
+    50494
+   ],
+   "temperature": 0.0,
+   "avg_logprob": -0.27455624827632197,
+   "compression_ratio": 1.3263157894736841,
+   "no_speech_prob": 0.035153940320014954,
+   "words": [
+    {
+     "word": " Rajinah",
+     "start": 1.5400000000000014,
+     "end": 2.1,
+     "probability": 0.6480118234952291
+    },
+    {
+     "word": " dakwah",
+     "start": 2.1,
+     "end": 2.46,
+     "probability": 0.7149129807949066
+    }
+   ]
+  },
+  {
+   "id": 1,
+   "seek": 0,
+   "start": 3.6000000000000014,
+   "end": 4.16,
+   "text": " Kemudian",
+   "tokens": [
+    50494,
+    30097,
+    532,
+    952,
+    50586
+   ],
+   "temperature": 0.0,
+   "avg_logprob": -0.27455624827632197,
+   "compression_ratio": 1.3263157894736841,
+   "no_speech_prob": 0.035153940320014954,
+   "words": [
+    {
+     "word": " Kemudian",
+     "start": 3.6000000000000014,
+     "end": 4.16,
+     "probability": 0.9474062323570251
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "seek": 0,
+   "start": 5.660000000000001,
+   "end": 6.74,
+   "text": " Kita maklum lah",
+   "tokens": [
+    50586,
+    27329,
+    963,
+    75,
+    449,
+    26532,
+    50705
+   ],
+   "temperature": 0.0,
+   "avg_logprob": -0.27455624827632197,
+   "compression_ratio": 1.3263157894736841,
+   "no_speech_prob": 0.035153940320014954,
+   "words": [
+    {
+     "word": " Kita",
+     "start": 5.660000000000001,
+     "end": 6.22,
+     "probability": 0.9887617230415344
+    },
+    {
+     "word": " maklum",
+     "start": 6.22,
+     "end": 6.62,
+     "probability": 0.990166187286377
+    },
+    {
+     "word": " lah",
+     "start": 6.62,
+     "end": 6.74,
+     "probability": 0.6744604110717773
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "seek": 0,
+   "start": 6.74,
+   "end": 8.76,
+   "text": " Rajinah ekonomi pun berapa hari? 4 hari",
+   "tokens": [
+    50705,
+    16745,
+    259,
+    545,
+    13359,
+    266,
+    9220,
+    4468,
+    5948,
+    7961,
+    33264,
+    30,
+    1017,
+    33264,
+    50807
+   ],
+   "temperature": 0.0,
+   "avg_logprob": -0.27455624827632197,
+   "compression_ratio": 1.3263157894736841,
+   "no_speech_prob": 0.035153940320014954,
+   "words": [
+    {
+     "word": " Rajinah",
+     "start": 6.74,
+     "end": 7.04,
+     "probability": 0.939471443494161
+    },
+    {
+     "word": " ekonomi",
+     "start": 7.04,
+     "end": 7.42,
+     "probability": 0.8472183545430502
+    },
+    {
+     "word": " pun",
+     "start": 7.42,
+     "end": 7.68,
+     "probability": 0.9919032454490662
+    },
+    {
+     "word": " berapa",
+     "start": 7.68,
+     "end": 7.94,
+     "probability": 0.7665676474571228
+    },
+    {
+     "word": " hari?",
+     "start": 7.94,
+     "end": 8.18,
+     "probability": 0.9966791868209839
+    },
+    {
+     "word": " 4",
+     "start": 8.28,
+     "end": 8.48,
+     "probability": 0.9431473612785339
+    },
+    {
+     "word": " hari",
+     "start": 8.48,
+     "end": 8.76,
+     "probability": 0.9988264441490173
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "seek": 0,
+   "start": 8.76,
+   "end": 10.66,
+   "text": " 4 hari buat perkongsian",
+   "tokens": [
+    50807,
+    1017,
+    33264,
+    22186,
+    38839,
+    42478,
+    952,
+    50901
+   ],
+   "temperature": 0.0,
+   "avg_logprob": -0.27455624827632197,
+   "compression_ratio": 1.3263157894736841,
+   "no_speech_prob": 0.035153940320014954,
+   "words": [
+    {
+     "word": " 4",
+     "start": 8.76,
+     "end": 9.1,
+     "probability": 0.17530405521392822
+    },
+    {
+     "word": " hari",
+     "start": 9.1,
+     "end": 9.84,
+     "probability": 0.9802027940750122
+    },
+    {
+     "word": " buat",
+     "start": 9.84,
+     "end": 10.12,
+     "probability": 0.3218415379524231
+    },
+    {
+     "word": " perkongsian",
+     "start": 10.12,
+     "end": 10.66,
+     "probability": 0.8160727123419443
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "seek": 0,
+   "start": 10.66,
+   "end": 11.58,
+   "text": " 4 hari x 5 hari",
+   "tokens": [
+    50901,
+    1017,
+    33264,
+    2031,
+    1025,
+    33264,
+    50950
+   ],
+   "temperature": 0.0,
+   "avg_logprob": -0.27455624827632197,
+   "compression_ratio": 1.3263157894736841,
+   "no_speech_prob": 0.035153940320014954,
+   "words": [
+    {
+     "word": " 4",
+     "start": 10.66,
+     "end": 10.88,
+     "probability": 0.6529781222343445
+    },
+    {
+     "word": " hari",
+     "start": 10.88,
+     "end": 11.06,
+     "probability": 0.9670661091804504
+    },
+    {
+     "word": " x",
+     "start": 11.06,
+     "end": 11.12,
+     "probability": 0.8140212893486023
+    },
+    {
+     "word": " 5",
+     "start": 11.12,
+     "end": 11.32,
+     "probability": 0.9872029423713684
+    },
+    {
+     "word": " hari",
+     "start": 11.32,
+     "end": 11.58,
+     "probability": 0.9996515512466431
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "seek": 0,
+   "start": 12.780000000000001,
+   "end": 13.76,
+   "text": " 6 hari",
+   "tokens": [
+    50950,
+    1386,
+    33264,
+    51101
+   ],
+   "temperature": 0.0,
+   "avg_logprob": -0.27455624827632197,
+   "compression_ratio": 1.3263157894736841,
+   "no_speech_prob": 0.035153940320014954,
+   "words": [
+    {
+     "word": " 6",
+     "start": 12.780000000000001,
+     "end": 13.34,
+     "probability": 0.9833936095237732
+    },
+    {
+     "word": " hari",
+     "start": 13.34,
+     "end": 13.76,
+     "probability": 0.064185731112957
+    }
+   ]
+  }
+ ],
+ "language": "ms"
+}
