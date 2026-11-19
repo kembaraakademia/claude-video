@@ -341,13 +341,13 @@ def hook_title(cv, t):
     if a <= 0:
         return
     k1 = clamp((t - R(0.3)) / 0.3)
-    paste(cv, sh_txt("Pernah tanya diri sendiri…", F_B, 40, WHITE), W / 2, 560, a * k1)
+    paste(cv, sh_txt("Pernah tanya diri sendiri…", F_B, 40, WHITE), W / 2, 420, a * k1)
     if t >= R(2.96):
         p = (t - R(2.96)) / 0.35
-        paste(cv, sh_txt("Kenapa Surah", F_BLACK, 104, WHITE, 14, 0.7), W / 2, 660, a, 0.8 + 0.2 * back(p))
+        paste(cv, sh_txt("Kenapa Surah", F_BLACK, 104, WHITE, 14, 0.7), W / 2, 520, a, 0.8 + 0.2 * back(p))
     if t >= R(4.6):
         p = (t - R(4.6)) / 0.35
-        paste(cv, shadowed(pill("At-Tin diturunkan?", 62), 14, 0.5, 8), W / 2, 790, a, 0.6 + 0.4 * back(p, 2.2),
+        paste(cv, shadowed(pill("At-Tin diturunkan?", 62), 14, 0.5, 8), W / 2, 645, a, 0.6 + 0.4 * back(p, 2.2),
               -3 * (1 - eout(p)))
 
 
@@ -356,12 +356,12 @@ def nuzul_title(cv, t):
     if a <= 0:
         return
     p = (t - R(6.3)) / 0.35
-    paste(cv, sh_txt("Kisahnya bermula…", F_B, 40, WHITE), W / 2, 560, a * clamp(p))
-    paste(cv, sh_txt("SEBAB NUZUL", F_BLACK, 112, WHITE, 14, 0.7), W / 2, 665, a, 0.85 + 0.15 * back(p))
+    paste(cv, sh_txt("Kisahnya bermula…", F_B, 40, WHITE), W / 2, 420, a * clamp(p))
+    paste(cv, sh_txt("SEBAB NUZUL", F_BLACK, 112, WHITE, 14, 0.7), W / 2, 525, a, 0.85 + 0.15 * back(p))
     if t >= R(8.86):   # handwritten note: "sahabat -> Nabi s.a.w."
         q = (t - R(8.86)) / 0.4
         note = arrow_note("para sahabat", "Nabi s.a.w.")
-        paste(cv, note, W / 2 + 60, 790, a * clamp(q * 2), 0.8 + 0.2 * back(q), -4)
+        paste(cv, note, W / 2 + 40, 640, a * clamp(q * 2), 0.8 + 0.2 * back(q), -4)
 
 
 @lru_cache(None)
@@ -374,13 +374,13 @@ def answer_title(cv, t):
     if a <= 0:
         return
     p = (t - R(29.9)) / 0.35
-    paste(cv, sh_txt("Lalu turunlah surah ini sebagai", F_B, 38, WHITE), W / 2, 560, a * clamp(p))
+    paste(cv, sh_txt("Lalu turunlah surah ini sebagai", F_B, 38, WHITE), W / 2, 420, a * clamp(p))
     if t >= R(32.4):
         q = (t - R(32.4)) / 0.35
-        paste(cv, sh_txt("Jawapan", F_BLACK, 120, WHITE, 14, 0.7), W / 2, 670, a, 0.8 + 0.2 * back(q))
+        paste(cv, sh_txt("Jawapan", F_BLACK, 120, WHITE, 14, 0.7), W / 2, 525, a, 0.8 + 0.2 * back(q))
     if t >= R(33.3):
         q = (t - R(33.3)) / 0.35
-        paste(cv, shadowed(pill("& khabar gembira", 60), 14, 0.5, 8), W / 2, 800, a, 0.6 + 0.4 * back(q, 2.2), 3 * (1 - eout(q)))
+        paste(cv, shadowed(pill("& khabar gembira", 60), 14, 0.5, 8), W / 2, 655, a, 0.6 + 0.4 * back(q, 2.2), 3 * (1 - eout(q)))
 
 
 def radar(cv, t):
@@ -709,9 +709,10 @@ def audio(outdir):
     mus *= 10 ** ((-14 - 21 - meter.integrated_loudness(mus)) / 20)
     res = {}
     for tag, mix in [("", v + sfx + mus), ("_nomusic", v + sfx)]:
-        mix = mix * 10 ** ((-14 - meter.integrated_loudness(mix)) / 20)
+        st = np.stack([mix, mix], 1)                 # measure the STEREO file we actually deliver
+        st = st * 10 ** ((-14 - meter.integrated_loudness(st)) / 20)
         raw = outdir / f"_m{tag}.wav"
-        wavfile.write(raw, SR, np.stack([mix, mix], 1).astype(np.float32))
+        wavfile.write(raw, SR, st.astype(np.float32))
         lim = outdir / f"_m{tag}_l.wav"
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(raw), "-af",
                         "aresample=192000,alimiter=limit=0.84:attack=3:release=60:level=disabled,aresample=48000",
@@ -746,8 +747,25 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--preview", default="")
     ap.add_argument("--guides", action="store_true")
+    ap.add_argument("--audio-only", action="store_true", help="remix audio onto the existing export video")
     a = ap.parse_args()
     EXPORT.mkdir(exist_ok=True)
+    if a.audio_only:
+        src = EXPORT / "_qh3_video.mp4"
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(EXPORT / "qh3_reel.mp4"), "-map", "0:v", "-c", "copy",
+                        str(src)], check=True)
+        for tag, wav in audio(EXPORT).items():
+            out = EXPORT / f"qh3_reel{tag}.mp4"
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(src), "-i", str(wav), "-map", "0:v", "-map", "1:a",
+                            "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart",
+                            str(out)], check=True)
+            wav.unlink()
+            r = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(out), "-af", "ebur128=peak=true", "-f", "null", "-"],
+                               capture_output=True, text=True).stderr
+            s = " ".join(r[r.rfind("Summary:"):].split())
+            print(out.name, s[s.find("I:"):s.find("I:") + 14], s[s.find("Peak:"):s.find("Peak:") + 18])
+        src.unlink()
+        return
     if a.preview:
         (EXPORT / "qc").mkdir(exist_ok=True)
         for ts in a.preview.split(","):
