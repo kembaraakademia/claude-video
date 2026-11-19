@@ -1,0 +1,16 @@
+/* Tema asas untuk semua motion graphic. Ubah warna/font di sini sahaja. */
+:root {
+  --bg: #0f1020;
+  --bg-2: #1b1d3a;
+  --primary: #ff6b4a;
+  --accent: #ffd166;
+  --text: #f5f5f7;
+  --muted: #9aa0c3;
+  --font: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+html, body {
+  margin: 0; padding: 0; overflow: hidden;
+  width: 1920px; height: 1080px;
+  background: var(--bg); color: var(--text); font-family: var(--font);
+}
+#stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
