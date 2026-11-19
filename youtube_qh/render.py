@@ -596,11 +596,25 @@ def main():
         "-i", "-", "-c:v", "libx264", "-preset", "slow", "-crf", "17", "-pix_fmt", "yuv420p", "-profile:v", "high",
         "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", "-movflags", "+faststart", a.out],
         stdin=subprocess.PIPE)
+    # bounded in-flight window: never buffer more than a few frames (avoids running out of memory)
+    from collections import deque
+    window_n = a.workers * 3
     with mp.Pool(a.workers) as pool:
-        for i, out in enumerate(pool.imap(_work, job_stream(clipdir), chunksize=4)):
-            enc.stdin.write(out)
-            if i % 300 == 0:
-                print(f"frame {i} t={i / FPS:.1f}s / {TL['duration']:.1f}s", flush=True)
+        pending = deque()
+        i = 0
+
+        def drain(keep):
+            nonlocal i
+            while len(pending) > keep:
+                enc.stdin.write(pending.popleft().get())
+                if i % 300 == 0:
+                    print(f"frame {i} t={i / FPS:.1f}s / {TL['duration']:.1f}s", flush=True)
+                i += 1
+
+        for job in job_stream(clipdir):
+            pending.append(pool.apply_async(_work, (job,)))
+            drain(window_n)
+        drain(0)
     enc.stdin.close()
     enc.wait()
     print("done")
