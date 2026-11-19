@@ -1,3 +1,5 @@
 __pycache__/
 islamic/output/*.mp4
 islamic/output/stems/
+youtube_qh/output/*.mp4
+youtube_qh/output/stems/

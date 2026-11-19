@@ -317,14 +317,21 @@ PANEL_W = 470
 
 
 @lru_cache(None)
-def callout_sprite(icon_name, title, body):
+def callout_sprite(icon_name, title, body, arabic=None):
     """Vertical glass panel shown to the right of the (shrunk) card."""
     pad = 34
     ic = icon(icon_name, 170)
     s_t = text_sprite(title.upper(), C.F_TITLE, 30, C.ACCENT, tracking=2)
     lines = body.split("\n")
     s_b = [text_sprite(l, C.F_SANS_SB, 36, C.WHITE) for l in lines]
-    h = pad + 170 + 26 + s_t.height + 22 + sum(sb.height - 4 for sb in s_b) + pad
+    s_a = None
+    if arabic:
+        size = 46
+        s_a = text_sprite(arabic, C.F_ARABIC, size, C.ACCENT)
+        while s_a.width > PANEL_W - 40 and size > 26:
+            size -= 2
+            s_a = text_sprite(arabic, C.F_ARABIC, size, C.ACCENT)
+    h = pad + 170 + 26 + s_t.height + 22 + sum(sb.height - 4 for sb in s_b) + pad + (s_a.height + 6 if s_a else 0)
     w = PANEL_W
     im = Image.new("RGBA", (w + 80, h + 80), (0, 0, 0, 0))
     sh = Image.new("RGBA", im.size, (0, 0, 0, 0))
@@ -342,6 +349,9 @@ def callout_sprite(icon_name, title, body):
     y += s_t.height
     d.rounded_rectangle((40 + w / 2 - 50, y + 4, 40 + w / 2 + 50, y + 9), 3, fill=C.ACCENT + (255,))
     y += 22
+    if s_a:
+        im.alpha_composite(s_a, (40 + (w - s_a.width) // 2, y - 8))
+        y += s_a.height + 6
     for sb in s_b:
         im.alpha_composite(sb, (40 + (w - sb.width) // 2, y))
         y += sb.height - 4
@@ -349,12 +359,12 @@ def callout_sprite(icon_name, title, body):
 
 
 def draw_callouts(canvas, t, seg):
-    for (ts, te, ic, title, body) in seg.get("callouts", []):
+    for (ts, te, ic, title, body, arabic) in seg.get("callouts", []):
         t0, t1 = seg["start"] + ts, seg["start"] + te
         a = window(t, t0 + 0.25, t1 - 0.1, 0.45, 0.4)
         if a <= 0:
             continue
-        spr = callout_sprite(ic, title, body)
+        spr = callout_sprite(ic, title, body, arabic)
         p = ease_out_back((t - t0 - 0.25) / 0.7, 1.2)
         x = C.SAFE[2] - PANEL_W / 2 - 20 + (1 - p) * 160
         paste(canvas, spr, x, CARD_CY, a)
@@ -473,7 +483,7 @@ def render(t, frame, hold_prev, hold_next, guides=False):
                              C.INTRO_SUB, big=104)
         elif kind == "inter":
             draw_title_block(canvas, t, seg["start"] + 0.5, seg["end"] - 0.75, f"BAHAGIAN {seg['next_index']}",
-                             seg["next_title"], None, big=88)
+                             seg["next_title"].upper(), None, big=88)
         elif kind == "outro":
             draw_title_block(canvas, t, seg["start"] + 0.6, seg["end"] - 0.2, C.OUTRO_KICKER, C.OUTRO_TITLE,
                              C.OUTRO_SUB, big=96)
@@ -496,8 +506,11 @@ VF = (f"scale={CW}:{CH}:flags=lanczos,unsharp=5:5:0.6:5:5:0.0,"
       "eq=contrast=1.06:saturation=1.12:gamma=0.98,format=rgb24")
 
 
-def decode_frames(path, start=0.0, nframes=None):
-    cmd = ["ffmpeg", "-v", "error", "-ss", f"{start:.3f}", "-i", str(path), "-vf", f"fps={FPS}," + VF, "-f", "rawvideo", "-"]
+def decode_frames(path, start=0.0, nframes=None, dur=None):
+    cmd = ["ffmpeg", "-v", "error", "-ss", f"{start:.3f}", "-i", str(path)]
+    if dur:
+        cmd += ["-t", f"{dur:.3f}"]
+    cmd += ["-vf", f"fps={FPS}," + VF, "-f", "rawvideo", "-"]
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE)
     n = 0
     fsz = CW * CH * 3
@@ -520,8 +533,8 @@ def still(path, t):
 def job_stream(clipdir):
     """Yields (frame_index, t, frame_bytes|None, prev_bytes|None, next_bytes|None) in order."""
     clips = TL["clips"]
-    firsts = [still(clipdir / c["file"], 0) for c in clips]
-    lasts = [still(clipdir / c["file"], c["dur"] - 0.1) for c in clips]
+    firsts = [still(clipdir / c["file"], c["inp"]) for c in clips]
+    lasts = [still(clipdir / c["file"], c["inp"] + c["dur"] - 0.1) for c in clips]
     n_total = int(round(TL["duration"] * FPS))
     gen, cur = None, None
     for n in range(n_total):
@@ -529,7 +542,7 @@ def job_stream(clipdir):
         seg = TL["at"](t)
         if seg["kind"] == "clip":
             if cur is not seg:
-                gen, cur = decode_frames(clipdir / seg["file"]), seg
+                gen, cur = decode_frames(clipdir / seg["file"], seg["inp"], dur=seg["dur"]), seg
             buf = next(gen, None)
             if buf is None:
                 buf = lasts[seg["index"] - 1]
@@ -566,13 +579,14 @@ def main():
             seg = TL["at"](t)
             f = p = q = None
             if seg["kind"] == "clip":
-                f = _img(still(clipdir / seg["file"], t - seg["start"]))
+                f = _img(still(clipdir / seg["file"], seg["inp"] + t - seg["start"]))
             else:
                 if seg.get("prev_index"):
                     c = TL["clips"][seg["prev_index"] - 1]
-                    p = _img(still(clipdir / c["file"], c["dur"] - 0.1))
+                    p = _img(still(clipdir / c["file"], c["inp"] + c["dur"] - 0.1))
                 if seg.get("next_index"):
-                    q = _img(still(clipdir / TL["clips"][seg["next_index"] - 1]["file"], 0))
+                    nc = TL["clips"][seg["next_index"] - 1]
+                    q = _img(still(clipdir / nc["file"], nc["inp"]))
             render(t, f, p, q, a.guides).save(f"{a.out}_{t:06.2f}.jpg", quality=90)
             print("still", t, seg["kind"], flush=True)
         return
