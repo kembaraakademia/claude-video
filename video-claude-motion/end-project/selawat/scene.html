@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<title>Selawat ke atas Nabi</title>
+<style>
+@font-face { font-family: Bebas; src: url(../../style/fonts/BebasNeue-Regular.ttf); }
+@font-face { font-family: Oswald; src: url(../../style/fonts/Oswald.ttf); font-weight: 200 700; }
+@font-face { font-family: Amiri; src: url(../../style/fonts/Amiri-Bold.ttf); font-weight: 700; }
+@font-face { font-family: Script; src: url(../../style/fonts/Yellowtail-Regular.ttf); }
+:root {
+  --navy: #1d2434; --navy2: #141a27; --green: #6e8c4c; --green2: #5b7840; --green3: #86a35f;
+  --mustard: #e0b44c; --cream: #f4e4be; --red: #b5392f; --teal: #2c7a7b; --teal2: #1c4f55;
+}
+html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--navy); }
+#stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--navy); }
+.scene { position: absolute; inset: 0; overflow: hidden; visibility: hidden; }
+.abs { position: absolute; }
+.c { position: absolute; left: 0; width: 100%; text-align: center; white-space: nowrap; }
+.bebas { font-family: Bebas; line-height: .86; }
+.osw { font-family: Oswald; font-weight: 600; letter-spacing: 4px; }
+.script { font-family: Script; line-height: 1; }
+.ar { font-family: Amiri; font-weight: 700; direction: rtl; }
+.sh { text-shadow: 10px 10px 0 rgba(10, 14, 22, .55); }
+.split > span, .words > span { display: inline-block; white-space: pre; }
+.words { white-space: normal; line-height: 1.45; }
+.arwords { display: flex; flex-wrap: wrap; justify-content: center; direction: rtl; column-gap: 26px; }
+.arwords > span { display: inline-block; }
+.banner { position: absolute; left: 50%; display: flex; align-items: center; justify-content: center; }
+#grain { position: absolute; inset: 0; z-index: 50; pointer-events: none; mix-blend-mode: overlay; opacity: .55; }
+#vig { position: absolute; inset: 0; z-index: 49; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 45%, transparent 50%, rgba(0,0,0,.5)); }
+#fade { position: absolute; inset: 0; z-index: 60; background: #0b0f17; opacity: 0; }
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- ============ S1: Pembuka ============ -->
+<div class="scene" id="s1" style="background:var(--navy)">
+  <div class="stars"></div>
+  <div class="abs moon" id="s1moon" style="left:770px;top:150px;width:210px;height:210px"></div>
+  <div class="abs" id="s1emb" style="left:220px;top:500px;width:640px;height:640px"></div>
+  <div class="c ar" id="s1saw" style="top:690px;font-size:190px;color:var(--cream);line-height:1">ﷺ</div>
+  <div class="c script" id="s1scr" style="top:320px;font-size:120px;color:var(--mustard)">Satu Amalan</div>
+  <div class="c bebas split sh" id="s1title" style="top:1180px;font-size:330px;color:var(--cream)">SELAWAT</div>
+  <div class="banner" id="s1rib" style="top:1490px;width:800px;height:112px;margin-left:-400px;background:var(--red);
+       clip-path:polygon(0 0,100% 0,95% 50%,100% 100%,0 100%,5% 50%)">
+    <span class="osw" style="font-size:54px;color:var(--cream)">YANG TAK PERNAH SIA-SIA</span></div>
+  <div class="c osw" id="s1small" style="top:1660px;font-size:32px;color:var(--mustard)">✦ AMALAN ORANG BERIMAN ✦</div>
+</div>
+
+<!-- ============ S2: Allah & malaikat berselawat ============ -->
+<div class="scene" id="s2" style="background:var(--green)">
+  <div class="abs" id="s2beams" style="inset:0"></div>
+  <div class="abs" id="s2clouds" style="inset:0"></div>
+  <div class="c script" id="s2a" style="top:400px;font-size:110px;color:var(--cream)">Tahukah kamu?</div>
+  <div class="c bebas sh" id="s2b" style="top:540px;font-size:340px;color:var(--cream)">ALLAH</div>
+  <div class="c osw" id="s2c" style="top:850px;font-size:56px;color:var(--navy)">DAN PARA</div>
+  <div class="c bebas split" id="s2d" style="top:935px;font-size:200px;color:var(--navy)">MALAIKAT-NYA</div>
+  <div class="c script" id="s2e" style="top:1135px;font-size:120px;color:var(--cream)">turut</div>
+  <div class="c bebas sh" id="s2f" style="top:1270px;font-size:240px;color:var(--cream)">BERSELAWAT</div>
+  <div class="banner" id="s2g" style="top:1520px;width:760px;height:120px;margin-left:-380px;background:var(--navy);
+       clip-path:polygon(0 0,100% 0,96% 50%,100% 100%,0 100%,4% 50%)">
+    <span class="osw" style="font-size:56px;color:var(--cream)">KE ATAS NABI <span class="ar" style="font-size:64px;letter-spacing:0">ﷺ</span></span></div>
+</div>
+
+<!-- ============ S3: Ayat Al-Ahzab 56 ============ -->
+<div class="scene" id="s3" style="background:var(--navy)">
+  <div class="stars"></div>
+  <div class="abs moon" id="s3moon" style="left:90px;top:150px;width:150px;height:150px"></div>
+  <div class="abs mosque" id="s3mosque" style="left:0;top:1400px;width:1080px;height:560px"></div>
+  <div class="c osw" id="s3ref" style="top:330px;font-size:34px;color:var(--mustard)">—— AL-AHZAB : 56 ——</div>
+  <div class="abs ar arwords" id="s3ar" style="left:60px;width:960px;top:420px;font-size:88px;line-height:1.75;color:var(--cream)"></div>
+  <div class="abs osw words" id="s3tr" style="left:90px;width:900px;top:960px;font-size:40px;text-align:center;color:var(--cream)"></div>
+</div>
+
+<!-- ============ S4: Sekali = sepuluh ============ -->
+<div class="scene" id="s4" style="background:var(--mustard)">
+  <div class="abs" id="s4rays" style="left:-460px;top:500px;width:2000px;height:2000px"></div>
+  <div class="c script" id="s4a" style="top:250px;font-size:120px;color:var(--navy)">Berselawat</div>
+  <div class="c osw" id="s4b" style="top:400px;font-size:60px;color:var(--navy)">HANYA</div>
+  <div class="c bebas sh" id="s4c" style="top:480px;font-size:240px;color:var(--red)">SEKALI</div>
+  <div class="abs" id="s4heart" style="left:270px;top:760px;width:540px;height:500px"></div>
+  <div class="c bebas" id="s4num" style="top:860px;font-size:330px;color:var(--cream)">1</div>
+  <div class="c osw" id="s4d" style="top:1310px;font-size:48px;color:var(--navy)">ALLAH BERSELAWAT KE ATASNYA</div>
+  <div class="banner" id="s4e" style="top:1395px;width:720px;height:170px;margin-left:-360px;background:var(--navy);
+       clip-path:polygon(0 0,100% 0,95% 50%,100% 100%,0 100%,5% 50%)">
+    <span class="bebas" style="font-size:150px;color:var(--cream);line-height:1;padding-top:14px">SEPULUH KALI</span></div>
+  <div class="c ar" id="s4ar" style="top:1610px;font-size:60px;color:var(--navy)">مَنْ صَلَّى عَلَيَّ وَاحِدَةً صَلَّى اللَّهُ عَلَيْهِ عَشْرًا</div>
+  <div class="c osw" id="s4src" style="top:1740px;font-size:30px;color:var(--navy)">HR. MUSLIM</div>
+</div>
+
+<!-- ============ S5: Jangan bakhil ============ -->
+<div class="scene" id="s5" style="background:var(--red)">
+  <div class="abs" id="s5top" style="left:0;top:0;width:1080px;height:430px;background:var(--navy);
+       clip-path:polygon(0 0,100% 0,100% 72%,50% 100%,0 72%)">
+    <div class="c bebas" style="top:120px;font-size:130px;color:var(--cream)">JANGAN JADI</div></div>
+  <div class="c osw" id="s5a" style="top:510px;font-size:62px;color:var(--cream)">ORANG YANG</div>
+  <div class="c bebas sh" id="s5b" style="top:600px;font-size:390px;color:var(--cream)">BAKHIL</div>
+  <div class="abs" id="s5line" style="left:190px;width:700px;top:1010px;height:6px;background:var(--cream)"></div>
+  <div class="abs osw words" id="s5q" style="left:110px;width:860px;top:1080px;font-size:46px;text-align:center;color:var(--cream)"></div>
+  <div class="c osw" id="s5src" style="top:1560px;font-size:32px;color:var(--mustard)">HR. AT-TIRMIZI</div>
+</div>
+
+<!-- ============ S6: Paling hampir ============ -->
+<div class="scene" id="s6" style="background:linear-gradient(var(--navy2),var(--teal2) 75%)">
+  <div class="stars"></div>
+  <div class="abs" id="s6lanterns" style="inset:0"></div>
+  <div class="abs mosque" id="s6mosque" style="left:-60px;top:1330px;width:1200px;height:622px"></div>
+  <div class="c osw" id="s6a" style="top:300px;font-size:52px;color:var(--cream)">ORANG YANG PALING</div>
+  <div class="c bebas sh" id="s6b" style="top:370px;font-size:300px;color:var(--mustard)">HAMPIR</div>
+  <div class="c script" id="s6c" style="top:640px;font-size:110px;color:var(--cream)">dengan Nabi <span class="ar" style="font-size:100px">ﷺ</span></div>
+  <div class="c osw" id="s6d" style="top:790px;font-size:50px;color:var(--cream)">PADA HARI KIAMAT</div>
+  <div class="c osw" id="s6e" style="top:930px;font-size:50px;color:var(--mustard)">IALAH YANG PALING</div>
+  <div class="c bebas split sh" id="s6f" style="top:1000px;font-size:250px;color:var(--cream)">BANYAK</div>
+  <div class="c bebas sh" id="s6g" style="top:1210px;font-size:180px;color:var(--mustard)">BERSELAWAT</div>
+  <div class="c osw" id="s6src" style="top:1400px;font-size:30px;color:var(--cream)">HR. AT-TIRMIZI</div>
+</div>
+
+<!-- ============ S7: Lafaz selawat ============ -->
+<div class="scene" id="s7" style="background:var(--green)">
+  <svg class="abs" id="s7rings" style="left:0;top:0" width="1080" height="1920"></svg>
+  <div class="abs" id="s7disc" style="left:60px;top:380px;width:960px;height:960px;border-radius:50%;background:var(--green)"></div>
+  <svg class="abs" id="s7ring" style="left:60px;top:380px" width="960" height="960" viewBox="0 0 960 960">
+    <defs><path id="s7path" d="M480,480 m-405,0 a405,405 0 1,1 810,0 a405,405 0 1,1 -810,0"/></defs>
+    <text font-family="Oswald" font-weight="600" font-size="44" letter-spacing="6" fill="#f4e4be">
+      <textPath href="#s7path" textLength="2520" lengthAdjust="spacing">PERBANYAKKAN SELAWAT ✦ SETIAP HARI ✦ SETIAP WAKTU ✦ PERBANYAKKAN SELAWAT ✦ SETIAP HARI ✦</textPath></text>
+  </svg>
+  <div class="abs" id="s7emb" style="left:200px;top:520px;width:680px;height:680px"></div>
+  <div class="c ar" id="s7ar1" style="top:762px;font-size:68px;color:var(--cream);line-height:1.2">اللَّهُمَّ صَلِّ عَلَى</div>
+  <div class="c ar" id="s7ar2" style="top:852px;font-size:68px;color:var(--mustard);line-height:1.2">سَيِّدِنَا مُحَمَّدٍ</div>
+  <div class="c script sh" id="s7lat" style="top:1370px;font-size:92px;color:var(--cream)">Allahumma solli ‘ala</div>
+  <div class="c script sh" id="s7lat2" style="top:1470px;font-size:92px;color:var(--cream)">Sayyidina Muhammad</div>
+  <div class="abs" id="s7panel" style="left:110px;width:860px;top:1610px;height:150px;background:var(--cream);border:6px solid var(--navy);box-sizing:border-box"></div>
+  <div class="c osw" id="s7tr" style="top:1632px;font-size:36px;color:var(--navy)">YA ALLAH, LIMPAHKANLAH SELAWAT KE ATAS</div>
+  <div class="c osw" id="s7tr2" style="top:1687px;font-size:36px;color:var(--navy)">PENGHULU KAMI, NABI MUHAMMAD</div>
+</div>
+
+<!-- ============ S8: Penutup ============ -->
+<div class="scene" id="s8" style="background:var(--navy)">
+  <div class="stars"></div>
+  <div class="abs moon" id="s8moon" style="left:440px;top:170px;width:200px;height:200px"></div>
+  <div class="abs mosque" id="s8mosque" style="left:140px;top:1500px;width:800px;height:415px"></div>
+  <div class="banner" id="s8a" style="top:470px;width:320px;height:150px;margin-left:-160px;background:var(--red);
+       clip-path:polygon(0 0,100% 0,92% 50%,100% 100%,0 100%,8% 50%)">
+    <span class="bebas" style="font-size:130px;color:var(--cream);line-height:1;padding-top:12px">JOM</span></div>
+  <div class="c bebas split sh" id="s8b" style="top:670px;font-size:215px;color:var(--cream)">BERSELAWAT!</div>
+  <div class="c ar" id="s8c" style="top:900px;font-size:104px;color:var(--mustard);line-height:1.4">صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ</div>
+  <div class="c osw" id="s8d" style="top:1130px;font-size:40px;color:var(--cream)">SEMOGA KITA MENDAPAT SYAFAAT BAGINDA</div>
+  <div class="c osw" id="s8e" style="top:1190px;font-size:40px;color:var(--cream)">DI HARI KIAMAT KELAK</div>
+</div>
+
+<div id="vig"></div>
+<div id="grain"></div>
+<div id="fade"></div>
+</div>
+
+<script>
+// ================= Konfigurasi =================
+window.WIDTH = 1080; window.HEIGHT = 1920;
+window.DURATION = 61; window.FPS = 30;
+
+// ================= Helper =================
+const $ = id => document.getElementById(id);
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const prog = (t, s, d) => clamp((t - s) / d);
+const lerp = (a, b, p) => a + (b - a) * p;
+const ease = {
+  outCubic: p => 1 - Math.pow(1 - p, 3),
+  inCubic: p => p * p * p,
+  inOutCubic: p => p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2,
+  outBack: p => { const c1 = 1.9, c3 = c1 + 1; return 1 + c3 * Math.pow(p - 1, 3) + c1 * Math.pow(p - 1, 2); },
+  outExpo: p => p === 1 ? 1 : 1 - Math.pow(2, -10 * p),
+};
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function tf(el, o) {
+  const x = o.x || 0, y = o.y || 0, s = o.s ?? 1, sx = o.sx ?? 1, sy = o.sy ?? 1, r = o.r || 0, k = o.k || 0;
+  el.style.transform = `translate(${x}px,${y}px) rotate(${r}deg) skewX(${k}deg) scale(${s * sx},${s * sy})`;
+  el.style.opacity = o.o ?? 1;
+  el.style.filter = (o.b || 0) > 0.3 ? `blur(${o.b}px)` : 'none';
+}
+// Kesan masuk (pulangkan objek untuk tf)
+const fx = {
+  rise: (t, st, d = .6, dist = 70) => { const p = ease.outCubic(prog(t, st, d)); return { y: lerp(dist, 0, p), o: p, b: lerp(14, 0, p) }; },
+  pop: (t, st, d = .55) => { const p = prog(t, st, d); return { s: Math.max(0, ease.outBack(p)), o: clamp(p * 4) }; },
+  smash: (t, st, d = .45) => { const p = ease.outCubic(prog(t, st, d)); return { s: lerp(2.4, 1, p), o: clamp(p * 2), b: lerp(25, 0, p) }; },
+  blurIn: (t, st, d = .6) => { const p = ease.outCubic(prog(t, st, d)); return { s: lerp(1.25, 1, p), o: p, b: lerp(30, 0, p) }; },
+  whip: (t, st, d = .5, dir = -1) => { const p = ease.outExpo(prog(t, st, d)); return { x: lerp(900 * dir, 0, p), k: lerp(-25 * dir, 0, p), o: clamp(p * 3), b: lerp(40, 0, p), sx: lerp(1.6, 1, p) }; },
+  banner: (t, st, d = .5) => { const p = ease.outBack(prog(t, st, d)); return { sx: Math.max(0, p), o: clamp(prog(t, st, d) * 4) }; },
+};
+const shake = (t, st, d = .35, amp = 14) => { const p = prog(t, st, d); if (p <= 0 || p >= 1) return { x: 0, y: 0 }; const a = amp * (1 - p); return { x: Math.sin(t * 90) * a, y: Math.cos(t * 77) * a }; };
+function split(el) { const txt = el.textContent; el.innerHTML = [...txt].map(c => `<span>${c === ' ' ? '&nbsp;' : c}</span>`).join(''); return [...el.children]; }
+function dropLetters(spans, t, st, stag = .06, d = .55) {
+  spans.forEach((sp, i) => { const p = prog(t, st + i * stag, d); tf(sp, { y: lerp(-260, 0, ease.outBack(p)), o: clamp(p * 3), r: lerp(-12, 0, ease.outCubic(p)) }); });
+}
+function words(el, text, seed, highlight = []) {
+  el.innerHTML = text.split(' ').map(w => `<span${highlight.includes(w) ? ' style="color:var(--mustard)"' : ''}>${w} </span>`).join('');
+  const r = rng(seed);
+  return [...el.children].map(sp => ({ sp, dx: (r() - .5) * 900, dy: (r() - .3) * 900, rr: (r() - .5) * 60 }));
+}
+function scatterIn(list, t, st, stag = .06, d = .9) {
+  list.forEach((w, i) => { const p = ease.outCubic(prog(t, st + i * stag, d)); tf(w.sp, { x: lerp(w.dx, 0, p), y: lerp(w.dy, 0, p), r: lerp(w.rr, 0, p), o: clamp(p * 2.5), b: lerp(10, 0, p) }); });
+}
+
+// ================= Ilustrasi SVG =================
+let uid = 0;
+function crescent(color = '#e0b44c') {
+  const id = 'm' + (uid++);
+  return `<svg viewBox="0 0 200 200" width="100%" height="100%"><defs><mask id="${id}"><rect width="200" height="200" fill="#fff"/><circle cx="132" cy="80" r="78" fill="#000"/></mask></defs>
+  <circle cx="100" cy="100" r="88" fill="${color}" mask="url(#${id})"/>
+  <g fill="#000" opacity=".12" mask="url(#${id})"><circle cx="50" cy="120" r="9"/><circle cx="72" cy="160" r="6"/><circle cx="40" cy="85" r="5"/></g></svg>`;
+}
+function rays(n, r, color, inner = 0) {
+  let p = '';
+  for (let i = 0; i < n; i++) {
+    const a = i / n * Math.PI * 2, w = Math.PI / n * .55;
+    const x1 = Math.cos(a - w) * r, y1 = Math.sin(a - w) * r, x2 = Math.cos(a + w) * r, y2 = Math.sin(a + w) * r;
+    const ix = Math.cos(a) * inner, iy = Math.sin(a) * inner;
+    p += `M${ix.toFixed(1)},${iy.toFixed(1)}L${x1.toFixed(1)},${y1.toFixed(1)}L${x2.toFixed(1)},${y2.toFixed(1)}Z`;
+  }
+  return `<path d="${p}" fill="${color}"/>`;
+}
+function emblem(inner = 168) {
+  return `<svg viewBox="-320 -320 640 640" width="100%" height="100%">
+    <circle r="314" fill="#141a27"/><circle r="300" fill="none" stroke="#f4e4be" stroke-width="6"/>
+    <circle r="282" fill="none" stroke="#f4e4be" stroke-width="4" stroke-dasharray="3 12"/>
+    <circle r="262" fill="#e0b44c"/>
+    <g class="ray">${rays(28, 262, '#141a27', 30)}</g>
+    <circle r="${inner}" fill="#1d2434" stroke="#f4e4be" stroke-width="5"/>
+  </svg>`;
+}
+function mosque(body = '#141a27', dome = '#3f7a4a', lit = '#e0b44c') {
+  let win = '';
+  for (const x of [300, 370, 440, 600, 670, 740]) win += `<path d="M${x},430 v-50 a18,18 0 0 1 36,0 v50z" fill="${lit}"/>`;
+  return `<svg viewBox="0 0 1080 560" width="100%" height="100%" preserveAspectRatio="xMidYMax meet">
+  <g fill="${body}">
+    <rect x="0" y="470" width="1080" height="90"/>
+    <rect x="250" y="300" width="580" height="180"/>
+    <rect x="410" y="250" width="260" height="60"/>
+    <path d="M300,305 a60,60 0 0 1 120,0z M660,305 a60,60 0 0 1 120,0z"/>
+    <rect x="140" y="140" width="60" height="340"/><rect x="128" y="200" width="84" height="16"/><rect x="132" y="120" width="76" height="22"/>
+    <path d="M140,122 L170,40 L200,122z"/>
+    <rect x="880" y="140" width="60" height="340"/><rect x="868" y="200" width="84" height="16"/><rect x="872" y="120" width="76" height="22"/>
+    <path d="M880,122 L910,40 L940,122z"/>
+    <rect x="537" y="20" width="6" height="50"/>
+  </g>
+  <path d="M398,256 C392,150 470,110 540,70 C610,110 688,150 682,256z" fill="${dome}"/>
+  <circle cx="540" cy="18" r="10" fill="${lit}"/>
+  ${win}
+  <path d="M520,480 v-80 a20,20 0 0 1 40,0 v80z" fill="${lit}" opacity=".9"/>
+  </svg>`;
+}
+function heart(color = '#b5392f') {
+  return `<svg viewBox="0 0 540 500" width="100%" height="100%"><path d="M270,480 C120,370 20,280 20,160 C20,80 85,20 160,20 C210,20 250,48 270,90 C290,48 330,20 380,20 C455,20 520,80 520,160 C520,280 420,370 270,480Z" fill="${color}" stroke="#1d2434" stroke-width="14"/></svg>`;
+}
+function lantern() {
+  return `<svg viewBox="0 0 120 260" width="120" height="260">
+    <path d="M45,40 h30 l18,30 h-66z" fill="#141a27"/>
+    <path d="M27,70 h66 l-6,110 h-54z" fill="#e0b44c"/>
+    <path d="M42,82 h36 l-4,86 h-28z" fill="#f4e4be"/>
+    <path d="M33,82 l9,0 4,86 -9,0z M87,82 l-9,0 -4,86 9,0z" fill="#141a27" opacity=".55"/>
+    <path d="M30,180 h60 l-15,30 h-30z" fill="#141a27"/><path d="M55,210 h10 l-5,30z" fill="#e0b44c"/>
+    <circle cx="60" cy="34" r="8" fill="none" stroke="#141a27" stroke-width="5"/></svg>`;
+}
+function cloud(color) { return `<svg viewBox="0 0 400 160" width="100%" height="100%"><g fill="${color}"><circle cx="90" cy="110" r="50"/><circle cx="160" cy="80" r="70"/><circle cx="250" cy="90" r="60"/><circle cx="320" cy="115" r="45"/><rect x="80" y="110" width="250" height="50"/></g></svg>`; }
+
+// Bina elemen statik
+document.querySelectorAll('.moon').forEach(m => m.innerHTML = crescent());
+document.querySelectorAll('.mosque').forEach((m, i) => m.innerHTML = mosque(i === 1 ? '#10161f' : '#141a27'));
+document.querySelectorAll('.stars').forEach((box, si) => {
+  const r = rng(100 + si); box.className = 'abs stars'; box.style.inset = 0; let h = '';
+  for (let i = 0; i < 70; i++) { const s = 2 + r() * 4; h += `<div class="abs star" data-ph="${r() * 6}" style="left:${r() * 1080}px;top:${r() * 1500}px;width:${s}px;height:${s}px;border-radius:50%;background:#f4e4be"></div>`; }
+  box.innerHTML = h;
+});
+const starEls = [...document.querySelectorAll('.star')];
+$('s1emb').innerHTML = emblem(); $('s7emb').innerHTML = emblem(222);
+$('s4heart').innerHTML = heart();
+$('s4rays').innerHTML = `<svg viewBox="-1000 -1000 2000 2000" width="100%" height="100%"><g id="s4rg">${rays(40, 1000, '#f4e4be', 0)}</g></svg>`;
+$('s2beams').innerHTML = `<svg width="1080" height="1920"><g fill="#f4e4be" opacity=".09" id="s2bg"><path d="M-100,-100 L260,-100 L900,1920 L500,1920z"/><path d="M700,-100 L900,-100 L300,1920 L120,1920z"/></g></svg>`;
+{ const r = rng(7); let h = ''; for (let i = 0; i < 9; i++) { const w = 380 + r() * 340; h += `<div class="abs cl" data-sp="${10 + r() * 25}" data-x="${r() * 1400 - 300}" style="top:${1250 + r() * 650}px;width:${w}px;height:${w * .4}px;opacity:.9">${cloud(i % 2 ? '#86a35f' : '#5b7840')}</div>`; } $('s2clouds').innerHTML = h; }
+$('s6lanterns').innerHTML = [[120, 110, 0], [900, 60, 1.3], [520, -60, 2.4]].map(([x, len, ph]) =>
+  `<div class="abs lan" data-ph="${ph}" style="left:${x}px;top:-10px;width:120px;height:${len + 260}px;transform-origin:60px 0">
+     <div class="abs" style="left:58px;top:0;width:4px;height:${len + 30}px;background:#f4e4be;opacity:.6"></div>
+     <div class="abs" style="left:0;top:${len}px">${lantern()}</div></div>`).join('');
+
+const s1letters = split($('s1title')), s2letters = split($('s2d')), s6letters = split($('s6f')), s8letters = split($('s8b'));
+const AYAT = ['إِنَّ', 'اللَّهَ', 'وَمَلَائِكَتَهُ', 'يُصَلُّونَ', 'عَلَى', 'النَّبِيِّ', 'يَا', 'أَيُّهَا', 'الَّذِينَ', 'آمَنُوا', 'صَلُّوا', 'عَلَيْهِ', 'وَسَلِّمُوا', 'تَسْلِيمًا'];
+$('s3ar').innerHTML = AYAT.map(w => `<span>${w}</span>`).join('');
+const ayatEls = [...$('s3ar').children];
+const s3words = words($('s3tr'), 'SESUNGGUHNYA ALLAH DAN PARA MALAIKAT-NYA BERSELAWAT KE ATAS NABI. WAHAI ORANG-ORANG YANG BERIMAN, BERSELAWATLAH KAMU KE ATASNYA DAN UCAPKANLAH SALAM PENGHORMATAN KEPADANYA.', 11, ['BERSELAWAT', 'BERSELAWATLAH']);
+const s5words = words($('s5q'), '“ORANG YANG BAKHIL IALAH ORANG YANG APABILA NAMAKU DISEBUT DI SISINYA, LALU DIA TIDAK BERSELAWAT KE ATASKU.”', 23, ['BAKHIL', 'BERSELAWAT']);
+
+// Tekstur grain (deterministik, 4 jubin dipusing ikut frame)
+const grainTiles = [];
+for (let g = 0; g < 4; g++) {
+  const cv = document.createElement('canvas'); cv.width = cv.height = 360; const cx = cv.getContext('2d');
+  const img = cx.createImageData(360, 360), r = rng(900 + g);
+  for (let i = 0; i < img.data.length; i += 4) { const v = r() * 255; img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255; }
+  cx.putImageData(img, 0, 0); grainTiles.push(cv.toDataURL());
+}
+
+// ================= Peralihan antara scene =================
+const SCENES = [
+  { id: 's1', start: 0, end: 6.8, enter: null },
+  { id: 's2', start: 6.0, end: 12.4, enter: 'chevDown' },
+  { id: 's3', start: 11.6, end: 22.8, enter: 'iris' },
+  { id: 's4', start: 22.0, end: 30.6, enter: 'chevUp' },
+  { id: 's5', start: 29.8, end: 37.8, enter: 'chevDown' },
+  { id: 's6', start: 37.0, end: 46.4, enter: 'slideUp' },
+  { id: 's7', start: 45.6, end: 55.4, enter: 'iris' },
+  { id: 's8', start: 54.6, end: 61, enter: 'chevDown' },
+];
+const TR = .8;
+function applyEnter(el, type, t, st) {
+  const p = ease.inOutCubic(prog(t, st, TR));
+  el.style.clipPath = 'none'; el.style.transform = 'none';
+  if (p >= 1 || !type) return;
+  if (type === 'chevDown') { const h = lerp(-15, 112, p); el.style.clipPath = `polygon(0 0,100% 0,100% ${h}%,50% ${h + 10}%,0 ${h}%)`; }
+  if (type === 'chevUp') { const h = lerp(115, -12, p); el.style.clipPath = `polygon(0 ${h}%,50% ${h - 10}%,100% ${h}%,100% 100%,0 100%)`; }
+  if (type === 'iris') el.style.clipPath = `circle(${lerp(0, 1150, p)}px at 50% 45%)`;
+  if (type === 'slideUp') el.style.transform = `translateY(${lerp(1920, 0, p)}px)`;
+}
+
+// ================= Fungsi utama =================
+window.seek = function (t) {
+  const frame = Math.round(t * FPS);
+  SCENES.forEach((s, i) => {
+    const el = $(s.id), on = t >= s.start && t < s.end;
+    el.style.visibility = on ? 'visible' : 'hidden'; el.style.zIndex = i + 1;
+    if (on) applyEnter(el, s.enter, t, s.start);
+  });
+  starEls.forEach(s => s.style.opacity = .35 + .65 * Math.abs(Math.sin(t * 1.3 + +s.dataset.ph)));
+  $('grain').style.backgroundImage = `url(${grainTiles[frame % 4]})`;
+  $('grain').style.backgroundPosition = `${(frame * 37) % 360}px ${(frame * 53) % 360}px`;
+  $('fade').style.opacity = prog(t, DURATION - .9, .9);
+
+  // ---- S1 ----
+  if (t < 7) {
+    const pm = ease.outBack(prog(t, 0, 1));
+    tf($('s1moon'), { r: lerp(-60, 0, pm) + Math.sin(t) * 3, s: pm, o: clamp(pm * 3) });
+    tf($('s1emb'), { ...fx.pop(t, .3, .8), r: 0 });
+    $('s1emb').querySelector('.ray').setAttribute('transform', `rotate(${t * 18})`);
+    tf($('s1saw'), fx.pop(t, .9, .6));
+    tf($('s1scr'), { ...fx.rise(t, 1.3), r: -4 });
+    dropLetters(s1letters, t, 1.8);
+    tf($('s1rib'), fx.banner(t, 2.8));
+    tf($('s1small'), fx.rise(t, 3.3, .6, 30));
+    // dorongan perlahan
+    $('s1').style.transform = `scale(${1 + t * .006})`;
+  }
+  // ---- S2 ----
+  if (t > 6 && t < 12.5) {
+    $('s2bg').setAttribute('transform', `rotate(${Math.sin(t * .6) * 4} 540 0)`);
+    document.querySelectorAll('#s2clouds .cl').forEach(c => c.style.transform = `translateX(${+c.dataset.x + (t - 6) * +c.dataset.sp}px)`);
+    tf($('s2a'), { ...fx.rise(t, 6.6), r: -5 });
+    const sh = shake(t, 7.45);
+    tf($('s2b'), { ...fx.smash(t, 7.0), x: sh.x, y: sh.y });
+    tf($('s2c'), fx.rise(t, 7.7));
+    dropLetters(s2letters, t, 8.0, .045);
+    tf($('s2e'), { ...fx.rise(t, 8.9), r: -6 });
+    tf($('s2f'), fx.blurIn(t, 9.3));
+    tf($('s2g'), fx.banner(t, 10.0));
+  }
+  // ---- S3 ----
+  if (t > 11.5 && t < 23) {
+    tf($('s3moon'), { r: Math.sin(t * .8) * 4, y: lerp(-200, 0, ease.outCubic(prog(t, 12, 1.2))) });
+    tf($('s3mosque'), { y: lerp(400, 0, ease.outCubic(prog(t, 12.1, 1.4))) });
+    tf($('s3ref'), fx.rise(t, 12.4, .6, 30));
+    ayatEls.forEach((w, i) => tf(w, fx.rise(t, 12.7 + i * .27, .6, 50)));
+    scatterIn(s3words, t, 16.8, .055);
+  }
+  // ---- S4 ----
+  if (t > 21.9 && t < 30.7) {
+    $('s4rg').setAttribute('transform', `rotate(${t * 10})`);
+    $('s4rays').style.opacity = .35;
+    tf($('s4a'), { ...fx.rise(t, 22.7), r: -4 });
+    tf($('s4b'), fx.rise(t, 23.1));
+    const sh = shake(t, 23.8);
+    tf($('s4c'), { ...fx.smash(t, 23.4), x: sh.x, y: sh.y });
+    const cp = prog(t, 24.6, 2.6), n = Math.min(10, 1 + Math.floor(cp * 10));
+    const tick = (cp * 10) % 1, beat = cp > 0 && cp < 1 ? 1 + .1 * (1 - ease.outCubic(tick)) : 1;
+    const hp = fx.pop(t, 24.0, .6);
+    tf($('s4heart'), { ...hp, s: hp.s * beat * (t > 27.2 ? 1 + .06 * Math.sin((t - 27.2) * 6) : 1) });
+    $('s4num').textContent = n;
+    tf($('s4num'), { ...fx.pop(t, 24.2, .5), s: (t < 24.7 ? fx.pop(t, 24.2, .5).s : 1) * (cp > 0 && cp < 1 ? 1 + .25 * (1 - ease.outCubic(tick)) : (n === 10 ? 1 + .3 * (1 - ease.outCubic(prog(t, 27.2, .4))) : 1)) });
+    tf($('s4d'), fx.rise(t, 25.4));
+    tf($('s4e'), fx.banner(t, 27.3));
+    tf($('s4ar'), fx.blurIn(t, 27.9));
+    tf($('s4src'), fx.rise(t, 28.3, .5, 30));
+  }
+  // ---- S5 ----
+  if (t > 29.7 && t < 37.9) {
+    tf($('s5top'), { y: lerp(-430, 0, ease.outBack(prog(t, 30.3, .6))) });
+    tf($('s5a'), fx.rise(t, 30.9));
+    const sh = shake(t, 31.75, .45, 22);
+    tf($('s5b'), { ...fx.whip(t, 31.3, .5), x: fx.whip(t, 31.3, .5).x + sh.x, y: sh.y });
+    tf($('s5line'), { sx: ease.outCubic(prog(t, 32.0, .5)) });
+    scatterIn(s5words, t, 32.3, .065);
+    tf($('s5src'), fx.rise(t, 34.6, .5, 30));
+    // lampu berkelip kecil pada BAKHIL
+    if (t > 35.5) $('s5b').style.opacity = (Math.floor(t * 12) % 9 === 0) ? .55 : 1;
+  }
+  // ---- S6 ----
+  if (t > 36.9 && t < 46.5) {
+    document.querySelectorAll('.lan').forEach(l => l.style.transform = `rotate(${Math.sin(t * 1.4 + +l.dataset.ph) * 5}deg)`);
+    tf($('s6mosque'), { s: 1 + (t - 37) * .008 });
+    tf($('s6a'), fx.rise(t, 37.9));
+    tf($('s6b'), fx.smash(t, 38.3));
+    tf($('s6c'), { ...fx.rise(t, 39.0), r: -4 });
+    tf($('s6d'), fx.rise(t, 39.5));
+    tf($('s6e'), fx.rise(t, 40.5));
+    dropLetters(s6letters, t, 40.9, .07);
+    tf($('s6g'), fx.blurIn(t, 41.8));
+    tf($('s6src'), fx.rise(t, 42.6, .5, 30));
+  }
+  // ---- S7 ----
+  if (t > 45.5 && t < 55.5) {
+    const lt = t - 45.6; let rings = [];
+    for (let k = 0; k < 14; k++) rings.push({ r: (k * 100 + lt * 70) % 1400, k });
+    rings.sort((a, b) => b.r - a.r);
+    $('s7rings').innerHTML = rings.map(o => `<circle cx="540" cy="860" r="${o.r}" fill="${o.k % 2 ? '#1d2434' : '#6e8c4c'}"/>`).join('');
+    tf($('s7disc'), fx.pop(t, 46.6, .7));
+    tf($('s7ring'), { ...fx.pop(t, 46.9, .7), r: lt * 9 });
+    tf($('s7emb'), fx.pop(t, 47.2, .7));
+    $('s7emb').querySelector('.ray').setAttribute('transform', `rotate(${-lt * 14})`);
+    tf($('s7ar1'), fx.blurIn(t, 47.8));
+    tf($('s7ar2'), fx.blurIn(t, 48.4));
+    tf($('s7lat'), { ...fx.rise(t, 49.2), r: -3 });
+    tf($('s7lat2'), { ...fx.rise(t, 49.6), r: -3 });
+    tf($('s7panel'), fx.banner(t, 50.2));
+    tf($('s7tr'), fx.rise(t, 50.6, .6, 30));
+    tf($('s7tr2'), fx.rise(t, 50.9, .6, 30));
+  }
+  // ---- S8 ----
+  if (t > 54.5) {
+    tf($('s8moon'), { y: lerp(200, 0, ease.outCubic(prog(t, 55, 1.4))), o: prog(t, 55, .6), r: Math.sin(t) * 4 });
+    tf($('s8mosque'), { y: lerp(420, 0, ease.outCubic(prog(t, 55.2, 1.2))) });
+    tf($('s8a'), fx.banner(t, 55.8));
+    dropLetters(s8letters, t, 56.2, .05);
+    tf($('s8c'), fx.blurIn(t, 57.3, .8));
+    tf($('s8d'), fx.rise(t, 58.2));
+    tf($('s8e'), fx.rise(t, 58.5));
+  }
+};
+
+if (!new URLSearchParams(location.search).has('render')) {
+  const t0 = performance.now();
+  (function loop() { seek(((performance.now() - t0) / 1000) % DURATION); requestAnimationFrame(loop); })();
+} else { seek(0); }
+</script>
+</body>
+</html>
