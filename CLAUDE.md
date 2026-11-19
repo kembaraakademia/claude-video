@@ -30,3 +30,11 @@ dengan kod HTML/CSS/JS dan dirender frame demi frame ke MP4.
 - Kesan teks: rise, pop, smash (+shake), blurIn, whip (motion blur), huruf jatuh berperingkat, perkataan berselerak lalu berkumpul.
 - Peralihan scene: chevDown, chevUp, iris, slideUp (clip-path / transform).
 - Kandungan Islamik: jangan gambarkan Nabi ﷺ; guna dalil sahih dengan sumber (ayat + nombor, nama perawi hadis).
+
+## Suara latar (voice-over)
+- Pengguna jana suara di ElevenLabs (satu MP3 untuk semua babak, dengan `<break>` antara babak).
+- Cari jeda: `ffmpeg -i x.mp3 -af silencedetect=noise=-35dB:d=0.6 -f null -`, padankan setiap segmen dengan skrip.
+- Jika suara lebih panjang daripada babak, guna `TIMEMAP` + `mapTime()` dalam scene (lihat selawat/scene.html)
+  untuk memanjangkan babak dengan gerak perlahan, bukan ubah semua masa animasi.
+- Susun segmen dengan `atrim` + `adelay` + `amix`, `loudnorm=I=-16`, kemudian gabung: `-c:v copy -c:a aac`.
+- Lafaz Arab: minta pengguna rakam suara sendiri (bukan AI).
