@@ -3,3 +3,9 @@ islamic/output/*.mp4
 islamic/output/stems/
 youtube_qh/output/*.mp4
 youtube_qh/output/stems/
+ai-video-editor/raw_footage/*
+!ai-video-editor/raw_footage/.gitkeep
+ai-video-editor/export/*
+!ai-video-editor/export/.gitkeep
+ai-video-editor/reference/*.mp4
+ai-video-editor/reference/*.mov
