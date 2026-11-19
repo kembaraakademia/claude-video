@@ -38,3 +38,10 @@ dengan kod HTML/CSS/JS dan dirender frame demi frame ke MP4.
   untuk memanjangkan babak dengan gerak perlahan, bukan ubah semua masa animasi.
 - Susun segmen dengan `atrim` + `adelay` + `amix`, `loudnorm=I=-16`, kemudian gabung: `-c:v copy -c:a aac`.
 - Lafaz Arab: minta pengguna rakam suara sendiri (bukan AI).
+
+## Muzik latar & kesan bunyi (sintetik)
+- Skrip: `end-project/selawat/bunyi.py` (numpy/scipy) → muzik.wav + sfx.wav. Tiada sampel/hak cipta.
+- Muzik ala Arab: dengung D (tanpura), petikan ala oud (Karplus-Strong) maqam Hijaz, daf rentak maqsum 84 BPM.
+- Kandungan Islamik: senyapkan gendang/melodi semasa ayat Al-Quran dan lafaz selawat (dengung sahaja).
+- SFX diletak ikut masa animasi asal melalui `T(old)` (songsang TIMEMAP): whoosh peralihan, impact tajuk, pop, tik huruf/kiraan, chime.
+- Campuran: muzik volume 0.32 + `sidechaincompress` dengan suara, sfx 0.55, akhir `loudnorm=I=-14` (standard TikTok/Reels).
