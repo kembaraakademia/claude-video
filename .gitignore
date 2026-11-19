@@ -9,3 +9,4 @@ ai-video-editor/export/*
 !ai-video-editor/export/.gitkeep
 ai-video-editor/reference/*.mp4
 ai-video-editor/reference/*.mov
+ai-video-editor/projects/*/*.mp4
