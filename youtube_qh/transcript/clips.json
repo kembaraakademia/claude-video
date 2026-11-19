@@ -1,0 +1,88 @@
+[
+ {
+  "file": "qh2.mov",
+  "dur": 79.266,
+  "title": "Sebab Turunnya Surah",
+  "captions": [
+   {
+    "start": 30.0,
+    "end": 34.2,
+    "ar": [
+     [
+      "عندما",
+      30.0,
+      30.5
+     ],
+     [
+      "جاء",
+      30.5,
+      30.9
+     ],
+     [
+      "بعض",
+      30.9,
+      31.3
+     ],
+     [
+      "الصحابة",
+      31.3,
+      32.0
+     ],
+     [
+      "إلى",
+      32.0,
+      32.3
+     ],
+     [
+      "النبي",
+      32.3,
+      32.8
+     ],
+     [
+      "ﷺ",
+      32.8,
+      34.2
+     ]
+    ],
+    "ms": "Apabila sebahagian sahabat datang kepada Nabi s.a.w."
+   }
+  ],
+  "callouts": [
+   [
+    31.0,
+    38.0,
+    "fig",
+    "Sebab Nuzul",
+    "Pertanyaan para sahabat\ntentang orang tua"
+   ]
+  ]
+ },
+ {
+  "file": "qh3.mov",
+  "dur": 57.766,
+  "title": "Bahagian 2",
+  "captions": [],
+  "callouts": []
+ },
+ {
+  "file": "qh4.mov",
+  "dur": 67.333,
+  "title": "Bahagian 3",
+  "captions": [],
+  "callouts": []
+ },
+ {
+  "file": "qh5.mov",
+  "dur": 73.033,
+  "title": "Bahagian 4",
+  "captions": [],
+  "callouts": []
+ },
+ {
+  "file": "qh6.mov",
+  "dur": 19.166,
+  "title": "Penutup",
+  "captions": [],
+  "callouts": []
+ }
+]

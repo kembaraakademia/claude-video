@@ -136,6 +136,87 @@ ICONS["sunrise"] = svg(f"""
 """)
 
 
+# ---- Surah At-Tin set
+# Fig (at-tin): round fruit with stem, leaf and a cut-open half showing seeds
+ICONS["fig"] = svg("""
+  <path d="M236 150 C170 160 120 230 128 310 C136 392 196 440 256 440 C316 440 376 392 384 310 C392 230 342 160 276 150 Z"
+        fill="url(#g)" fill-opacity="0.22"/>
+  <path d="M236 150 C240 120 250 100 256 84 C262 100 272 120 276 150"/>
+  <path d="M262 96 C300 50 370 48 410 70 C380 110 320 128 270 112 Z" fill="url(#g)" fill-opacity="0.35"/>
+  <path d="M272 108 C320 86 360 76 400 72" stroke-width="5"/>
+  <ellipse cx="256" cy="318" rx="70" ry="86" fill="#101828" fill-opacity="0.35" stroke-width="6"/>
+  <g fill="url(#g)" stroke="none">
+    <circle cx="236" cy="290" r="7"/><circle cx="270" cy="282" r="7"/><circle cx="252" cy="318" r="7"/>
+    <circle cx="282" cy="320" r="7"/><circle cx="230" cy="338" r="7"/><circle cx="262" cy="352" r="7"/>
+    <circle cx="244" cy="372" r="6"/><circle cx="276" cy="376" r="6"/><circle cx="226" cy="306" r="5"/>
+  </g>
+""")
+
+# Olive branch (az-zaitun): leaves alternate on both sides of a curved twig
+leaves = []
+bx0, by0, bx1, by1 = 110, 430, 410, 100
+ang = math.degrees(math.atan2(by1 - by0, bx1 - bx0))
+for i, k in enumerate([0.18, 0.3, 0.42, 0.54, 0.66, 0.78, 0.9]):
+    px, py = bx0 + (bx1 - bx0) * k, by0 + (by1 - by0) * k
+    side = 1 if i % 2 == 0 else -1
+    la = ang + side * 50
+    lx = px + 48 * math.cos(math.radians(la))
+    ly = py + 48 * math.sin(math.radians(la))
+    leaves.append(f'<path d="M{px:.0f} {py:.0f} L{(px + lx) / 2:.0f} {(py + ly) / 2:.0f}" stroke-width="5"/>'
+                  f'<ellipse cx="{lx:.0f}" cy="{ly:.0f}" rx="44" ry="15" transform="rotate({la:.0f} {lx:.0f} {ly:.0f})" '
+                  f'fill="url(#g)" fill-opacity="0.35" stroke-width="6"/>')
+ICONS["olive"] = svg(f'<path d="M{bx0} {by0} Q 230 300 {bx1} {by1}"/>' + "".join(leaves) + """
+  <ellipse cx="196" cy="372" rx="19" ry="26" fill="url(#g)" fill-opacity="0.9" stroke-width="5" transform="rotate(35 196 372)"/>
+  <ellipse cx="318" cy="246" rx="17" ry="24" fill="url(#g)" fill-opacity="0.9" stroke-width="5" transform="rotate(35 318 246)"/>
+""")
+
+# Mountain (Tur Sinin) with sun glow
+ICONS["mountain"] = svg("""
+  <circle cx="330" cy="170" r="150" fill="url(#glow)" stroke="none" opacity="0.6"/>
+  <circle cx="330" cy="170" r="44" fill="url(#g)" fill-opacity="0.35"/>
+  <path d="M40 430 L200 190 L262 270 L310 214 L472 430 Z" fill="url(#g)" fill-opacity="0.22"/>
+  <path d="M200 190 L172 246 L196 236 L214 258 L232 230" stroke-width="7"/>
+  <path d="M310 214 L292 246 L312 240 L330 256" stroke-width="7"/>
+  <path d="M30 430 L482 430"/>
+""")
+
+# Kaaba (al-balad al-amin)
+ICONS["kaaba"] = svg("""
+  <circle cx="256" cy="260" r="210" fill="url(#glow)" stroke="none" opacity="0.4"/>
+  <path d="M120 170 L256 120 L392 170 L392 400 L256 450 L120 400 Z" fill="#101828" fill-opacity="0.75"/>
+  <path d="M120 170 L256 220 L392 170 M256 220 L256 450"/>
+  <path d="M120 228 L256 278 L392 228" stroke-width="16" stroke="url(#g)"/>
+  <path d="M292 300 L352 278 L352 392 L292 414 Z" fill="url(#g)" fill-opacity="0.5" stroke-width="6"/>
+""")
+
+# Heart with light (iman)
+ICONS["heart_light"] = svg("""
+  <circle cx="256" cy="260" r="200" fill="url(#glow)" stroke="none" opacity="0.55"/>
+  <path d="M256 420 C140 340 90 280 90 210 C90 150 136 110 188 110 C222 110 246 130 256 156
+           C266 130 290 110 324 110 C376 110 422 150 422 210 C422 280 372 340 256 420 Z" fill="url(#g)" fill-opacity="0.25"/>
+  <path d="M256 196 L256 300 M204 248 L308 248" stroke-width="8"/>
+  <path d="M220 212 L292 284 M292 212 L220 284" stroke-width="5" opacity="0.7"/>
+""")
+
+# Seedling (amal soleh — good deeds that grow)
+ICONS["seedling"] = svg("""
+  <path d="M256 430 L256 250"/>
+  <path d="M256 290 C200 290 150 250 140 180 C210 176 256 220 256 290 Z" fill="url(#g)" fill-opacity="0.35"/>
+  <path d="M256 250 C262 180 320 120 400 120 C400 200 340 250 256 250 Z" fill="url(#g)" fill-opacity="0.35"/>
+  <path d="M150 430 C200 400 312 400 362 430" />
+  <path d="M110 452 L402 452" stroke-width="7" opacity="0.6"/>
+""")
+
+# Human form abstract: balance / "ahsan taqwim" — shown as a balanced scale (no figurative depiction)
+ICONS["balance"] = svg("""
+  <path d="M256 90 L256 420 M180 420 L332 420"/>
+  <circle cx="256" cy="84" r="14" fill="url(#g)"/>
+  <path d="M110 150 L402 150"/>
+  <path d="M110 150 L70 270 L150 270 Z M402 150 L362 270 L442 270 Z" stroke-width="7"/>
+  <path d="M62 270 C80 310 140 310 158 270 Z M354 270 C372 310 432 310 450 270 Z" fill="url(#g)" fill-opacity="0.4"/>
+""")
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     for name, s in ICONS.items():

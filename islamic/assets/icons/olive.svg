@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+<defs>
+  <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F1D98A"/><stop offset="1" stop-color="#D4AF37"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#FFE7A3" stop-opacity="0.9"/>
+    <stop offset="1" stop-color="#FFE7A3" stop-opacity="0"/>
+  </radialGradient>
+</defs><g fill="none" stroke="url(#g)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><path d="M110 430 Q 230 300 410 100"/><path d="M164 371 L188 372" stroke-width="5"/><ellipse cx="212" cy="373" rx="44" ry="15" transform="rotate(2 212 373)" fill="url(#g)" fill-opacity="0.35" stroke-width="6"/><path d="M200 331 L197 307" stroke-width="5"/><ellipse cx="194" cy="283" rx="44" ry="15" transform="rotate(-98 194 283)" fill="url(#g)" fill-opacity="0.35" stroke-width="6"/><path d="M236 291 L260 292" stroke-width="5"/><ellipse cx="284" cy="293" rx="44" ry="15" transform="rotate(2 284 293)" fill="url(#g)" fill-opacity="0.35" stroke-width="6"/><path d="M272 252 L269 228" stroke-width="5"/><ellipse cx="266" cy="204" rx="44" ry="15" transform="rotate(-98 266 204)" fill="url(#g)" fill-opacity="0.35" stroke-width="6"/><path d="M308 212 L332 213" stroke-width="5"/><ellipse cx="356" cy="214" rx="44" ry="15" transform="rotate(2 356 214)" fill="url(#g)" fill-opacity="0.35" stroke-width="6"/><path d="M344 173 L341 149" stroke-width="5"/><ellipse cx="338" cy="125" rx="44" ry="15" transform="rotate(-98 338 125)" fill="url(#g)" fill-opacity="0.35" stroke-width="6"/><path d="M380 133 L404 134" stroke-width="5"/><ellipse cx="428" cy="135" rx="44" ry="15" transform="rotate(2 428 135)" fill="url(#g)" fill-opacity="0.35" stroke-width="6"/>
+  <ellipse cx="196" cy="372" rx="19" ry="26" fill="url(#g)" fill-opacity="0.9" stroke-width="5" transform="rotate(35 196 372)"/>
+  <ellipse cx="318" cy="246" rx="17" ry="24" fill="url(#g)" fill-opacity="0.9" stroke-width="5" transform="rotate(35 318 246)"/>
+</g></svg>
