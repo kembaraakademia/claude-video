@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>Makhraj Asy-Syafatan</title>
+<style>
+@font-face { font-family: Oswald; src: url(../../style/fonts/Oswald.ttf); font-weight: 200 700; }
+@font-face { font-family: Amiri; src: url(../../style/fonts/Amiri-Bold.ttf); font-weight: 700; }
+@font-face { font-family: AmiriR; src: url(../../style/fonts/Amiri-Regular.ttf); }
+:root {
+  --cream: #fbf6ea; --ink: #3b2a22; --crimson: #c2185b; --pink: #f6b3c6; --pinkbg: #fde4ee; --pinkbd: #ec8fb0;
+  --blue: #dbeefb; --bluebd: #4b8fcb; --navy: #13213a; --gold: #ffd77a;
+}
+html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--cream); }
+#stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+.scene { position: absolute; inset: 0; overflow: hidden; visibility: hidden; }
+.abs { position: absolute; }
+.c { position: absolute; left: 0; width: 100%; text-align: center; white-space: nowrap; }
+.ar { font-family: Amiri; font-weight: 700; }
+.osw { font-family: Oswald; font-weight: 600; letter-spacing: 3px; }
+.pill { position: absolute; left: 70px; width: 940px; height: 190px; border-radius: 95px; background: var(--blue);
+  border: 6px solid var(--bluebd); box-sizing: border-box; box-shadow: 0 14px 0 rgba(75,143,203,.18); }
+.card { position: absolute; left: 70px; width: 940px; background: #fff; border: 5px solid var(--pinkbd); border-radius: 36px;
+  box-sizing: border-box; box-shadow: 0 16px 40px rgba(194,24,91,.12); padding: 26px 40px; text-align: right; direction: rtl; }
+.card .h { font-family: Amiri; font-weight: 700; color: var(--crimson); font-size: 74px; line-height: 1.1; }
+.card .b { font-family: Amiri; font-weight: 700; color: var(--ink); font-size: 52px; line-height: 1.55; }
+.card .m { font-family: Oswald; font-weight: 500; color: #8a7466; font-size: 30px; letter-spacing: 1px; direction: ltr; text-align: left; margin-top: 8px; }
+.chip { position: absolute; top: 0; height: 96px; border-radius: 48px; display: flex; align-items: center; justify-content: center;
+  font-family: Amiri; font-weight: 700; font-size: 46px; color: var(--ink); border: 4px solid rgba(0,0,0,.12); box-sizing: border-box; }
+.sub { font-family: Oswald; font-weight: 500; font-size: 36px; color: var(--ink); letter-spacing: 1px; }
+.big { position: absolute; width: 300px; height: 300px; border-radius: 50%; background: #fff; border: 8px solid var(--crimson);
+  display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 50px rgba(194,24,91,.25); box-sizing: border-box; }
+.big span { font-family: Amiri; font-weight: 700; color: var(--crimson); font-size: 190px; line-height: 1; margin-top: -30px; }
+#grain { position: absolute; inset: 0; z-index: 50; pointer-events: none; mix-blend-mode: multiply; opacity: .10; }
+#fade { position: absolute; inset: 0; z-index: 60; background: #0b1220; opacity: 0; }
+svg text { font-family: Amiri; font-weight: 700; }
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- ================= S1: Intro gelap ================= -->
+<div class="scene" id="s1" style="background:radial-gradient(circle at 50% 50%,#24406e 0%,#13213a 55%,#0a1222 100%)">
+  <div class="abs" id="s1parts" style="inset:0"></div>
+  <svg class="abs" id="s1orbit" width="1080" height="1920" style="left:0;top:0"></svg>
+  <div class="c osw" id="s1tag" style="top:330px;font-size:38px;color:#9fc3f0;letter-spacing:12px">TAJWID • MAKHRAJ HURUF</div>
+  <div class="c ar" id="s1title" style="top:400px;font-size:170px;color:var(--gold);text-shadow:0 0 40px rgba(255,215,122,.45)">مَخَارِجُ الحُرُوفِ</div>
+  <div class="abs" id="s1line" style="left:290px;top:660px;width:500px;height:6px;border-radius:3px;background:var(--gold)"></div>
+  <div class="c osw" id="s1sub" style="top:1600px;font-size:40px;color:#f4ecd8">5 TEMPAT KELUAR HURUF</div>
+</div>
+
+<!-- ================= S2: Utama (krim) ================= -->
+<div class="scene" id="s2" style="background:var(--cream)">
+  <div class="abs" id="bokeh" style="inset:0"></div>
+  <div class="c ar" id="cap" style="top:95px;font-size:46px;color:#8a7466">مَخَارِجُ الحُرُوفِ</div>
+  <div class="pill" id="pill" style="top:165px"></div>
+  <div class="c ar" id="t1" style="top:175px;font-size:96px;color:#1f4f86">مَخَارِجُ الحُرُوفِ خَمْسَةٌ</div>
+  <div class="abs ar" id="t2" style="left:70px;width:940px;top:172px;height:180px;display:flex;align-items:center;justify-content:center;gap:34px;direction:rtl;font-size:104px">
+    <span style="color:#1f4f86">الشَّفَتَانِ :</span><span class="L" style="color:var(--crimson)">ب</span><span class="L" style="color:var(--crimson)">م</span><span class="L" style="color:var(--crimson)">ف</span><span class="L" style="color:var(--crimson)">و</span>
+  </div>
+  <div class="c ar" id="t3" style="top:180px;font-size:84px;color:#1f4f86">فَأَتْقِنْ مَخَارِجَ الحُرُوفِ</div>
+
+  <svg class="abs" id="dia" style="left:40px;top:380px" width="1000" height="844" viewBox="100 180 640 540">
+    <defs>
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <clipPath id="headclip"><path id="headclipP"/></clipPath>
+    </defs>
+    <path id="head" fill="#f1d3b3" stroke="#6b4a3a" stroke-width="3.5" stroke-linejoin="round"
+      d="M352,300 Q356,268 395,268 L640,263 Q698,263 698,330 L698,690 L476,690 L476,602 Q405,598 340,588 Q318,582 322,548 L330,508 L328,468 Q306,466 288,458 Q266,447 276,428 Q302,396 330,358 Q346,330 352,300 Z"/>
+    <g id="inner">
+      <path id="nasal" fill="#fbf1e0" stroke="#c9a98a" stroke-width="2.5" d="M326,452 Q332,380 452,368 L566,368 Q612,378 612,420 Q608,452 562,455 Z"/>
+      <path id="nasalL" fill="none" stroke="#d8bc9c" stroke-width="2" d="M380,405 Q470,392 580,402 M392,425 Q480,414 586,424"/>
+      <path id="cavity" fill="#f6b3c6" stroke="#e48aa8" stroke-width="2" d="M336,478 L560,478 Q590,482 592,520 Q596,560 580,590 L470,600 Q380,590 352,560 Q340,520 336,478 Z"/>
+      <path id="palate" fill="#f6c544" stroke="#c99a1e" stroke-width="2" d="M330,462 L558,462 Q578,463 584,476 L330,480 Z"/>
+      <path id="soft" fill="#9cc46a" stroke="#6f9a3f" stroke-width="2" d="M556,468 Q590,468 604,500 Q606,522 594,526 Q580,500 556,482 Z"/>
+      <path id="throat" fill="#7cb7e6" stroke="#3f7fb5" stroke-width="2.5" d="M592,470 Q600,460 616,462 Q630,466 630,480 L630,690 L586,690 L586,520 Q600,500 592,470 Z"/>
+      <path id="tongue" fill="#e53945" stroke="#9b2a33" stroke-width="2.5" d="M362,520 Q380,488 470,488 Q560,490 586,520 Q592,560 584,600 Q560,620 500,616 Q400,606 372,580 Q350,556 362,520 Z"/>
+      <path fill="none" stroke="#c22d3a" stroke-width="2" d="M400,515 Q470,505 560,520"/>
+      <ellipse id="epi" cx="586" cy="604" rx="7" ry="10" fill="#f6c544" stroke="#c99a1e" stroke-width="2"/>
+      <path id="toothU" fill="#fff" stroke="#8a7466" stroke-width="2" d="M328,466 L348,466 L348,484 Q348,490 342,490 L334,490 Q328,490 328,484 Z"/>
+      <path id="toothL" fill="#fff" stroke="#8a7466" stroke-width="2" d="M332,532 L348,532 L348,514 Q348,508 342,508 L338,508 Q332,508 332,514 Z"/>
+    </g>
+    <g id="lips">
+      <ellipse id="lipU" fill="#e8739a" stroke="#a83a62" stroke-width="2.5"/>
+      <ellipse id="lipL" fill="#e8739a" stroke="#a83a62" stroke-width="2.5"/>
+    </g>
+    <g id="waves" fill="none" stroke="#c2185b" stroke-width="2.5" stroke-linecap="round"></g>
+    <g id="annot"></g>
+    <g id="labels"></g>
+  </svg>
+
+  <div class="abs" id="chips" style="left:40px;top:1250px;width:1000px;height:100px"></div>
+  <div class="card" id="cBM" style="top:1235px">
+    <div class="h">ب م</div>
+    <div class="b">بَيْنَ الشَّفَتَيْنِ: البَاءُ وَالمِيمُ بِانْطِبَاقِهِمَا</div>
+    <div class="m">Ba &amp; Mim: kedua-dua bibir dirapatkan</div>
+  </div>
+  <div class="card" id="cW" style="top:1235px">
+    <div class="h">و</div>
+    <div class="b">وَالوَاوُ بِانْضِمَامِ الشَّفَتَيْنِ</div>
+    <div class="m">Wau: kedua-dua bibir dimuncungkan &amp; dibulatkan</div>
+  </div>
+  <div class="card" id="cF" style="top:1235px">
+    <div class="h">ف</div>
+    <div class="b">بَاطِنُ الشَّفَةِ السُّفْلَى مَعَ أَطْرَافِ الثَّنَايَا العُلْيَا</div>
+    <div class="m">Fa: bahagian dalam bibir bawah + hujung gigi depan atas</div>
+  </div>
+  <div class="abs" id="badges" style="left:0;top:1235px;width:1080px;height:200px"></div>
+  <div class="card" id="cNote" style="top:1450px;background:var(--pinkbg);text-align:center;padding:30px 30px">
+    <div class="b" style="font-size:64px">مَخَارِجُ الحُرُوفِ خَمْسَةٌ</div>
+    <div class="b" style="font-size:44px;color:var(--crimson)">( الحَلْقُ – اللِّسَانُ – الشَّفَتَانِ – الجَوْفُ – الخَيْشُومُ )</div>
+  </div>
+  <div class="abs" id="bulb" style="left:30px;top:1395px;width:140px;height:140px"></div>
+  <div class="big" id="bigL" style="left:730px;top:860px"><span id="bigT">ب</span></div>
+  <div class="c sub" id="sub" style="top:1660px"></div>
+</div>
+
+<div id="grain"></div>
+<div id="fade"></div>
+</div>
+
+<script>
+// ================= Konfigurasi =================
+window.WIDTH = 1080; window.HEIGHT = 1920;
+window.DURATION = 56; window.FPS = 30;
+const ORIG_DURATION = 56;
+// Peta masa [video, animasi asal] — dilaraskan ikut suara latar
+const TIMEMAP = [[0, 0], [56, 56]];
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+function mapTime(t) {
+  for (let i = 1; i < TIMEMAP.length; i++) {
+    const [n0, o0] = TIMEMAP[i - 1], [n1, o1] = TIMEMAP[i];
+    if (t <= n1) return o0 + (o1 - o0) * clamp((t - n0) / (n1 - n0));
+  }
+  return ORIG_DURATION;
+}
+
+// ================= Helper =================
+const $ = id => document.getElementById(id);
+const prog = (t, s, d) => clamp((t - s) / d);
+const lerp = (a, b, p) => a + (b - a) * p;
+const ease = {
+  outCubic: p => 1 - Math.pow(1 - p, 3),
+  inOutCubic: p => p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2,
+  outBack: p => { const c1 = 1.9, c3 = c1 + 1; return 1 + c3 * Math.pow(p - 1, 3) + c1 * Math.pow(p - 1, 2); },
+  outExpo: p => p === 1 ? 1 : 1 - Math.pow(2, -10 * p),
+};
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function tf(el, o) {
+  const x = o.x || 0, y = o.y || 0, s = o.s ?? 1, r = o.r || 0;
+  el.style.transform = `translate(${x}px,${y}px) rotate(${r}deg) scale(${s})`;
+  el.style.opacity = o.o ?? 1;
+  el.style.filter = (o.b || 0) > 0.3 ? `blur(${o.b}px)` : 'none';
+}
+const fx = {
+  rise: (t, st, d = .6, dist = 60) => { const p = ease.outCubic(prog(t, st, d)); return { y: lerp(dist, 0, p), o: p, b: lerp(12, 0, p) }; },
+  pop: (t, st, d = .55) => { const p = prog(t, st, d); return { s: Math.max(0, ease.outBack(p)), o: clamp(p * 4) }; },
+  blurIn: (t, st, d = .6) => { const p = ease.outCubic(prog(t, st, d)); return { s: lerp(1.2, 1, p), o: p, b: lerp(26, 0, p) }; },
+};
+// muncul pada st, hilang pada en (dengan kesan)
+function inOut(el, t, st, en, enter = fx.rise, outD = .35) {
+  if (t < st || t > en + outD) { el.style.opacity = 0; el.style.visibility = 'hidden'; return; }
+  el.style.visibility = 'visible';
+  const o = enter(t, st); const q = ease.inOutCubic(prog(t, en, outD));
+  tf(el, { ...o, y: (o.y || 0) - q * 40, o: (o.o ?? 1) * (1 - q), b: (o.b || 0) + q * 10 });
+}
+const S = (el, a) => { for (const k in a) el.setAttribute(k, a[k]); };
+
+// ================= Bina elemen =================
+// Label rajah (koordinat viewBox)
+const LABELS = [
+  { k: 'halq', txt: 'الحَلْقُ', x: 212, y: 680, tx: 607, ty: 640, el: 'throat' },
+  { k: 'lisan', txt: 'اللِّسَانُ', x: 212, y: 596, tx: 492, ty: 560, el: 'tongue' },
+  { k: 'shafa', txt: 'الشَّفَتَانِ', x: 212, y: 514, tx: 304, ty: 506, el: 'lips', col: '#c2185b' },
+  { k: 'jawf', txt: 'الجَوْفُ', x: 212, y: 436, tx: 460, ty: 500, el: 'cavity' },
+  { k: 'khay', txt: 'الخَيْشُومُ', x: 690, y: 226, tx: 482, ty: 418, el: 'nasal', anchor: 'end', lx: 600, ly: 236 },
+];
+const NS = 'http://www.w3.org/2000/svg';
+const lab = $('labels');
+LABELS.forEach(L => {
+  const g = document.createElementNS(NS, 'g'); g.id = 'lab_' + L.k;
+  const lx = L.lx ?? L.x + 6, ly = L.ly ?? L.y - 9;
+  g.innerHTML = `<line class="ld" x1="${lx}" y1="${ly}" x2="${L.tx}" y2="${L.ty}" stroke="#2b2b2b" stroke-width="2.2" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+    <circle class="dot" cx="${L.tx}" cy="${L.ty}" r="5.5" fill="#2b2b2b"/>
+    <text class="tx" x="${L.x}" y="${L.y}" text-anchor="end" font-size="34" fill="${L.col || '#2b2b2b'}">${L.txt}</text>`;
+  lab.appendChild(g); L.g = g;
+});
+// Bibir: keadaan
+const LIP = {
+  rest:  { U: [316, 484, 19, 18], L: [316, 526, 19, 18] },
+  close: { U: [315, 490, 20, 14], L: [315, 516, 20, 14] },
+  round: { U: [300, 488, 14, 15], L: [300, 520, 14, 15] },
+  f:     { U: [317, 476, 19, 16], L: [336, 500, 15, 12] },
+};
+function setLips(w) { // w = {rest:..,close:..,..} jumlah 1
+  const U = [0, 0, 0, 0], Lw = [0, 0, 0, 0];
+  for (const k in w) for (let i = 0; i < 4; i++) { U[i] += LIP[k].U[i] * w[k]; Lw[i] += LIP[k].L[i] * w[k]; }
+  S($('lipU'), { cx: U[0], cy: U[1], rx: U[2], ry: U[3] });
+  S($('lipL'), { cx: Lw[0], cy: Lw[1], rx: Lw[2], ry: Lw[3] });
+}
+// Peralihan keadaan bibir: senarai [masa, keadaan]
+const LIPTL = [[0, 'rest'], [23.0, 'close'], [24.0, 'rest'], [24.7, 'close'], [25.7, 'rest'], [26.6, 'close'], [27.6, 'rest'], [28.2, 'close'],
+  [31.2, 'rest'], [32.0, 'round'], [37.4, 'rest'], [38.6, 'f'], [46.6, 'rest']];
+function lipsAt(t) {
+  let i = 0; while (i + 1 < LIPTL.length && LIPTL[i + 1][0] <= t) i++;
+  const [t0, a] = LIPTL[i]; const prev = i > 0 ? LIPTL[i - 1][1] : a;
+  const p = ease.inOutCubic(prog(t, t0, .35));
+  const w = {}; w[prev] = (w[prev] || 0) + 1 - p; w[a] = (w[a] || 0) + p; return w;
+}
+// Chips 5 makhraj (kanan ke kiri)
+const CHIPS = [['الحَلْقُ', '#bfe0f7'], ['اللِّسَانُ', '#f7c1c6'], ['الشَّفَتَانِ', '#f7c6d8'], ['الجَوْفُ', '#fbe0ea'], ['الخَيْشُومُ', '#fbf1e0']];
+$('chips').innerHTML = CHIPS.map(([n, c], i) => `<div class="chip" style="left:${1000 - (i + 1) * 196 + 6}px;width:184px;background:${c};${i === 2 ? 'color:#c2185b;border-color:#ec8fb0' : ''}">${n}</div>`).join('');
+const chipEls = [...$('chips').children];
+// Lencana huruf akhir
+$('badges').innerHTML = ['ب', 'م', 'ف', 'و'].map((h, i) => `<div class="abs" style="left:${780 - i * 220}px;top:0;width:180px;height:180px;border-radius:50%;background:#fff;border:7px solid #c2185b;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(194,24,91,.2)"><span class="ar" style="font-size:120px;color:#c2185b;margin-top:-26px">${h}</span></div>`).join('');
+const badgeEls = [...$('badges').children];
+// Mentol (seperti infografik)
+$('bulb').innerHTML = `<svg viewBox="0 0 100 100" width="140" height="140"><g stroke="#f2b33d" stroke-width="5" stroke-linecap="round"><line x1="50" y1="6" x2="50" y2="16"/><line x1="18" y1="18" x2="25" y2="25"/><line x1="82" y1="18" x2="75" y2="25"/><line x1="8" y1="48" x2="18" y2="48"/><line x1="92" y1="48" x2="82" y2="48"/></g>
+  <path d="M50,24 a22,22 0 0 1 13,40 v8 h-26 v-8 a22,22 0 0 1 13,-40z" fill="#ffd54a" stroke="#3b2a22" stroke-width="4"/>
+  <rect x="38" y="74" width="24" height="12" rx="3" fill="#bbb" stroke="#3b2a22" stroke-width="3"/><path d="M44,90 h12" stroke="#3b2a22" stroke-width="4"/></svg>`;
+// Partikel intro
+{ const r = rng(5); let h = ''; for (let i = 0; i < 60; i++) { const s = 2 + r() * 6; h += `<div class="abs pt" data-sp="${20 + r() * 60}" data-y="${r() * 1920}" data-ph="${r() * 6}" style="left:${r() * 1080}px;width:${s}px;height:${s}px;border-radius:50%;background:#ffe9b0"></div>`; } $('s1parts').innerHTML = h; }
+const partEls = [...document.querySelectorAll('.pt')];
+// Bokeh pastel latar krim
+{ const r = rng(9); const cols = ['#f9d6e2', '#d9ecfa', '#fbe8b8', '#e3f1d6']; let h = ''; for (let i = 0; i < 14; i++) { const s = 80 + r() * 220; h += `<div class="abs bk" data-sp="${6 + r() * 14}" data-x="${r() * 1080}" data-y="${r() * 1920}" data-ph="${r() * 6}" style="width:${s}px;height:${s}px;border-radius:50%;background:${cols[i % 4]};opacity:.55"></div>`; } $('bokeh').innerHTML = h; }
+const bokehEls = [...document.querySelectorAll('.bk')];
+// Orbit 5 makhraj di intro
+const ORB = [['الحَلْقُ', '#7cb7e6'], ['اللِّسَانُ', '#e53945'], ['الشَّفَتَانِ', '#e8739a'], ['الجَوْفُ', '#f6b3c6'], ['الخَيْشُومُ', '#fbf1e0']];
+$('s1orbit').innerHTML = `<circle id="orbRing" cx="540" cy="1080" r="330" fill="none" stroke="#9fc3f0" stroke-width="3" stroke-dasharray="6 14" opacity=".5"/>` +
+  ORB.map(([n, c], i) => `<g class="orb"><circle r="105" fill="${c}" stroke="#fff" stroke-width="6"/><text y="14" text-anchor="middle" font-size="${i === 2 || i === 4 ? 40 : 46}" fill="${i === 1 ? '#fff' : '#13213a'}">${n}</text></g>`).join('') +
+  `<g id="orbC"><circle cx="540" cy="1080" r="150" fill="#ffd77a" opacity=".18"/><text x="540" y="1100" text-anchor="middle" font-size="80" fill="#ffd77a">٥</text></g>`;
+const orbEls = [...document.querySelectorAll('.orb')];
+
+// Grain
+const grainTiles = [];
+for (let g = 0; g < 4; g++) {
+  const cv = document.createElement('canvas'); cv.width = cv.height = 300; const cx = cv.getContext('2d');
+  const img = cx.createImageData(300, 300), r = rng(700 + g);
+  for (let i = 0; i < img.data.length; i += 4) { const v = 150 + r() * 105; img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255; }
+  cx.putImageData(img, 0, 0); grainTiles.push(cv.toDataURL());
+}
+
+// Sari kata Melayu
+const SUBS = [[6.6, 15.6, 'Makhraj huruf ada lima'], [16.2, 21.6, 'Dari dua bibir keluar 4 huruf: Ba, Mim, Fa, Wau'],
+  [22.4, 30.8, 'Ba & Mim: bibir atas dan bawah dirapatkan'], [31.4, 37.6, 'Wau: bibir dimuncungkan dan dibulatkan'],
+  [38.6, 46.4, 'Fa: dalam bibir bawah menyentuh hujung gigi atas'], [48.2, 49.6, 'Kuasai makhraj, baguskan bacaan al-Quran']];
+
+// Gelombang bunyi dari bibir (wajah menghadap kiri)
+const WAVES = [[24.7, 'ب'], [26.6, 'م'], [33.2, 'و'], [40.6, 'ف']];
+
+// Zum (viewBox) : [masa, x, y, w, h]
+const VB_FULL = [100, 180, 640, 540], VB_ZOOM = [166, 392, 270, 228];
+function vbAt(t) {
+  const zin = ease.inOutCubic(prog(t, 16.3, 1.5)), zout = ease.inOutCubic(prog(t, 46.8, 1.5));
+  const p = zin * (1 - zout);
+  return VB_FULL.map((v, i) => lerp(v, VB_ZOOM[i], p));
+}
+
+// ================= Fungsi utama =================
+window.seek = function (tNew) {
+  const t = mapTime(tNew), frame = Math.round(tNew * FPS);
+  $('grain').style.backgroundImage = `url(${grainTiles[frame % 4]})`;
+  $('grain').style.backgroundPosition = `${(frame * 37) % 300}px ${(frame * 53) % 300}px`;
+  $('fade').style.opacity = prog(t, ORIG_DURATION - .9, .9);
+
+  // ---- S1 intro ----
+  const s1on = t < 6.6;
+  $('s1').style.visibility = s1on ? 'visible' : 'hidden';
+  if (s1on) {
+    partEls.forEach(p => { const y = ((+p.dataset.y - t * +p.dataset.sp) % 1920 + 1920) % 1920; p.style.top = y + 'px'; p.style.opacity = .3 + .5 * Math.abs(Math.sin(t * 1.5 + +p.dataset.ph)); });
+    tf($('s1tag'), fx.rise(t, .2, .7, 30));
+    tf($('s1title'), fx.blurIn(t, .4, .9));
+    tf($('s1line'), { s: 1, o: 1 }); $('s1line').style.transform = `scaleX(${ease.outCubic(prog(t, 1.0, .7))})`;
+    tf($('s1sub'), fx.rise(t, 3.6));
+    const rot = t * 14 - 30, focus = ease.inOutCubic(prog(t, 4.6, 1.0));
+    $('orbRing').style.opacity = .5 * prog(t, 1.2, .6) * (1 - focus);
+    orbEls.forEach((g, i) => {
+      const a = (rot + i * 72 - 90) * Math.PI / 180;
+      let x = 540 + Math.cos(a) * 330, y = 1080 + Math.sin(a) * 330;
+      const p = ease.outBack(prog(t, 1.4 + i * .22, .6));
+      let s = Math.max(0, p), o = clamp(prog(t, 1.4 + i * .22, .3) * 3);
+      if (i === 2) { x = lerp(x, 540, focus); y = lerp(y, 1080, focus); s *= lerp(1, 2.2, focus); } else { o *= 1 - focus; }
+      g.setAttribute('transform', `translate(${x},${y}) scale(${s})`); g.style.opacity = o;
+    });
+    $('orbC').style.opacity = prog(t, 2.6, .6) * (1 - focus);
+  }
+
+  // ---- S2 utama ----
+  const s2on = t >= 5.6;
+  $('s2').style.visibility = s2on ? 'visible' : 'hidden';
+  if (!s2on) return;
+  const ir = ease.inOutCubic(prog(t, 5.6, 1.0));
+  $('s2').style.clipPath = ir < 1 ? `circle(${lerp(0, 1500, ir)}px at 540px 1080px)` : 'none';
+  bokehEls.forEach(b => { const x = +b.dataset.x + Math.sin(t * .3 + +b.dataset.ph) * 60, y = ((+b.dataset.y - t * +b.dataset.sp) % 2100 + 2100) % 2100 - 200; b.style.transform = `translate(${x - 150}px,${y}px)`; });
+
+  // Tajuk
+  tf($('cap'), fx.rise(t, 6.4, .6, 20));
+  const pillIn = ease.outBack(prog(t, 6.6, .6));
+  $('pill').style.transform = `scaleX(${Math.max(0, pillIn)})`; $('pill').style.opacity = clamp(prog(t, 6.6, .2));
+  inOut($('t1'), t, 7.0, 15.9, fx.blurIn);
+  inOut($('t2'), t, 16.3, 47.2, fx.blurIn);
+  [...$('t2').querySelectorAll('.L')].forEach((l, i) => { const st = 17.6 + i * .8; const p = prog(t, st, .5); tf(l, { s: Math.max(0, ease.outBack(p)) * (1 + .25 * Math.sin(prog(t, st, .9) * Math.PI)), o: clamp(p * 4) }); });
+  inOut($('t3'), t, 47.6, 60, fx.blurIn);
+
+  // Rajah: lukis garis luar lalu isi
+  const draw = ease.inOutCubic(prog(t, 6.6, 1.6));
+  S($('head'), { 'stroke-dasharray': 3000, 'stroke-dashoffset': 3000 * (1 - draw) });
+  $('head').style.fillOpacity = prog(t, 7.6, .6);
+  [...$('inner').children].forEach((el, i) => { const p = ease.outCubic(prog(t, 7.9 + i * .06, .5)); el.style.opacity = p; });
+  $('lips').style.opacity = prog(t, 8.2, .4);
+  const vb = vbAt(t); $('dia').setAttribute('viewBox', vb.join(' '));
+  // goyang perlahan rajah (hidup)
+  $('dia').style.transform = `translateY(${Math.sin(t * .8) * 6}px)`;
+  setLips(lipsAt(t));
+
+  // Label: muncul satu demi satu, sorot kawasan
+  const zoomP = ease.inOutCubic(prog(t, 16.0, .8)) * (1 - ease.inOutCubic(prog(t, 47.0, .8)));
+  LABELS.forEach((L, i) => {
+    const st = 9.3 + i * 1.15;
+    const p = prog(t, st, .6);
+    L.g.querySelector('.ld').setAttribute('stroke-dashoffset', 1 - ease.outCubic(p));
+    const dot = L.g.querySelector('.dot'); dot.setAttribute('r', 5.5 * ease.outBack(prog(t, st + .4, .4)));
+    const tx = L.g.querySelector('.tx'); tx.style.opacity = prog(t, st + .2, .4);
+    const keep = L.k === 'shafa' ? 1 : 1 - zoomP;
+    L.g.style.opacity = keep;
+    const el = $(L.el);
+    const hl = Math.sin(prog(t, st, 1.2) * Math.PI);
+    const extra = (L.k === 'shafa') ? Math.sin(prog(t, 16.4, 1.6) * Math.PI) : 0;
+    const h = Math.max(hl, extra);
+    el.style.filter = h > .02 ? `url(#glow) brightness(${1 + .25 * h})` : 'none';
+  });
+  // Dalam zum, label الشفتان mengecil supaya tak menghalang
+  $('lab_shafa').style.opacity = 1 - zoomP;
+
+  // Chips
+  chipEls.forEach((c, i) => { const st = 9.3 + i * 1.15; const o = fx.pop(t, st, .5); const out = ease.inOutCubic(prog(t, 15.9, .4)); tf(c, { s: o.s * (1 - out * .3), o: o.o * (1 - out) }); c.style.visibility = (t > 16.5) ? 'hidden' : 'visible'; });
+
+  // Kad
+  inOut($('cBM'), t, 22.4, 31.0, fx.rise);
+  inOut($('cW'), t, 31.6, 37.8, fx.rise);
+  inOut($('cF'), t, 38.6, 46.6, fx.rise);
+
+  // Huruf besar
+  let bl = null;
+  for (const [st, ch] of WAVES) if (t >= st - .1 && t < st + (ch === 'ف' ? 5.6 : ch === 'و' ? 4.2 : 1.8)) bl = [st, ch];
+  if (bl) { $('bigT').textContent = bl[1]; const o = fx.pop(t, bl[0], .5); tf($('bigL'), { ...o, y: Math.sin(t * 2) * 8 }); $('bigL').style.visibility = 'visible'; }
+  else { $('bigL').style.visibility = 'hidden'; }
+
+  // Gelombang bunyi
+  let wv = '';
+  for (const [st, ch] of WAVES) {
+    for (let k = 0; k < 3; k++) {
+      const p = prog(t, st + .15 + k * .18, 1.0);
+      if (p <= 0 || p >= 1) continue;
+      const r = 14 + p * 60, cx = 300, cy = 503;
+      const a0 = 140 * Math.PI / 180, a1 = 220 * Math.PI / 180;
+      wv += `<path d="M${cx + r * Math.cos(a0)},${cy + r * Math.sin(a0)} A${r},${r} 0 0 1 ${cx + r * Math.cos(a1)},${cy + r * Math.sin(a1)}" opacity="${(1 - p) * .9}" stroke-width="${3 - p * 1.5}"/>`;
+    }
+  }
+  $('waves').innerHTML = wv;
+
+  // Anotasi dalam zum
+  let an = '';
+  const aBM = clamp(prog(t, 28.2, .4)) * (1 - prog(t, 30.9, .3));
+  if (aBM > 0) { // anak panah bertemu
+    const d = 8 * (1 - ease.outCubic(prog(t, 28.2, .5)));
+    an += `<g opacity="${aBM}" fill="#1f4f86"><path d="M282,${458 - d} l8,0 0,14 6,0 -10,12 -10,-12 6,0z"/><path d="M282,${548 + d} l8,0 0,-14 6,0 -10,-12 -10,12 6,0z"/>
+      <text x="266" y="508" font-size="15" text-anchor="end" fill="#1f4f86">انْطِبَاقٌ</text></g>`;
+  }
+  const aW = clamp(prog(t, 33.6, .4)) * (1 - prog(t, 37.4, .3));
+  if (aW > 0) an += `<g opacity="${aW}"><circle cx="300" cy="504" r="${26 + Math.sin(t * 4) * 1.5}" fill="none" stroke="#1f4f86" stroke-width="2.5" stroke-dasharray="5 5"/><text x="268" y="${470}" font-size="15" text-anchor="end" fill="#1f4f86">انْضِمَامٌ</text></g>`;
+  const aF = clamp(prog(t, 41.4, .4)) * (1 - prog(t, 46.4, .3));
+  if (aF > 0) {
+    const p2 = clamp(prog(t, 42.4, .4));
+    an += `<g opacity="${aF}" fill="#1f4f86" stroke="#1f4f86" stroke-width="2">
+      <circle cx="338" cy="490" r="${5 + Math.sin(t * 6)}" fill="#ffd54a" stroke="#1f4f86"/>
+      <line x1="338" y1="490" x2="292" y2="446"/><text x="290" y="440" font-size="12" text-anchor="end" stroke="none">أَطْرَافُ الثَّنَايَا العُلْيَا</text>
+      <g opacity="${p2}"><line x1="330" y1="506" x2="292" y2="560"/><text x="290" y="572" font-size="12" text-anchor="end" stroke="none">بَاطِنُ الشَّفَةِ السُّفْلَى</text></g></g>`;
+    $('toothU').style.filter = `url(#glow) brightness(${1.1 + .1 * Math.sin(t * 6)})`;
+  } else $('toothU').style.filter = 'none';
+  $('annot').innerHTML = an;
+  // ف: hembusan udara halus
+  if (t > 40.6 && t < 42.6) {
+    let air = ''; for (let k = 0; k < 4; k++) { const p = (t - 40.6 - k * .12) % .9 / .9; if (p > 0) air += `<line x1="${300 - p * 50}" y1="${492 + k * 5}" x2="${290 - p * 50}" y2="${492 + k * 5}" stroke="#7cb7e6" stroke-width="2" opacity="${1 - p}"/>`; }
+    $('annot').innerHTML += air;
+  }
+
+  // Penutup
+  badgeEls.forEach((b, i) => { const o = fx.pop(t, 48.6 + i * .25, .5); tf(b, { ...o, y: Math.sin(t * 2 + i) * 6 }); b.style.visibility = t > 48.4 ? 'visible' : 'hidden'; });
+  inOut($('cNote'), t, 50.0, 60, fx.rise);
+  const bp = fx.pop(t, 50.6, .5); tf($('bulb'), { ...bp, r: Math.sin(t * 3) * 6 }); $('bulb').style.visibility = t > 50.5 ? 'visible' : 'hidden';
+
+  // Sari kata
+  let sb = null; for (const s of SUBS) if (t >= s[0] && t < s[1] + .4) sb = s;
+  if (sb) { $('sub').textContent = sb[2]; inOut($('sub'), t, sb[0], sb[1], fx.rise); } else $('sub').style.opacity = 0;
+};
+
+if (!new URLSearchParams(location.search).has('render')) {
+  const t0 = performance.now();
+  (function loop() { seek(((performance.now() - t0) / 1000) % DURATION); requestAnimationFrame(loop); })();
+} else { seek(0); }
+</script>
+</body>
+</html>
