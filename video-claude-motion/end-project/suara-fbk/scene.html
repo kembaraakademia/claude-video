@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<title>Suara FBK Promo</title>
+<style>
+@font-face { font-family: MonI; src: url(../../style/fonts/Montserrat-Italic.ttf); font-weight: 100 900; font-style: italic; }
+@font-face { font-family: Mon; src: url(../../style/fonts/Montserrat.ttf); font-weight: 100 900; }
+:root { --maroon: #7a0f2e; --maroon2: #4e0619; --deep: #2a030f; --gold: #d9a640; --gold2: #f4d58a; --cream: #fbf6ef; --ink: #3b0a18; }
+html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--cream); }
+#stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+.layer { position: absolute; inset: 0; overflow: hidden; }
+.abs { position: absolute; }
+.c { position: absolute; left: 0; width: 100%; text-align: center; white-space: nowrap; }
+.mi { font-family: MonI; font-style: italic; }
+.mo { font-family: Mon; }
+.goldtxt { background: linear-gradient(180deg, #fff1c4 0%, #e9bf62 45%, #b7832a 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.maroontxt { background: linear-gradient(180deg, #b0173f 0%, #7a0f2e 55%, #4e0619 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.shine { position: absolute; inset: 0; background: linear-gradient(105deg, transparent 42%, rgba(255,255,255,.95) 50%, transparent 58%); background-size: 300% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent; pointer-events: none; }
+.badge { position: absolute; background: linear-gradient(180deg, #a3123f, #6a0c27); border: 6px solid var(--gold); border-radius: 22px; transform-origin: center; overflow: hidden;
+  box-shadow: 0 18px 40px rgba(78,6,25,.35); }
+.card { position: absolute; left: 70px; width: 940px; height: 210px; }
+.card .pill { position: absolute; left: 120px; top: 22px; width: 820px; height: 166px; border-radius: 30px 83px 83px 30px; background: linear-gradient(90deg, #fff, #fbf3e6);
+  border: 4px solid var(--gold); box-sizing: border-box; box-shadow: 0 16px 34px rgba(78,6,25,.18); overflow: hidden; }
+.card .bar { position: absolute; left: 150px; top: 44px; width: 6px; height: 80px; border-radius: 3px; background: linear-gradient(var(--gold2), var(--gold)); }
+.card .tt { position: absolute; left: 180px; top: 18px; font-family: MonI; font-style: italic; font-weight: 900; font-size: 52px; letter-spacing: -1px; }
+.card .st { position: absolute; left: 182px; top: 92px; font-family: MonI; font-style: italic; font-weight: 600; font-size: 36px; color: #3b0a18; }
+.card .num { position: absolute; right: 50px; top: 18px; font-family: Mon; font-weight: 900; font-size: 110px; color: rgba(122,15,46,.08); }
+.card .hex { position: absolute; left: 0; top: 0; width: 250px; height: 210px; }
+.ribbon { position: absolute; left: 50%; display: flex; align-items: center; justify-content: center; }
+#grain { position: absolute; inset: 0; z-index: 50; pointer-events: none; mix-blend-mode: overlay; opacity: .18; }
+#flash { position: absolute; inset: 0; z-index: 55; background: #fff; opacity: 0; pointer-events: none; }
+#fade { position: absolute; inset: 0; z-index: 60; background: #12020a; opacity: 0; }
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- ========== LATAR TERANG (corak + swoosh) ========== -->
+<div class="layer" id="light" style="background:radial-gradient(circle at 50% 38%,#ffffff 0%,#fbf6ef 55%,#f1e3d6 100%)">
+  <svg class="abs" width="1080" height="1920" style="left:0;top:0">
+    <defs>
+      <pattern id="geo" width="140" height="140" patternUnits="userSpaceOnUse">
+        <g fill="none" stroke="#d9a640" stroke-width="2" opacity=".55">
+          <rect x="35" y="35" width="70" height="70"/><rect x="35" y="35" width="70" height="70" transform="rotate(45 70 70)"/>
+          <path d="M0,70 L35,70 M105,70 L140,70 M70,0 L70,35 M70,105 L70,140"/></g></pattern>
+      <radialGradient id="geoFade" cx="50%" cy="45%" r="60%"><stop offset=".35" stop-color="#000"/><stop offset="1" stop-color="#fff"/></radialGradient>
+      <mask id="geoMask"><rect width="1080" height="1920" fill="url(#geoFade)"/></mask>
+      <linearGradient id="mar" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a3123f"/><stop offset="1" stop-color="#4e0619"/></linearGradient>
+      <linearGradient id="gld" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b7832a"/><stop offset=".5" stop-color="#f4d58a"/><stop offset="1" stop-color="#b7832a"/></linearGradient>
+    </defs>
+    <rect id="geoR" x="-140" y="-140" width="1360" height="2200" fill="url(#geo)" mask="url(#geoMask)" opacity=".5"/>
+    <g id="swTop"><path d="M-40,-40 L1120,-40 L1120,40 C820,40 420,90 -40,330 Z" fill="url(#mar)"/><path d="M-40,330 C420,90 820,40 1120,40" fill="none" stroke="url(#gld)" stroke-width="12"/>
+      <path d="M-40,390 C380,150 760,90 1120,96" fill="none" stroke="url(#gld)" stroke-width="4" opacity=".7"/></g>
+    <g id="swBot"><path d="M1120,1960 L-40,1960 L-40,1880 C260,1880 660,1830 1120,1590 Z" fill="url(#mar)"/><path d="M1120,1590 C660,1830 260,1880 -40,1880" fill="none" stroke="url(#gld)" stroke-width="12"/>
+      <path d="M1120,1530 C700,1770 320,1830 -40,1826" fill="none" stroke="url(#gld)" stroke-width="4" opacity=".7"/></g>
+  </svg>
+  <div class="abs" id="sparks" style="inset:0"></div>
+
+  <!-- Lambang mikrofon -->
+  <div class="abs" id="emb" style="left:340px;top:250px;width:400px;height:400px"></div>
+  <svg class="abs" id="wvL" width="300" height="160" style="left:40px;top:370px"></svg>
+  <svg class="abs" id="wvR" width="300" height="160" style="left:740px;top:370px"></svg>
+
+  <!-- Logo SUARA FBK -->
+  <div class="abs" id="logo" style="left:0;top:640px;width:1080px;height:330px">
+    <div class="abs" id="lgSuara" style="left:80px;top:20px;width:600px;height:240px">
+      <div class="abs mi maroontxt" style="left:0;top:0;font-weight:900;font-size:168px;letter-spacing:-5px;line-height:1.1;filter:drop-shadow(0 6px 0 #fff) drop-shadow(0 12px 18px rgba(78,6,25,.3))">SUARA</div>
+      <div class="abs mi shine" id="shS" style="left:0;top:0;font-weight:900;font-size:168px;letter-spacing:-5px;line-height:1.1">SUARA</div>
+    </div>
+    <div class="badge" id="lgFbk" style="left:668px;top:44px;width:340px;height:172px;transform:skewX(-10deg)">
+      <div class="abs mi goldtxt" style="left:0;width:100%;top:6px;text-align:center;font-weight:900;font-size:132px;letter-spacing:-4px;line-height:1.1;transform:skewX(10deg)">FBK</div>
+      <div class="abs" id="shF" style="left:-200px;top:-20px;width:120px;height:240px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent)"></div>
+    </div>
+    <svg class="abs" width="1080" height="120" style="left:0;top:220px"><path id="underline" d="M150,60 C380,95 700,95 960,30" fill="none" stroke="url(#gld)" stroke-width="10" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
+  </div>
+  <div class="c mi" id="tag" style="top:990px;font-weight:600;font-size:58px;color:#5b0a22">
+    <span class="tg" style="display:inline-block">Inspirasi</span> <span class="dot" style="display:inline-block;color:#d9a640">•</span>
+    <span class="tg" style="display:inline-block">Ilmu</span> <span class="dot" style="display:inline-block;color:#d9a640">•</span>
+    <span class="tg" style="display:inline-block">Aspirasi</span></div>
+
+  <!-- Banner tiga siri -->
+  <div class="ribbon" id="bann" style="top:470px;width:880px;height:160px;margin-left:-440px">
+    <svg class="abs" width="880" height="160" style="left:0;top:0"><path d="M60,8 H820 L872,80 L820,152 H60 L8,80 Z" fill="url(#mar)" stroke="#d9a640" stroke-width="6"/>
+      <path d="M78,22 H802 L842,80 L802,138 H78 L38,80 Z" fill="none" stroke="#f4d58a" stroke-width="2" opacity=".6"/>
+      <g fill="#d9a640" transform="translate(110 80)"><path d="M0,-22 L6,-6 L22,0 L6,6 L0,22 L-6,6 L-22,0 L-6,-6Z"/></g><g fill="#d9a640" transform="translate(770 80)"><path d="M0,-22 L6,-6 L22,0 L6,6 L0,22 L-6,6 L-22,0 L-6,-6Z"/></g></svg>
+    <div class="abs mo" style="left:0;width:100%;top:22px;text-align:center;font-weight:800;font-size:52px;line-height:1.1;color:#fff;letter-spacing:3px">TIGA SIRI UTAMA<br>SUARA FBK</div>
+  </div>
+
+  <!-- Kad siri -->
+  <div class="card" id="cd0" style="top:700px"></div>
+  <div class="card" id="cd1" style="top:940px"></div>
+  <div class="card" id="cd2" style="top:1180px"></div>
+
+  <!-- Penutup bawah -->
+  <div class="ribbon" id="rasmi" style="top:1440px;width:620px;height:96px;margin-left:-310px">
+    <svg class="abs" width="620" height="96" style="left:0;top:0"><path d="M40,6 H580 L614,48 L580,90 H40 L6,48 Z" fill="#fffaf0" stroke="#d9a640" stroke-width="5"/></svg>
+    <div class="abs mi" style="left:0;width:100%;top:18px;text-align:center;font-weight:800;font-size:46px;color:#7a0f2e">Siri Podcast Rasmi</div>
+  </div>
+  <div class="c mi" id="fak" style="top:1560px;font-weight:700;font-size:38px;color:#2a030f;line-height:1.35">Fakulti Bahasa dan Komunikasi,<br>Universiti Sultan Zainal Abidin</div>
+</div>
+
+<!-- ========== INTRO GELAP ========== -->
+<div class="layer" id="intro" style="background:radial-gradient(circle at 50% 46%,#5b0a22 0%,#2a030f 50%,#0d0105 100%)">
+  <div class="abs" id="ipart" style="inset:0"></div>
+  <div class="abs" id="rays" style="left:-460px;top:-60px;width:2000px;height:2000px"></div>
+  <svg class="abs" id="bigWave" width="1080" height="400" style="left:0;top:960px"></svg>
+  <div class="abs" id="imic" style="left:340px;top:560px;width:400px;height:400px"></div>
+  <div class="c mi" id="i1" style="top:300px;font-weight:300;font-size:84px;color:#f4e6cc">Setiap suara</div>
+  <div class="c mi goldtxt" id="i2" style="top:400px;font-weight:900;font-size:110px;letter-spacing:-2px">ada cerita.</div>
+</div>
+
+<!-- ========== KAD AKHIR ========== -->
+<div class="layer" id="end" style="background:radial-gradient(circle at 50% 40%,#ffffff 0%,#fbf6ef 60%,#efe0d2 100%)">
+  <svg class="abs" width="1080" height="1920" style="left:0;top:0"><rect id="geoR2" x="-140" y="-140" width="1360" height="2200" fill="url(#geo)" opacity=".28"/></svg>
+  <div class="abs" id="eRing" style="left:140px;top:300px;width:800px;height:800px"></div>
+  <div class="abs" id="eLogo" style="left:0;top:520px;width:1080px;height:300px">
+    <div class="abs mi maroontxt" style="left:80px;top:20px;font-weight:900;font-size:168px;letter-spacing:-5px;line-height:1.1;filter:drop-shadow(0 6px 0 #fff) drop-shadow(0 12px 18px rgba(78,6,25,.3))">SUARA</div>
+    <div class="badge" style="left:668px;top:44px;width:340px;height:172px;transform:skewX(-10deg)"><div class="abs mi goldtxt" style="left:0;width:100%;top:6px;text-align:center;font-weight:900;font-size:132px;letter-spacing:-4px;line-height:1.1;transform:skewX(10deg)">FBK</div></div>
+  </div>
+  <div class="c mi" id="eTag" style="top:860px;font-weight:600;font-size:52px;color:#5b0a22">Inspirasi <span style="color:#d9a640">•</span> Ilmu <span style="color:#d9a640">•</span> Aspirasi</div>
+  <div class="ribbon" id="eCta" style="top:1020px;width:640px;height:120px;margin-left:-320px;border-radius:60px;background:linear-gradient(180deg,#a3123f,#6a0c27);border:5px solid #d9a640;box-shadow:0 18px 40px rgba(78,6,25,.35);overflow:hidden">
+    <div class="mo" style="font-weight:800;font-size:48px;color:#fff;letter-spacing:4px">IKUTI SEKARANG</div>
+    <div class="abs" id="shC" style="left:-200px;top:0;width:120px;height:120px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent)"></div>
+  </div>
+  <div class="abs" id="eLogos" style="left:40px;top:1270px;width:1000px;height:260px;display:flex;align-items:center;justify-content:center;gap:50px">
+    <img src="aset/logo-fbk.png" style="height:230px">
+    <div style="width:3px;height:150px;background:#d9a640"></div>
+    <img src="aset/logo-unisza.png" style="height:190px">
+  </div>
+</div>
+
+<div id="grain"></div><div id="flash"></div><div id="fade"></div>
+</div>
+<script src="subs.js" onerror="0"></script>
+<script>
+window.WIDTH = 1080; window.HEIGHT = 1920; window.FPS = 30;
+const ORIG_DURATION = 36;
+const TIMEMAP = window.TIMEMAP || [[0, 0], [36, 36]];
+window.DURATION = TIMEMAP[TIMEMAP.length - 1][0];
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+function mapTime(t) { for (let i = 1; i < TIMEMAP.length; i++) { const [n0, o0] = TIMEMAP[i - 1], [n1, o1] = TIMEMAP[i]; if (t <= n1) return o0 + (o1 - o0) * clamp((t - n0) / (n1 - n0)); } return ORIG_DURATION; }
+const $ = id => document.getElementById(id);
+const prog = (t, s, d) => clamp((t - s) / d);
+const lerp = (a, b, p) => a + (b - a) * p;
+const ease = { out: p => 1 - Math.pow(1 - p, 3), io: p => p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2, expo: p => p === 1 ? 1 : 1 - Math.pow(2, -10 * p),
+  back: p => { const c1 = 1.8, c3 = c1 + 1; return 1 + c3 * Math.pow(p - 1, 3) + c1 * Math.pow(p - 1, 2); } };
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function tf(el, o) { el.style.transform = `perspective(1400px) translate(${o.x || 0}px,${o.y || 0}px) rotate(${o.r || 0}deg) rotateY(${o.ry || 0}deg) rotateX(${o.rx || 0}deg) scale(${o.s ?? 1})${o.extra || ''}`;
+  el.style.opacity = o.o ?? 1; el.style.filter = (o.b || 0) > .3 ? `blur(${o.b}px)` : 'none'; }
+const rise = (t, st, d = .6, dist = 50) => { const p = ease.out(prog(t, st, d)); return { y: lerp(dist, 0, p), o: p, b: lerp(12, 0, p) }; };
+const pop = (t, st, d = .5) => { const p = prog(t, st, d); return { s: Math.max(0, ease.back(p)), o: clamp(p * 4) }; };
+const shake = (t, st, d = .4, a = 16) => { const p = prog(t, st, d); if (p <= 0 || p >= 1) return 0; return Math.sin(t * 80) * a * (1 - p); };
+
+// ---------- Mikrofon + fon kepala (SVG) ----------
+function micSVG(id) {
+  return `<svg viewBox="-200 -200 400 400" width="100%" height="100%"><defs>
+    <linearGradient id="${id}g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a5a18"/><stop offset=".35" stop-color="#f6dc95"/><stop offset=".6" stop-color="#d9a640"/><stop offset="1" stop-color="#6e4310"/></linearGradient>
+    <linearGradient id="${id}d" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3a3a"/><stop offset="1" stop-color="#0d0d0d"/></linearGradient>
+    <clipPath id="${id}c"><rect x="-58" y="-150" width="116" height="190" rx="58"/></clipPath>
+    <radialGradient id="${id}r"><stop offset=".6" stop-color="#d9a640" stop-opacity="0"/><stop offset=".8" stop-color="#d9a640" stop-opacity=".35"/><stop offset="1" stop-color="#d9a640" stop-opacity="0"/></radialGradient></defs>
+    <circle r="196" fill="url(#${id}r)"/><circle r="180" fill="none" stroke="#d9a640" stroke-width="4" opacity=".8"/>
+    <path d="M-120,-10 A120,130 0 0 1 120,-10" fill="none" stroke="url(#${id}d)" stroke-width="22" stroke-linecap="round"/>
+    <rect x="-150" y="-40" width="56" height="100" rx="24" fill="url(#${id}d)"/><rect x="94" y="-40" width="56" height="100" rx="24" fill="url(#${id}d)"/>
+    <rect x="-108" y="-28" width="16" height="76" rx="8" fill="#d9a640"/><rect x="92" y="-28" width="16" height="76" rx="8" fill="#d9a640"/>
+    <rect x="-58" y="-150" width="116" height="190" rx="58" fill="url(#${id}g)"/>
+    <g clip-path="url(#${id}c)" stroke="#7a5216" stroke-width="3" opacity=".6">${Array.from({ length: 14 }, (_, i) => `<line x1="-60" y1="${-140 + i * 12}" x2="60" y2="${-140 + i * 12}"/>`).join('')}${Array.from({ length: 9 }, (_, i) => `<line x1="${-48 + i * 12}" y1="-150" x2="${-48 + i * 12}" y2="40"/>`).join('')}</g>
+    <rect x="-64" y="-30" width="128" height="18" rx="6" fill="url(#${id}g)"/>
+    <ellipse cx="0" cy="58" rx="86" ry="22" fill="none" stroke="url(#${id}g)" stroke-width="8"/>
+    <rect x="-10" y="40" width="20" height="110" fill="url(#${id}g)"/><rect x="-40" y="140" width="80" height="16" rx="8" fill="url(#${id}g)"/>
+    <ellipse class="glint" cx="-24" cy="-110" rx="8" ry="26" fill="#fff" opacity=".7"/></svg>`;
+}
+$('emb').innerHTML = micSVG('mA'); $('imic').innerHTML = micSVG('mB');
+$('eRing').innerHTML = `<svg viewBox="-400 -400 800 800" width="100%" height="100%"><g id="eRg" fill="none" stroke="#d9a640">${[380, 340, 300].map((r, i) => `<circle r="${r}" stroke-width="${3 - i}" stroke-dasharray="${i === 1 ? '6 14' : 'none'}" opacity="${.5 - i * .1}"/>`).join('')}</g></svg>`;
+$('rays').innerHTML = `<svg viewBox="-1000 -1000 2000 2000" width="100%" height="100%"><g id="rayG" fill="#d9a640" opacity=".10">${Array.from({ length: 24 }, (_, i) => { const a = i / 24 * Math.PI * 2, w = .045; return `<path d="M0,0 L${Math.cos(a - w) * 1000},${Math.sin(a - w) * 1000} L${Math.cos(a + w) * 1000},${Math.sin(a + w) * 1000}Z"/>`; }).join('')}</g></svg>`;
+
+// ---------- Ikon heksagon ----------
+const ICONS = [
+  `<g fill="#f4d58a"><circle cx="0" cy="-20" r="16"/><path d="M-28,24 a28,26 0 0 1 56,0z"/><circle cx="-38" cy="-8" r="12"/><path d="M-62,26 a24,22 0 0 1 40,-6 l-6,6z"/><circle cx="38" cy="-8" r="12"/><path d="M62,26 a24,22 0 0 0 -40,-6 l6,6z"/><path d="M-6,0 l6,10 6,-10 -3,24 -3,4 -3,-4z" fill="#7a0f2e"/></g>`,
+  `<g fill="#f4d58a"><path d="M0,-40 L56,-18 L0,4 L-56,-18Z"/><path d="M-32,-6 v18 c0,12 64,12 64,0 v-18 l-32,12z"/><rect x="46" y="-18" width="4" height="32"/><circle cx="48" cy="16" r="6"/>
+    <rect x="-50" y="26" width="100" height="10" rx="3"/><rect x="-50" y="38" width="100" height="10" rx="3" opacity=".8"/></g>`,
+  `<g fill="#f4d58a"><circle cx="-30" cy="-26" r="14"/><path d="M-54,10 a24,24 0 0 1 48,0z"/><circle cx="30" cy="-26" r="14"/><path d="M6,10 a24,24 0 0 1 48,0z"/>
+    <g transform="translate(0 30)"><circle r="18"/>${Array.from({ length: 8 }, (_, i) => `<rect x="-5" y="-27" width="10" height="12" rx="2" transform="rotate(${i * 45})"/>`).join('')}<circle r="7" fill="#7a0f2e"/></g></g>`];
+const CARDS = [['SUARA KEPIMPINAN', 'Pengurusan FBK'], ['SUARA AKADEMIA', 'Pensyarah FBK'], ['SUARA NADI FBK', 'Staf Pentadbiran FBK']];
+CARDS.forEach(([tt, st], i) => {
+  $('cd' + i).innerHTML = `<div class="pill"><div class="num">0${i + 1}</div><div class="abs cshine" style="left:-300px;top:0;width:160px;height:170px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent)"></div></div>
+    <div class="bar"></div><div class="tt maroontxt" style="left:${180 + 120}px">${tt}</div><div class="st" style="left:${182 + 120}px">${st}</div>
+    <svg class="hex" viewBox="-125 -105 250 210"><path d="M-62,-100 H62 L120,0 L62,100 H-62 L-120,0Z" fill="url(#mar)" stroke="#d9a640" stroke-width="8"/>
+      <path d="M-54,-86 H54 L104,0 L54,86 H-54 L-104,0Z" fill="none" stroke="#f4d58a" stroke-width="2" opacity=".5"/><g transform="scale(1.15)">${ICONS[i]}</g></svg>`;
+  $('cd' + i).querySelector('.bar').style.left = '270px';
+});
+
+// ---------- Zarah & kilauan ----------
+{ const r = rng(3); let h = ''; for (let i = 0; i < 70; i++) { const s = 3 + r() * 7; h += `<div class="abs ip" data-x="${r() * 1080}" data-y="${r() * 1920}" data-sp="${30 + r() * 90}" data-ph="${r() * 6}" style="width:${s}px;height:${s}px;border-radius:50%;background:#f4d58a;box-shadow:0 0 ${s * 2}px #d9a640"></div>`; } $('ipart').innerHTML = h; }
+{ const r = rng(8); let h = ''; for (let i = 0; i < 18; i++) { const s = 18 + r() * 26; h += `<svg class="abs sk" data-ph="${r() * 6}" data-f="${.6 + r() * 1.2}" style="left:${60 + r() * 960}px;top:${120 + r() * 1700}px" width="${s}" height="${s}" viewBox="-10 -10 20 20"><path d="M0,-10 L2,-2 L10,0 L2,2 L0,10 L-2,2 L-10,0 L-2,-2Z" fill="#d9a640"/></svg>`; } $('sparks').innerHTML = h; }
+const ipEls = [...document.querySelectorAll('.ip')], skEls = [...document.querySelectorAll('.sk')];
+// Grain
+const grainTiles = []; for (let k = 0; k < 4; k++) { const cv = document.createElement('canvas'); cv.width = cv.height = 300; const cx = cv.getContext('2d'); const img = cx.createImageData(300, 300), r = rng(500 + k);
+  for (let i = 0; i < img.data.length; i += 4) { const v = r() * 255; img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255; } cx.putImageData(img, 0, 0); grainTiles.push(cv.toDataURL()); }
+
+// Gelombang bunyi
+function waveBars(svg, n, w, h, t, amp, seed, col = '#d9a640', center = true) {
+  let s = ''; const bw = w / n;
+  for (let i = 0; i < n; i++) {
+    const x = i * bw + bw * .2, k = i / (n - 1), env = center ? Math.sin(k * Math.PI) : 1 - k * .7;
+    const v = (.25 + .75 * Math.abs(Math.sin(t * 6 + i * .7 + seed) * Math.cos(t * 3.3 + i * .31))) * env * amp;
+    const bh = Math.max(6, v * h); s += `<rect x="${x}" y="${(h - bh) / 2}" width="${bw * .6}" height="${bh}" rx="${bw * .3}" fill="${col}"/>`;
+  }
+  svg.innerHTML = s;
+}
+
+// ================= Fungsi utama =================
+window.seek = function (tNew) {
+  const t = mapTime(tNew), frame = Math.round(tNew * FPS);
+  $('grain').style.backgroundImage = `url(${grainTiles[frame % 4]})`; $('grain').style.backgroundPosition = `${(frame * 37) % 300}px ${(frame * 53) % 300}px`;
+  $('fade').style.opacity = Math.max(1 - prog(t, 0, .5), prog(t, ORIG_DURATION - .8, .8));
+  // kilat putih peralihan
+  $('flash').style.opacity = Math.max(1 - prog(t, 4.0, .45), 0) * (t >= 4.0 ? 1 : 0) + Math.max(0, .55 - prog(t, 5.55, .35) * .55) * (t >= 5.55 ? 1 : 0) + Math.max(0, .9 - prog(t, 30.6, .5) * .9) * (t >= 30.6 ? 1 : 0);
+
+  // ---------- INTRO ----------
+  const introOn = t < 4.05; $('intro').style.visibility = introOn ? 'visible' : 'hidden';
+  if (introOn) {
+    ipEls.forEach(p => { const y = ((+p.dataset.y - t * +p.dataset.sp) % 1920 + 1920) % 1920; p.style.transform = `translate(${+p.dataset.x + Math.sin(t + +p.dataset.ph) * 20}px,${y}px)`; p.style.opacity = .3 + .6 * Math.abs(Math.sin(t * 2 + +p.dataset.ph)); });
+    $('rayG').setAttribute('transform', `rotate(${t * 12})`); $('rays').style.opacity = prog(t, 1.4, .8);
+    const wp = ease.out(prog(t, .1, 1)); $('bigWave').style.transform = `scaleX(${wp})`;
+    waveBars($('bigWave'), 44, 1080, 400, t, lerp(.2, 1, prog(t, .3, 1.5)) * (1 - prog(t, 3.2, .8) * .5), 1);
+    const mp = ease.back(prog(t, 1.5, .8)); tf($('imic'), { y: lerp(500, 0, ease.out(prog(t, 1.5, .8))) + Math.sin(t * 2) * 6, s: lerp(.6, 1, mp), o: clamp(prog(t, 1.5, .3) * 3) });
+    tf($('i1'), rise(t, .5, .7)); tf($('i2'), { ...rise(t, 1.2, .6, 70), s: 1 + .25 * (1 - ease.out(prog(t, 1.2, .6))) });
+    $('intro').style.transform = `scale(${1 + prog(t, 3.2, .85) * .5})`;
+  }
+
+  // ---------- LATAR TERANG ----------
+  const light = t >= 4.0 && t < 31.0; $('light').style.visibility = light ? 'visible' : 'hidden';
+  if (light) {
+    $('geoR').setAttribute('transform', `translate(${(t * 12) % 140},${(t * 8) % 140})`);
+    const sw = ease.expo(prog(t, 4.1, 1.0)); $('swTop').setAttribute('transform', `translate(${lerp(-900, 0, sw)},${lerp(-300, 0, sw)})`); $('swBot').setAttribute('transform', `translate(${lerp(900, 0, sw)},${lerp(300, 0, sw)})`);
+    skEls.forEach(s => { const v = Math.max(0, Math.sin(t * +s.dataset.f * 2 + +s.dataset.ph)); s.style.opacity = Math.pow(v, 6) * .9; s.style.transform = `scale(${.4 + Math.pow(v, 6)}) rotate(${t * 40}deg)`; });
+
+    // Fasa logo (4–10.4) kemudian mengecil ke atas
+    const up = ease.io(prog(t, 10.0, .9));
+    const emP = ease.back(prog(t, 4.3, .8));
+    tf($('emb'), { s: Math.max(0, emP) * lerp(1, .5, up), y: lerp(0, -120, up) + Math.sin(t * 1.6) * 5, o: clamp(prog(t, 4.3, .2) * 4) * (1 - up) });
+    $('emb').querySelector('.glint').setAttribute('opacity', .4 + .4 * Math.sin(t * 3));
+    ['wvL', 'wvR'].forEach((id, i) => { waveBars($(id), 13, 300, 160, t + i, .9, i * 2); tf($(id), { o: prog(t, 5.0, .5) * (1 - up), s: lerp(1, .6, up), y: lerp(0, -170, up) }); });
+    const sP = ease.expo(prog(t, 5.1, .5)), fP = ease.expo(prog(t, 5.55, .45));
+    tf($('lgSuara'), { x: lerp(-900, 0, sP) + shake(t, 5.55), o: clamp(sP * 3), b: lerp(30, 0, sP), extra: ` skewX(${lerp(-25, 0, sP)}deg)` });
+    $('lgFbk').style.transform = `translate(${lerp(700, 0, fP) + shake(t, 5.55)}px,${shake(t, 5.6, .4, 10)}px) skewX(-10deg) scale(${lerp(1.6, 1, fP)})`; $('lgFbk').style.opacity = clamp(fP * 3);
+    $('underline').setAttribute('stroke-dashoffset', 1 - ease.out(prog(t, 6.0, .7)));
+    $('shS').style.backgroundPosition = `${lerp(110, -10, prog(t, 6.5, .9))}% 0`;
+    $('shF').style.left = `${lerp(-200, 520, prog(t, 6.9, .7))}px`;
+    $('logo').style.transform = `translateY(${lerp(0, -560, up)}px) scale(${lerp(1, .62, up)}) translateY(${Math.sin(t * 1.3) * 4}px)`;
+    const tagEls = [...$('tag').querySelectorAll('.tg')], dots = [...$('tag').querySelectorAll('.dot')];
+    tagEls.forEach((e, i) => tf(e, { ...pop(t, 7.2 + i * .75, .5) }));
+    dots.forEach((e, i) => tf(e, pop(t, 7.55 + i * .75, .4)));
+    $('tag').style.transform = `translateY(${lerp(0, -40, up)}px)`; $('tag').style.opacity = 1 - up;
+
+    // Banner
+    const bp = ease.back(prog(t, 10.6, .6)); $('bann').style.transform = `scaleX(${Math.max(0, bp)})`; $('bann').style.opacity = clamp(prog(t, 10.6, .2) * 5);
+    // Kad: masuk dari kanan, fokus, kemudian mendap
+    const CT = [12.6, 17.4, 22.2];
+    CT.forEach((st, i) => {
+      const el = $('cd' + i); const p = ease.expo(prog(t, st, .7));
+      const focus = t >= st && t < st + 4.8 ? Math.sin(prog(t, st, 4.8) * Math.PI) : 0;
+      const dim = (t > 12.6 && t < 27.0 && !(t >= st && t < st + 4.8) && t > st) ? .7 : 1;
+      tf(el, { x: lerp(1100, 0, p), s: 1 + .06 * focus, o: clamp(p * 2) * dim, ry: lerp(-35, 0, p) });
+      el.style.filter = focus > .05 ? `drop-shadow(0 0 ${30 * focus}px rgba(217,166,64,.6))` : 'none';
+      const hx = el.querySelector('.hex'); const hp = prog(t, st + .2, .8); hx.style.transform = `perspective(800px) rotateY(${lerp(180, 0, ease.back(hp))}deg)`;
+      el.querySelector('.cshine').style.left = `${lerp(-300, 1000, prog(t, st + .9, .9))}px`;
+      tf(el.querySelector('.tt'), rise(t, st + .35, .5, 30)); tf(el.querySelector('.st'), rise(t, st + .7, .5, 20));
+    });
+    // Bahagian bawah
+    const rp = ease.back(prog(t, 27.4, .6)); $('rasmi').style.transform = `scale(${Math.max(0, rp)})`; $('rasmi').style.opacity = clamp(prog(t, 27.4, .2) * 5);
+    tf($('fak'), rise(t, 28.0, .7, 40));
+    $('light').style.transform = `scale(${1 + Math.max(0, t - 27) * .006})`;
+  }
+
+  // ---------- KAD AKHIR ----------
+  const endOn = t >= 30.6; $('end').style.visibility = endOn ? 'visible' : 'hidden';
+  if (endOn) {
+    $('geoR2').setAttribute('transform', `translate(${(t * 12) % 140},${(t * 8) % 140})`);
+    tf($('eRing'), { s: lerp(.3, 1, ease.out(prog(t, 30.7, 1.2))), o: prog(t, 30.7, .6), r: t * 8 });
+    const lp = ease.back(prog(t, 30.8, .7)); tf($('eLogo'), { s: Math.max(0, lerp(1.6, 1, ease.out(prog(t, 30.8, .7)))), o: clamp(prog(t, 30.8, .3) * 3), y: Math.sin(t * 1.5) * 5 });
+    tf($('eTag'), rise(t, 31.6, .6, 30));
+    const cp = pop(t, 32.4, .6); tf($('eCta'), { s: cp.s * (1 + .03 * Math.sin((t - 33) * 4)), o: cp.o });
+    $('shC').style.left = `${lerp(-200, 800, prog(t, 33.2, .8) )}px`;
+    tf($('eLogos'), rise(t, 33.0, .7, 40));
+  }
+};
+
+if (!new URLSearchParams(location.search).has('render')) {
+  const t0 = performance.now();
+  (function loop() { seek(((performance.now() - t0) / 1000) % DURATION); requestAnimationFrame(loop); })();
+} else { seek(0); }
+</script>
+</body>
+</html>
