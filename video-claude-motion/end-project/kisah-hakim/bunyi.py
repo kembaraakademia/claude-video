@@ -8,7 +8,7 @@ import numpy as np
 from scipy.signal import butter, sosfilt
 from scipy.io import wavfile
 
-SR, DUR = 48000, 70.0
+SR, DUR = 48000, 74.0
 N = int(SR * DUR); t = np.arange(N) / SR
 rng = np.random.default_rng(24)
 def bp(x, lo, hi): return sosfilt(butter(2, [lo, hi], btype='band', fs=SR, output='sos'), x)
@@ -30,7 +30,7 @@ music = np.zeros((N, 2))
 # Kord pad (D minor -> Bb -> F -> C ; berubah suasana ikut cerita)
 CH = [(0, [50, 57, 62, 65]), (11, [46, 53, 58, 62]), (18, [53, 57, 60, 65]), (26, [48, 55, 60, 64]),
       (32, [50, 53, 57, 62]), (40, [46, 53, 58, 65]), (44, [53, 57, 60, 65]), (48, [50, 57, 62, 66]),
-      (57, [46, 53, 58, 62]), (63, [50, 57, 62, 66])]
+      (57, [46, 53, 58, 62]), (63, [50, 57, 62, 66]), (70, [46, 53, 58, 62])]
 pad = np.zeros((N, 2))
 for k, (st, notes) in enumerate(CH):
     en = CH[k + 1][0] if k + 1 < len(CH) else DUR
@@ -42,14 +42,14 @@ for k, (st, notes) in enumerate(CH):
             pad[i0:i1, side] += w * e * .12
 pad[:, 0] = lp(pad[:, 0], 1400); pad[:, 1] = lp(pad[:, 1], 1400)
 # sampul keamatan: senyap di permulaan, gelap semasa ujian, naik semasa pertolongan
-inten = seg_env([(0, .5), (5, .8), (26, .9), (32, .55), (40, .6), (42, 1.0), (48, .7), (63, .9), (68, .8), (70, 0)])
+inten = seg_env([(0, .5), (5, .8), (26, .9), (32, .55), (40, .6), (42, 1.0), (48, .7), (63, .9), (70, .8), (74, 0)])
 music += pad * inten[:, None]
 # Piano: nada arpeggio lembut
 def piano(f, d=2.5):
     n = int(SR * d); tt = np.arange(n) / SR
     s = sum(a * np.sin(2 * np.pi * f * h * tt) * np.exp(-tt * (1.5 + h)) for h, a in ((1, 1), (2, .35), (3, .15), (4, .05)))
     return s * np.minimum(tt / .004, 1)
-piano_on = [(1.0, 31.5), (40.5, 70)]   # tiada piano semasa babak ujian
+piano_on = [(1.0, 31.5), (40.5, 72.5)]   # tiada piano semasa babak ujian
 cache = {}
 for k, (st, notes) in enumerate(CH):
     en = CH[k + 1][0] if k + 1 < len(CH) else DUR - 2
@@ -89,7 +89,7 @@ def heartbeat():
 for i in range(24): add(sfx, tick(2000 + (i % 6 == 0) * 600), .5 + i * .12, .25)
 add(sfx, chime(), 3.6, .3)
 # Peralihan babak
-for st in [5.0, 11.0, 18.0, 26.0, 40.0, 48.0, 57.0, 63.0]: add(sfx, whoosh(), st - .3, .18)
+for st in [5.0, 11.0, 18.0, 26.0, 40.0, 48.0, 57.0, 63.0, 70.0]: add(sfx, whoosh(), st - .3, .18)
 # S2: klik lampu
 add(sfx, click(), 5.6, .5); add(sfx, click(), 5.8, .3); add(sfx, click(), 6.0, .5)
 # S3: telefon naik + tanda senarai
@@ -111,7 +111,7 @@ for k in range(3): add(sfx, heartbeat(), 37.9 + k * .9, .45)
 add(sfx, lp(rng.standard_normal(int(SR * 1.6)), 300) * np.sin(np.pi * np.linspace(0, 1, int(SR * 1.6))), 40.3, .4)
 for i in range(3): add(sfx, ping(1320 + i * 220), 41.8 + i * 1.2, .35)
 # S8–S10: kilauan
-add(sfx, chime(), 48.3, .3); add(sfx, chime(), 59.0, .25); add(sfx, chime(), 66.4, .3)
+add(sfx, chime(), 48.3, .3); add(sfx, chime(), 59.0, .25); add(sfx, chime(), 66.4, .3); add(sfx, chime(), 70.9, .35)
 
 out = sys.argv[1] if len(sys.argv) > 1 else '.'
 os.makedirs(out, exist_ok=True)

@@ -65,6 +65,11 @@ html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; backgro
     <div class="c serif" id="e1" style="top:360px;font-size:92px;color:var(--cream)">Bantulah orang.</div>
     <div class="c serif" id="e2" style="top:470px;font-size:100px;color:var(--lamp)">Allah akan membantumu.</div>
   </div>
+  <div class="scene" id="s11" style="background:radial-gradient(circle at 50% 42%,#2b2a52 0%,#12142a 60%,#07080f 100%)"><svg width="1080" height="1920" id="s11svg"></svg>
+    <div class="c serif" id="u0" style="top:640px;font-size:60px;color:var(--muted)">Kunjungi kami di</div>
+    <div class="c man" id="u1" style="top:730px;font-size:118px;color:var(--lamp);letter-spacing:2px;text-shadow:0 0 50px rgba(243,199,122,.45)">drfauzi.com</div>
+    <div class="abs" id="u2" style="left:240px;top:900px;width:600px;height:4px;border-radius:2px;background:linear-gradient(90deg,transparent,#f3c77a,transparent)"></div>
+  </div>
   <div id="dust"></div>
   <div id="sub"></div>
   <div id="vig"></div><div id="grain"></div><div id="fade"></div>
@@ -73,8 +78,8 @@ html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; backgro
 <script>
 // ================= Konfigurasi =================
 window.WIDTH = 1080; window.HEIGHT = 1920; window.FPS = 30;
-const ORIG_DURATION = 70;
-const TIMEMAP = window.TIMEMAP || [[0, 0], [70, 70]];
+const ORIG_DURATION = 74;
+const TIMEMAP = window.TIMEMAP || [[0, 0], [74, 74]];
 window.DURATION = TIMEMAP[TIMEMAP.length - 1][0];
 const WORDS = window.WORDS || [];      // [{w, s, e, line}] masa video (saat)
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
@@ -214,6 +219,7 @@ $('s6svg').innerHTML = nightStreet(false) + `<g id="rain"></g>${person(470, 1290
 $('s7svg').innerHTML = nightStreet(true) + `<polygon id="beam" points="-40,1210 -40,1250 700,1400 700,1080" fill="#f3e3a0" opacity="0"/><g id="car7b">${car(-300, 1300, 1.1, '#6d5a9c')}</g><g id="rain7"></g>${person(470, 1290, 1.3)}<rect id="warm7" width="1080" height="1920" fill="#f3c77a" opacity="0"/>`;
 { const G = g('#07081a', '#1d1f3d'); $('s8svg').innerHTML = `<defs>${G.def}</defs><rect width="1080" height="1920" fill="url(#${G.id})"/>${stars(150, 21, 1100)}<line id="shoot" x1="0" y1="0" x2="0" y2="0" stroke="#ece6da" stroke-width="3" stroke-linecap="round"/>
   <g id="brk" stroke="#f3c77a" stroke-width="4" fill="none"><path d="M100,460 v-50 h50"/><path d="M930,410 h50 v50"/><path d="M980,700 v50 h-50"/><path d="M150,750 h-50 v-50"/></g>${mosque(1000)}`; }
+$('s11svg').innerHTML = stars(120, 77, 1920);
 { const G = g('#0b0c1c', '#221d42'); $('s9svg').innerHTML = `<defs>${G.def}<filter id="gl9"><feGaussianBlur stdDeviation="8"/></filter></defs><rect width="1080" height="1920" fill="url(#${G.id})"/>${stars(120, 9, 1920)}
   <g id="glow9" filter="url(#gl9)" opacity="0">${clockRing(540, 620, 280, 'tk9g')}</g>${clockRing(540, 620, 280, 'tk9')}
   <text x="540" y="590" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="44" fill="#f3c77a" letter-spacing="6" id="w9a">SIHAT</text>
@@ -237,7 +243,7 @@ const grainTiles = []; for (let k = 0; k < 4; k++) { const cv = document.createE
   for (let i = 0; i < img.data.length; i += 4) { const v = r() * 255; img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255; } cx.putImageData(img, 0, 0); grainTiles.push(cv.toDataURL()); }
 
 // Babak: [id, mula, tamat] dalam masa animasi asal
-const SC = [['s1', 0, 5.4], ['s2', 5.0, 11.4], ['s3', 11.0, 18.4], ['s4', 18.0, 26.4], ['s5', 26.0, 32.4], ['s6', 32.0, 40.4], ['s7', 40.0, 48.4], ['s8', 48.0, 57.4], ['s9', 57.0, 63.4], ['s10', 63.0, 70]];
+const SC = [['s1', 0, 5.4], ['s2', 5.0, 11.4], ['s3', 11.0, 18.4], ['s4', 18.0, 26.4], ['s5', 26.0, 32.4], ['s6', 32.0, 40.4], ['s7', 40.0, 48.4], ['s8', 48.0, 57.4], ['s9', 57.0, 63.4], ['s10', 63.0, 70.6], ['s11', 70.0, 74]];
 const XF = .7;
 
 // ================= Fungsi utama =================
@@ -337,6 +343,11 @@ window.seek = function (tNew) {
     ['e0', 'e1', 'e2'].forEach((id, i) => tf($(id), rise(t, [63.5, 65.1, 66.4][i], .9, 40)));
   }
 
+  // ---- S11 kad penutup ----
+  if (t > 69.9) {
+    tf($('u0'), rise(t, 70.5, .7, 30)); tf($('u1'), { ...rise(t, 70.9, .8, 40), s: 1 + .02 * Math.sin((t - 71) * 2) });
+    const sw = ease.io(prog(t, 71.4, 1.2)); $('u2').style.transform = `scaleX(${sw})`; $('u2').style.opacity = sw;
+  }
   // ---- Sari kata karaoke (masa video sebenar) ----
   const sub = $('sub');
   const lines = window.LINES || [];
