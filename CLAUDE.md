@@ -45,3 +45,10 @@ dengan kod HTML/CSS/JS dan dirender frame demi frame ke MP4.
 - Kandungan Islamik: senyapkan gendang/melodi semasa ayat Al-Quran dan lafaz selawat (dengung sahaja).
 - SFX diletak ikut masa animasi asal melalui `T(old)` (songsang TIMEMAP): whoosh peralihan, impact tajuk, pop, tik huruf/kiraan, chime.
 - Campuran: muzik volume 0.32 + `sidechaincompress` dengan suara, sfx 0.55, akhir `loudnorm=I=-14` (standard TikTok/Reels).
+
+## ElevenLabs terus dari sesi (connector) + Whisper
+- Suara pengguna: "afif" (voice_id vPJVeLy3pkyFBXdpE10w), model eleven_v4, guna `[pause]` antara ayat.
+- Muat turun audio dari `elevenlabsusercontent.com` (hos dah dibenarkan dalam persekitaran claude-video).
+- Masa perkataan: `whisper.load_model("small").transcribe(f, language="ar", word_timestamps=True)` — tepat untuk Arab.
+- Projek rujukan: end-project/makhraj-syafatan/ (rajah SVG kepala, bibir bergerak ikut huruf, timemap.json kongsi dengan bunyi.py).
+- Kandungan tajwid: muzik lembut sahaja (dengung + oud, tiada gendang).
