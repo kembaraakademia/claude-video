@@ -52,3 +52,9 @@ dengan kod HTML/CSS/JS dan dirender frame demi frame ke MP4.
 - Masa perkataan: `whisper.load_model("small").transcribe(f, language="ar", word_timestamps=True)` — tepat untuk Arab.
 - Projek rujukan: end-project/makhraj-syafatan/ (rajah SVG kepala, bibir bergerak ikut huruf, timemap.json kongsi dengan bunyi.py).
 - Kandungan tajwid: muzik lembut sahaja (dengung + oud, tiada gendang).
+
+## Promo korporat (rujukan: end-project/suara-fbk/)
+- Suara "Fikri" (voice_id k7kO1tNUtp0taoKsbUPl) untuk promo; "afif" (vPJVeLy3pkyFBXdpE10w) untuk cerita/tajwid.
+- Tag gaya dalam kurungan di awal prompt kadang dibaca kuat oleh v4 — semak transkrip Whisper, pilih versi yang bersih.
+- Logo pengguna (PNG lutsinar) disimpan dalam `aset/` dan dipapar dengan <img>.
+- TIMEMAP disimpan dalam timemap.json + subs.js (window.TIMEMAP) supaya scene & bunyi.py guna peta yang sama.
