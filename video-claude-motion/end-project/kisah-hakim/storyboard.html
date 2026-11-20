@@ -1,0 +1,166 @@
+<title>24 Jam Hakim</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;700&family=Amiri:wght@700&display=swap">
+<style>
+/* Layout: papan cerita menegak — setiap babak satu baris: lakaran 9:16 di kiri, butiran di kanan; bertindan pada telefon. */
+:root {
+  --bg: #12142a; --panel: #1b1e38; --line: #2e3258; --fg: #ece6da; --muted: #a39fb8;
+  --lamp: #f3c77a; --dusk: #6d5a9c; --red: #d9655a;
+  --serif: "Cormorant Garamond", Georgia, serif; --sans: "Manrope", system-ui, sans-serif; --ar: "Amiri", "Times New Roman", serif;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 15px; line-height: 1.6; }
+.wrap { max-width: 980px; margin: 0 auto; padding-block: 48px 72px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header { display: grid; gap: 10px; margin-bottom: 36px; }
+.eyebrow { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--lamp); }
+h1 { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: clamp(40px, 7vw, 64px); line-height: 1; margin: 0; text-wrap: balance; }
+.lede { color: var(--muted); max-width: 62ch; margin: 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.meta span { border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; font-size: 13px; color: var(--muted); }
+.style { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin: 0 0 40px; }
+.style div { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; min-width: 0; }
+.style b { display: block; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--lamp); margin-bottom: 4px; font-weight: 700; }
+.style p { margin: 0; color: var(--muted); font-size: 14px; }
+.swatches { display: flex; gap: 6px; margin-top: 8px; }
+.swatches i { width: 22px; height: 22px; border-radius: 50%; border: 1px solid #ffffff22; }
+.scene { display: grid; grid-template-columns: 170px 1fr; gap: 24px; padding: 26px 0; border-top: 1px solid var(--line); }
+.thumb { width: 170px; max-width: 100%; aspect-ratio: 9 / 16; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: #0d0f20; }
+.thumb svg { display: block; width: 100%; height: 100%; }
+.info { min-width: 0; display: grid; gap: 10px; align-content: start; }
+.head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.num { font-family: var(--serif); font-size: 15px; color: var(--lamp); font-variant-numeric: tabular-nums; }
+.head h2 { margin: 0; font-family: var(--serif); font-size: 28px; font-weight: 600; }
+.time { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; margin-left: auto; }
+.vo { font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.35; margin: 0; }
+.vo span { color: var(--lamp); }
+.arab { font-family: var(--ar); font-size: 26px; direction: rtl; color: var(--lamp); margin: 0; line-height: 1.7; }
+dl { display: grid; grid-template-columns: 92px 1fr; gap: 6px 14px; margin: 0; font-size: 14px; }
+dt { color: var(--lamp); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; padding-top: 2px; }
+dd { margin: 0; color: var(--muted); min-width: 0; }
+.opt { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; border: 1px solid var(--dusk); color: #c8b9ee; border-radius: 999px; padding: 1px 9px; }
+.ask { margin-top: 40px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; }
+.ask h3 { margin: 0 0 10px; font-family: var(--serif); font-size: 26px; }
+.ask ol { margin: 0; padding-left: 20px; color: var(--muted); display: grid; gap: 6px; }
+.ask b { color: var(--fg); }
+@media (max-width: 560px) {
+  .scene { grid-template-columns: 1fr; }
+  .thumb { width: 150px; }
+  dl { grid-template-columns: 1fr; }
+  dt { padding-top: 6px; }
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Storyboard · Motion graphic 9:16</div>
+    <h1>24 Jam Hakim</h1>
+    <p class="lede">Kisah seorang yang menggunakan masanya untuk membantu orang lain. Bila dia sendiri ditimpa kesusahan, Allah hantar pertolongan melalui orang-orang yang pernah dia bantu.</p>
+    <div class="meta"><span>± 70 saat</span><span>1080 × 1920</span><span>10 babak</span><span>Suara latar Bahasa Melayu</span></div>
+  </header>
+
+  <section class="style" aria-label="Gaya visual">
+    <div><b>Rupa</b><p>Ilustrasi rata dan sinematik, gelap ungu-biru senja, cahaya lampu kuning hangat. Watak ringkas berkopiah, muka tidak terperinci.</p>
+      <div class="swatches"><i style="background:#12142a"></i><i style="background:#2b2a52"></i><i style="background:#6d5a9c"></i><i style="background:#f3c77a"></i><i style="background:#ece6da"></i></div></div>
+    <div><b>Kamera</b><p>Gerak perlahan: tolak masuk ke skrin telefon, pan tingkap, zum keluar ke langit berbintang. Zarah cahaya terapung.</p></div>
+    <div><b>Teks</b><p>Sari kata serif italik di bawah, menyala perkataan demi perkataan ikut suara (karaoke). Kotak hadis berbingkai sudut.</p></div>
+    <div><b>Bunyi</b><p>Pad ambien lembut + nada piano ringkas. Kesan bunyi: tik jam, klik lampu, hujan, enjin gagal, notifikasi.</p></div>
+  </section>
+
+  <div id="scenes"></div>
+
+  <section class="ask">
+    <h3>Perlu keputusan anda</h3>
+    <ol>
+      <li><b>Suara:</b> guna suara “afif” (Bahasa Melayu) atau suara lain dalam ElevenLabs?</li>
+      <li><b>Nama watak:</b> Hakim, Adam dan Pak Cik Salleh semuanya rekaan. Nak tukar?</li>
+      <li><b>Babak 9 (hadis masa lapang):</b> kekalkan, atau buang supaya video lebih pendek (± 63 saat)?</li>
+      <li><b>Kisah ujian (babak 6):</b> ibu sakit + kereta rosak, atau ujian lain?</li>
+    </ol>
+  </section>
+</div>
+
+<script>
+// Lakaran ringkas setiap babak (viewBox 90×160)
+const bg = (a, b) => { const id = 'g' + Math.random().toString(36).slice(2, 8); return `<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="90" height="160" fill="url(#${id})"/>`; };
+const stars = n => { let s = ''; for (let i = 0; i < n; i++) s += `<circle cx="${(i * 37) % 90}" cy="${(i * 53) % 90}" r=".5" fill="#ece6da" opacity=".6"/>`; return s; };
+const person = (x, y, s = 1, c = '#3a3f6e') => `<g transform="translate(${x},${y}) scale(${s})"><circle cy="-15" r="3.2" fill="#c9a07a"/><path d="M-3.4,-17 a3.4,3 0 0 1 6.8,0z" fill="#ece6da"/><rect x="-4" y="-11" width="8" height="12" rx="2" fill="${c}"/><rect x="-3.4" y="1" width="2.6" height="9" fill="#24284a"/><rect x=".8" y="1" width="2.6" height="9" fill="#24284a"/></g>`;
+const room = (light = .9) => `${bg('#1d1f3d', '#15172e')}<rect x="8" y="30" width="74" height="70" fill="#22254a"/><rect x="48" y="40" width="24" height="30" fill="#2b3a6a"/><g fill="#f3c77a" opacity=".8"><rect x="52" y="58" width="2" height="3"/><rect x="58" y="54" width="2" height="3"/><rect x="64" y="60" width="2" height="3"/></g><ellipse cx="45" cy="32" rx="6" ry="1.6" fill="#f3c77a" opacity="${light}"/><path d="M39,32 L22,100 L68,100 L51,32z" fill="#f3c77a" opacity="${light * .12}"/><ellipse cx="45" cy="104" rx="30" ry="5" fill="#5a2f3c" opacity=".6"/>`;
+const sub = t => `<text x="45" y="138" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="6" fill="#ece6da">${t}</text>`;
+const phone = (x, y, w, h, inner) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="4" fill="#0f1122" stroke="#4a4f80"/>${inner}`;
+
+const SCENES = [
+  { t: 'Dua Puluh Empat Jam', time: '0:00 – 0:05',
+    vo: 'Setiap orang diberi <span>dua puluh empat jam</span> yang sama.',
+    vis: 'Langit berbintang. Jam bulat 24 tanda menyala satu demi satu, jarum berpusing laju lalu berhenti.',
+    fx: 'Tanda jam menyala berturutan, zum keluar perlahan, zarah cahaya.', snd: 'Tik-tok jam, pad ambien masuk.',
+    svg: () => `${bg('#0d0f20', '#1d1a3a')}${stars(30)}<circle cx="45" cy="70" r="26" fill="none" stroke="#4a4f80"/>${Array.from({ length: 24 }, (_, i) => { const a = i / 24 * Math.PI * 2; return `<circle cx="${45 + Math.cos(a) * 26}" cy="${70 + Math.sin(a) * 26}" r="1.2" fill="${i < 17 ? '#f3c77a' : '#4a4f80'}"/>`; }).join('')}<line x1="45" y1="70" x2="45" y2="52" stroke="#ece6da" stroke-width="1.2"/><line x1="45" y1="70" x2="58" y2="74" stroke="#f3c77a" stroke-width="1.2"/>${sub('24 jam yang sama.')}` },
+  { t: 'Sebelum Subuh', time: '0:05 – 0:11',
+    vo: 'Hakim memulakan harinya <span>sebelum Subuh</span>.',
+    vis: 'Bilik gelap, lampu siling menyala. Hakim bangun, bentang sejadah dan solat. Langit di tingkap berubah dari biru gelap ke ungu fajar.',
+    fx: 'Lampu berkelip lalu menyala, gradien tingkap beralih, kamera tolak masuk perlahan.', snd: 'Klik suis lampu, burung jauh.',
+    svg: () => `${room()}<rect x="22" y="94" width="26" height="6" rx="1" fill="#6d5a9c"/>${person(34, 92, .9)}${sub('Sebelum Subuh...')}` },
+  { t: 'Senarai Hari Ini', time: '0:11 – 0:18',
+    vo: 'Dia susun masanya. <span>Bukan untuk dirinya sahaja.</span>',
+    vis: 'Telefon terapung ke tengah. Senarai: Kerja 9–5 · Hantar ibu ke klinik · Ajar Adam mengaji · Bantu Pak Cik Salleh.',
+    fx: 'Kamera masuk ke skrin, setiap item ditanda satu demi satu.', snd: 'Bunyi tik ringan setiap tanda.',
+    svg: () => `${bg('#15172e', '#2b2a52')}${phone(20, 22, 50, 92, [0, 1, 2, 3].map(i => `<rect x="26" y="${36 + i * 16}" width="6" height="6" rx="1" fill="${i < 3 ? '#f3c77a' : 'none'}" stroke="#f3c77a"/><rect x="36" y="${38 + i * 16}" width="${26 - i * 3}" height="2" fill="#a39fb8"/>`).join(''))}${sub('Bukan untuk dirinya sahaja.')}` },
+  { t: 'Lima Minit di Sini', time: '0:18 – 0:26',
+    vo: 'Masa rehatnya diberi kepada orang lain. <span>Lima minit di sini, setengah jam di sana.</span>',
+    vis: 'Tiga kad meluncur masuk: (1) di perhentian bas, Hakim bawa barang Pak Cik Salleh; (2) di pejabat, betulkan komputer rakan; (3) waktu malam, ajar Adam baca Iqra.',
+    fx: 'Grid kad slide-in berperingkat, setiap kad ada gerak kecil (bas lalu, skrin berkelip, halaman diselak).', snd: 'Swish setiap kad, ambien bandar halus.',
+    svg: () => `${bg('#15172e', '#2b2a52')}${[0, 1, 2].map(i => `<rect x="${8 + i * 26}" y="40" width="22" height="40" rx="2" fill="#22254a" stroke="#4a4f80"/>${person(19 + i * 26, 72, .6, ['#3a3f6e', '#6d5a9c', '#3a6e5e'][i])}`).join('')}${sub('Lima minit di sini...')}` },
+  { t: 'Hari Berganti Hari', time: '0:26 – 0:32',
+    vo: 'Hari berganti hari. Tiada siapa yang menghitung. <span>Kecuali Allah.</span>',
+    vis: 'Tingkap bandar: matahari dan bulan melengkung silih berganti. Kaunter “Hari 1 … Hari 90”. Kamera naik ke kubah bintang.',
+    fx: 'Timelapse langit, kaunter berpusing, zum ke buruj bintang.', snd: 'Pad naik perlahan.',
+    svg: () => `${bg('#0d0f20', '#2b2a52')}${stars(40)}<path d="M10,90 Q45,30 80,90" fill="none" stroke="#6d5a9c" stroke-dasharray="2 2"/><circle cx="62" cy="52" r="4" fill="#f3c77a"/><text x="45" y="112" text-anchor="middle" font-family="Manrope" font-weight="700" font-size="11" fill="#f3c77a">HARI 90</text>${sub('Kecuali Allah.')}` },
+  { t: 'Satu Malam', time: '0:32 – 0:40',
+    vo: 'Sehingga satu malam, <span>ibunya sakit tenat.</span> Keretanya pula enggan hidup.',
+    vis: 'Hujan malam. Telefon berdering “Ibu · 2:14 pagi”. Kereta di halaman, Hakim cuba hidupkan enjin, gagal. Tona merah malap.',
+    fx: 'Zarah hujan, goyang kamera kecil, lampu dashboard berkelip.', snd: 'Hujan, enjin gagal (klik-klik), degup jantung perlahan.',
+    svg: () => `${bg('#0d0f20', '#3a1f2e')}${Array.from({ length: 22 }, (_, i) => `<line x1="${(i * 41) % 90}" y1="${(i * 29) % 110}" x2="${(i * 41) % 90 - 2}" y2="${(i * 29) % 110 + 6}" stroke="#a39fb8" stroke-width=".4"/>`).join('')}<rect x="18" y="86" width="54" height="16" rx="5" fill="#2e3258"/><rect x="28" y="78" width="32" height="12" rx="4" fill="#2e3258"/><circle cx="30" cy="103" r="4" fill="#0d0f20"/><circle cx="60" cy="103" r="4" fill="#0d0f20"/><circle cx="20" cy="92" r="1.6" fill="#d9655a"/>${sub('Sehingga satu malam...')}` },
+  { t: 'Pertolongan Datang', time: '0:40 – 0:48',
+    vo: 'Lalu pertolongan datang. <span>Daripada orang-orang yang pernah dia bantu.</span>',
+    vis: 'Lampu kereta menyinar dari jauh: Pak Cik Salleh datang. Notifikasi bertimbun: “Abang datang sekarang” · “Esok aku ambil alih kerja kau” · “Kami doakan, makanan ada di pintu”.',
+    fx: 'Cahaya hangat membanjiri babak, notifikasi pop satu demi satu, hujan reda.', snd: 'Ping notifikasi, enjin kereta tiba, muzik naik.',
+    svg: () => `${bg('#1d1f3d', '#4a3a2e')}<path d="M0,96 L40,80 L40,92z" fill="#f3c77a" opacity=".35"/>${[0, 1, 2].map(i => `<rect x="${22 + i * 2}" y="${30 + i * 14}" width="50" height="11" rx="3" fill="#ece6da" opacity=".92"/><rect x="${26 + i * 2}" y="${34 + i * 14}" width="30" height="2" fill="#2b2a52"/>`).join('')}${person(60, 100, .9)}${sub('Pertolongan datang.')}` },
+  { t: 'Sabda Nabi ﷺ', time: '0:48 – 0:57',
+    vo: 'Rasulullah ﷺ bersabda: <span>Allah sentiasa menolong seorang hamba, selagi hamba itu menolong saudaranya.</span>',
+    ar: 'وَاللَّهُ فِي عَوْنِ الْعَبْدِ مَا كَانَ الْعَبْدُ فِي عَوْنِ أَخِيهِ', src: 'HR. Muslim, no. 2699',
+    vis: 'Masjid siluet waktu malam, pintu bercahaya. Kotak berbingkai sudut berisi teks Arab dan sumber di bawahnya.',
+    fx: 'Bingkai melukis sendiri, teks Arab muncul perkataan demi perkataan, cahaya pintu berdenyut.', snd: 'Muzik reda ke pad sahaja.',
+    svg: () => `${bg('#0d0f20', '#1d1f3d')}${stars(20)}<rect x="10" y="40" width="70" height="22" fill="none" stroke="#f3c77a" stroke-width=".6"/><text x="45" y="54" text-anchor="middle" font-family="Amiri" font-size="6" fill="#f3c77a">وَاللَّهُ فِي عَوْنِ الْعَبْدِ</text><path d="M30,120 a15,15 0 0 1 30,0z" fill="#22254a"/><rect x="28" y="118" width="34" height="14" fill="#22254a"/><rect x="42" y="122" width="6" height="10" rx="3" fill="#f3c77a"/>${sub('HR. Muslim 2699')}` },
+  { t: 'Dua Nikmat', time: '0:57 – 1:03', opt: true,
+    vo: 'Dua nikmat yang ramai manusia rugi padanya: <span>sihat dan masa lapang.</span>',
+    ar: 'نِعْمَتَانِ مَغْبُونٌ فِيهِمَا كَثِيرٌ مِنَ النَّاسِ: الصِّحَّةُ وَالْفَرَاغُ', src: 'HR. al-Bukhari, no. 6412',
+    vis: 'Jam 24 dari babak 1 kembali, kali ini semua tanda menyala penuh. Teks hadis di bawah jam.',
+    fx: 'Jam menyala penuh, zarah berkumpul ke tengah.', snd: 'Tik-tok kembali, perlahan.',
+    svg: () => `${bg('#0d0f20', '#1d1a3a')}<circle cx="45" cy="62" r="22" fill="none" stroke="#f3c77a"/>${Array.from({ length: 24 }, (_, i) => { const a = i / 24 * Math.PI * 2; return `<circle cx="${45 + Math.cos(a) * 22}" cy="${62 + Math.sin(a) * 22}" r="1.1" fill="#f3c77a"/>`; }).join('')}<text x="45" y="104" text-anchor="middle" font-family="Amiri" font-size="6" fill="#ece6da">الصِّحَّةُ وَالْفَرَاغُ</text>${sub('HR. al-Bukhari 6412')}` },
+  { t: 'Gunakan Masamu', time: '1:03 – 1:10',
+    vo: 'Gunakan masamu. Bantulah orang. <span>Allah akan membantumu.</span>',
+    vis: 'Kembali ke bilik Hakim, lampu hangat. Hakim mengajar Adam mengaji di meja. Teks penutup besar, lalu pudar ke gelap.',
+    fx: 'Kamera tarik keluar perlahan, lampu bersinar lembut, fade out.', snd: 'Nada piano penutup.',
+    svg: () => `${room(1)}<rect x="24" y="92" width="40" height="4" fill="#3a2f3c"/>${person(32, 92, .8)}${person(54, 94, .6, '#6d5a9c')}${sub('Allah akan membantumu.')}` },
+];
+
+const box = document.getElementById('scenes');
+SCENES.forEach((s, i) => {
+  const el = document.createElement('article');
+  el.className = 'scene';
+  el.innerHTML = `
+    <div class="thumb"><svg viewBox="0 0 90 160" role="img" aria-label="Lakaran babak ${i + 1}">${s.svg()}</svg></div>
+    <div class="info">
+      <div class="head"><span class="num">Babak ${i + 1}</span><h2>${s.t}</h2>${s.opt ? '<span class="opt">Pilihan</span>' : ''}<span class="time">${s.time}</span></div>
+      <p class="vo">“${s.vo}”</p>
+      ${s.ar ? `<p class="arab">${s.ar}</p>` : ''}
+      <dl>
+        <dt>Visual</dt><dd>${s.vis}</dd>
+        <dt>Kesan</dt><dd>${s.fx}</dd>
+        <dt>Bunyi</dt><dd>${s.snd}</dd>
+        ${s.src ? `<dt>Sumber</dt><dd>${s.src}</dd>` : ''}
+      </dl>
+    </div>`;
+  box.appendChild(el);
+});
+</script>
