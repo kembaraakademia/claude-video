@@ -122,10 +122,10 @@ svg text { font-family: Amiri; font-weight: 700; }
 <script>
 // ================= Konfigurasi =================
 window.WIDTH = 1080; window.HEIGHT = 1920;
-window.DURATION = 56; window.FPS = 30;
+window.DURATION = 52.9; window.FPS = 30;
 const ORIG_DURATION = 56;
 // Peta masa [video, animasi asal] — dilaraskan ikut suara latar
-const TIMEMAP = [[0, 0], [56, 56]];
+const TIMEMAP = [[0, 0], [14.0, 14.0], [16.0, 16.3], [18.65, 17.6], [21.6, 20.55], [22.7, 22.4], [24.6, 23.0], [26.55, 24.7], [27.45, 26.6], [28.3, 28.2], [30.3, 31.2], [30.6, 31.6], [31.95, 32.0], [33.84, 33.2], [35.6, 37.4], [36.3, 38.6], [37.2, 39.4], [37.7, 40.2], [39.4, 41.4], [41.45, 43.0], [43.6, 46.6], [44.5, 47.6], [52.9, 56]];
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 function mapTime(t) {
   for (let i = 1; i < TIMEMAP.length; i++) {
@@ -199,8 +199,8 @@ function setLips(w) { // w = {rest:..,close:..,..} jumlah 1
   S($('lipL'), { cx: Lw[0], cy: Lw[1], rx: Lw[2], ry: Lw[3] });
 }
 // Peralihan keadaan bibir: senarai [masa, keadaan]
-const LIPTL = [[0, 'rest'], [23.0, 'close'], [24.0, 'rest'], [24.7, 'close'], [25.7, 'rest'], [26.6, 'close'], [27.6, 'rest'], [28.2, 'close'],
-  [31.2, 'rest'], [32.0, 'round'], [37.4, 'rest'], [38.6, 'f'], [46.6, 'rest']];
+const LIPTL = [[0, 'rest'], [23.0, 'close'], [24.0, 'rest'], [24.55, 'close'], [25.7, 'rest'], [26.45, 'close'], [27.6, 'rest'], [28.2, 'close'],
+  [31.2, 'rest'], [32.0, 'round'], [37.4, 'rest'], [39.4, 'f'], [46.6, 'rest']];
 function lipsAt(t) {
   let i = 0; while (i + 1 < LIPTL.length && LIPTL[i + 1][0] <= t) i++;
   const [t0, a] = LIPTL[i]; const prev = i > 0 ? LIPTL[i - 1][1] : a;
@@ -246,7 +246,7 @@ const SUBS = [[6.6, 15.6, 'Makhraj huruf ada lima'], [16.2, 21.6, 'Dari dua bibi
   [38.6, 46.4, 'Fa: dalam bibir bawah menyentuh hujung gigi atas'], [48.2, 49.6, 'Kuasai makhraj, baguskan bacaan al-Quran']];
 
 // Gelombang bunyi dari bibir (wajah menghadap kiri)
-const WAVES = [[24.7, 'ب'], [26.6, 'م'], [33.2, 'و'], [40.6, 'ف']];
+const WAVES = [[24.7, 'ب'], [26.6, 'م'], [33.2, 'و'], [43.0, 'ف']];
 
 // Zum (viewBox) : [masa, x, y, w, h]
 const VB_FULL = [100, 180, 640, 540], VB_ZOOM = [166, 392, 270, 228];
@@ -299,7 +299,7 @@ window.seek = function (tNew) {
   $('pill').style.transform = `scaleX(${Math.max(0, pillIn)})`; $('pill').style.opacity = clamp(prog(t, 6.6, .2));
   inOut($('t1'), t, 7.0, 15.9, fx.blurIn);
   inOut($('t2'), t, 16.3, 47.2, fx.blurIn);
-  [...$('t2').querySelectorAll('.L')].forEach((l, i) => { const st = 17.6 + i * .8; const p = prog(t, st, .5); tf(l, { s: Math.max(0, ease.outBack(p)) * (1 + .25 * Math.sin(prog(t, st, .9) * Math.PI)), o: clamp(p * 4) }); });
+  [...$('t2').querySelectorAll('.L')].forEach((l, i) => { const st = 17.6 + i * .96; const p = prog(t, st, .5); tf(l, { s: Math.max(0, ease.outBack(p)) * (1 + .25 * Math.sin(prog(t, st, .9) * Math.PI)), o: clamp(p * 4) }); });
   inOut($('t3'), t, 47.6, 60, fx.blurIn);
 
   // Rajah: lukis garis luar lalu isi
@@ -342,7 +342,7 @@ window.seek = function (tNew) {
 
   // Huruf besar
   let bl = null;
-  for (const [st, ch] of WAVES) if (t >= st - .1 && t < st + (ch === 'ف' ? 5.6 : ch === 'و' ? 4.2 : 1.8)) bl = [st, ch];
+  for (const [st, ch] of WAVES) if (t >= st - .1 && t < st + (ch === 'ف' ? 3.6 : ch === 'و' ? 4.2 : 1.8)) bl = [st, ch];
   if (bl) { $('bigT').textContent = bl[1]; const o = fx.pop(t, bl[0], .5); tf($('bigL'), { ...o, y: Math.sin(t * 2) * 8 }); $('bigL').style.visibility = 'visible'; }
   else { $('bigL').style.visibility = 'hidden'; }
 
@@ -369,19 +369,19 @@ window.seek = function (tNew) {
   }
   const aW = clamp(prog(t, 33.6, .4)) * (1 - prog(t, 37.4, .3));
   if (aW > 0) an += `<g opacity="${aW}"><circle cx="300" cy="504" r="${26 + Math.sin(t * 4) * 1.5}" fill="none" stroke="#1f4f86" stroke-width="2.5" stroke-dasharray="5 5"/><text x="268" y="${470}" font-size="15" text-anchor="end" fill="#1f4f86">انْضِمَامٌ</text></g>`;
-  const aF = clamp(prog(t, 41.4, .4)) * (1 - prog(t, 46.4, .3));
+  const aF = clamp(prog(t, 40.2, .4)) * (1 - prog(t, 46.4, .3));
   if (aF > 0) {
-    const p2 = clamp(prog(t, 42.4, .4));
+    const p2 = clamp(prog(t, 41.4, .4));
     an += `<g opacity="${aF}" fill="#1f4f86" stroke="#1f4f86" stroke-width="2">
-      <circle cx="338" cy="490" r="${5 + Math.sin(t * 6)}" fill="#ffd54a" stroke="#1f4f86"/>
-      <line x1="338" y1="490" x2="292" y2="446"/><text x="290" y="440" font-size="12" text-anchor="end" stroke="none">أَطْرَافُ الثَّنَايَا العُلْيَا</text>
-      <g opacity="${p2}"><line x1="330" y1="506" x2="292" y2="560"/><text x="290" y="572" font-size="12" text-anchor="end" stroke="none">بَاطِنُ الشَّفَةِ السُّفْلَى</text></g></g>`;
-    $('toothU').style.filter = `url(#glow) brightness(${1.1 + .1 * Math.sin(t * 6)})`;
+      <line x1="330" y1="506" x2="292" y2="560"/><text x="290" y="572" font-size="12" text-anchor="end" stroke="none">بَاطِنُ الشَّفَةِ السُّفْلَى</text>
+      <g opacity="${p2}"><circle cx="338" cy="490" r="${5 + Math.sin(t * 6)}" fill="#ffd54a" stroke="#1f4f86"/>
+      <line x1="338" y1="490" x2="292" y2="446"/><text x="290" y="440" font-size="12" text-anchor="end" stroke="none">أَطْرَافُ الثَّنَايَا العُلْيَا</text></g></g>`;
+    $('toothU').style.filter = p2 > 0 ? `url(#glow) brightness(${1.1 + .1 * Math.sin(t * 6)})` : 'none';
   } else $('toothU').style.filter = 'none';
   $('annot').innerHTML = an;
   // ف: hembusan udara halus
-  if (t > 40.6 && t < 42.6) {
-    let air = ''; for (let k = 0; k < 4; k++) { const p = (t - 40.6 - k * .12) % .9 / .9; if (p > 0) air += `<line x1="${300 - p * 50}" y1="${492 + k * 5}" x2="${290 - p * 50}" y2="${492 + k * 5}" stroke="#7cb7e6" stroke-width="2" opacity="${1 - p}"/>`; }
+  if (t > 43.0 && t < 45.0) {
+    let air = ''; for (let k = 0; k < 4; k++) { const p = (t - 43.0 - k * .12) % .9 / .9; if (p > 0) air += `<line x1="${300 - p * 50}" y1="${492 + k * 5}" x2="${290 - p * 50}" y2="${492 + k * 5}" stroke="#7cb7e6" stroke-width="2" opacity="${1 - p}"/>`; }
     $('annot').innerHTML += air;
   }
 
