@@ -120,8 +120,8 @@ html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; backgro
     <div class="badge" style="left:668px;top:44px;width:340px;height:172px;transform:skewX(-10deg)"><div class="abs mi goldtxt" style="left:0;width:100%;top:6px;text-align:center;font-weight:900;font-size:132px;letter-spacing:-4px;line-height:1.1;transform:skewX(10deg)">FBK</div></div>
   </div>
   <div class="c mi" id="eTag" style="top:860px;font-weight:600;font-size:52px;color:#5b0a22">Inspirasi <span style="color:#d9a640">•</span> Ilmu <span style="color:#d9a640">•</span> Aspirasi</div>
-  <div class="ribbon" id="eCta" style="top:1020px;width:640px;height:120px;margin-left:-320px;border-radius:60px;background:linear-gradient(180deg,#a3123f,#6a0c27);border:5px solid #d9a640;box-shadow:0 18px 40px rgba(78,6,25,.35);overflow:hidden">
-    <div class="mo" style="font-weight:800;font-size:48px;color:#fff;letter-spacing:4px">IKUTI SEKARANG</div>
+  <div class="ribbon" id="eCta" style="top:1020px;width:820px;height:120px;margin-left:-410px;border-radius:60px;background:linear-gradient(180deg,#a3123f,#6a0c27);border:5px solid #d9a640;box-shadow:0 18px 40px rgba(78,6,25,.35);overflow:hidden">
+    <div class="mo" style="font-weight:800;font-size:46px;color:#fff;letter-spacing:4px">AKAN KE UDARA NANTI</div>
     <div class="abs" id="shC" style="left:-200px;top:0;width:120px;height:120px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent)"></div>
   </div>
   <div class="abs" id="eLogos" style="left:40px;top:1270px;width:1000px;height:260px;display:flex;align-items:center;justify-content:center;gap:50px">
@@ -283,7 +283,7 @@ window.seek = function (tNew) {
     const lp = ease.back(prog(t, 30.8, .7)); tf($('eLogo'), { s: Math.max(0, lerp(1.6, 1, ease.out(prog(t, 30.8, .7)))), o: clamp(prog(t, 30.8, .3) * 3), y: Math.sin(t * 1.5) * 5 });
     tf($('eTag'), rise(t, 31.6, .6, 30));
     const cp = pop(t, 32.4, .6); tf($('eCta'), { s: cp.s * (1 + .03 * Math.sin((t - 33) * 4)), o: cp.o });
-    $('shC').style.left = `${lerp(-200, 800, prog(t, 33.2, .8) )}px`;
+    $('shC').style.left = `${lerp(-200, 1000, prog(t, 33.2, .8) )}px`;
     tf($('eLogos'), rise(t, 33.0, .7, 40));
   }
 };
