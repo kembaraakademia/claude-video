@@ -7,7 +7,14 @@ import numpy as np
 from scipy.signal import butter, sosfilt
 from scipy.io import wavfile
 
-SR, DUR = 48000, 45.0
+import json
+SR = 48000
+TIMEMAP = [tuple(x) for x in json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'timemap.json')))]
+DUR = TIMEMAP[-1][0]
+def T(old):
+    for (n0, o0), (n1, o1) in zip(TIMEMAP, TIMEMAP[1:]):
+        if old <= o1: return n0 + (n1 - n0) * (old - o0) / (o1 - o0)
+    return DUR
 N = int(SR * DUR); t = np.arange(N) / SR
 rng = np.random.default_rng(124)
 def bp(x, lo, hi): return sosfilt(butter(2, [lo, hi], btype='band', fs=SR, output='sos'), x)
@@ -73,7 +80,7 @@ music = np.zeros((N, 2))
 BPM = 124; beat = 60 / BPM; bar = 4 * beat
 HIJ = [62, 63, 66, 67, 69, 70, 72, 74]       # D Hijaz
 PROG = [(50, [62, 66, 69]), (48, [60, 63, 67]), (46, [58, 62, 65]), (50, [62, 66, 69])]  # D, Cm, Bb, D
-FULL = 5.0
+FULL = T(5.0)
 # pad
 pad = np.zeros(N)
 for k in range(int(DUR / bar) + 1):
@@ -111,31 +118,31 @@ for bi in range(int(DUR / bar) + 1):
 music *= np.clip((DUR - t) / 1.2, 0, 1)[:, None]
 # reda sedikit ketika transisi utama (ruang untuk kesan bunyi)
 for s0 in (9.5, 18.1, 26.7, 35.3):
-    m = 1 - .5 * np.exp(-((t - s0 - .3) / .25) ** 2); music *= m[:, None]
+    m = 1 - .5 * np.exp(-((t - T(s0 + .3)) / .25) ** 2); music *= m[:, None]
 
 # ---------- KESAN BUNYI ----------
 sfx = np.zeros((N, 2))
 WS = [10.0, 18.6, 27.2]
-add(sfx, impact(), .3, .8); add(sfx, shimmer(), .6, .4); add(sfx, pop(700), 1.2, .35); add(sfx, impact(False), 1.6, .6)
-for i in range(3): add(sfx, pop(650 + i * 150), 3.0 + i * .2, .4, (-.5, 0, .5)[i])
-add(sfx, whoosh(.5), 4.25, .5)
-add(sfx, impact(), 5.0, .7); add(sfx, pop(900), 5.6, .45)
-for i in range(3): add(sfx, tick(2000 + i * 300), 6.1 + i * .25, .4)
-for i in range(3): add(sfx, pop(500 + i * 120), 7.2 + i * .25, .45, (-.6, 0, .6)[i])
-add(sfx, shimmer(), 8.6, .4); add(sfx, riser(1.2), 8.9, .45)
+add(sfx, impact(), T(.3), .8); add(sfx, shimmer(), T(.6), .4); add(sfx, pop(700), T(1.2), .35); add(sfx, impact(False), T(1.6), .6)
+for i in range(3): add(sfx, pop(650 + i * 150), T(3.0 + i * .2), .4, (-.5, 0, .5)[i])
+add(sfx, whoosh(.5), T(4.25), .5)
+add(sfx, impact(), T(5.0), .7); add(sfx, pop(900), T(5.6), .45)
+for i in range(3): add(sfx, tick(2000 + i * 300), T(6.1 + i * .25), .4)
+for i in range(3): add(sfx, pop(500 + i * 120), T(7.2 + i * .25), .45, (-.6, 0, .6)[i])
+add(sfx, shimmer(), T(8.6), .4); add(sfx, riser(1.2), T(8.9), .45)
 for s in WS:
-    add(sfx, impact(), s, .65); add(sfx, pop(800), s + .2, .3); add(sfx, impact(False), s + .35, .5)
-    add(sfx, whoosh(.6), s + .6, .45); add(sfx, pop(600), s + 1.2, .45); add(sfx, shimmer(), s + 1.6, .25)
-    add(sfx, impact(False), s + 2.0, .65)
-    for k in range(4): add(sfx, tick(2200 + k * 200), s + 2.8 + k * .22, .25)
-    add(sfx, riser(1.0), s + 7.6, .4); add(sfx, whoosh(.5), s + 8.15, .5)
-add(sfx, impact(), 35.8, .7); add(sfx, pop(800), 36.0, .4); add(sfx, impact(False), 36.2, .55)
-for i in range(3): add(sfx, whoosh(.5), 36.6 + i * .25, .35, (-.5, 0, .5)[i])
-for i in range(3): add(sfx, tick(1800 + i * 400), 38.0 + i * .7, .45); add(sfx, shimmer(), 38.0 + i * .7, .15)
-add(sfx, pop(900), 40.0, .4); add(sfx, whoosh(.5), 40.35, .45)
-add(sfx, impact(), 40.8, .6); add(sfx, pop(700), 42.0, .4)
-for i in range(5): add(sfx, tick(2400 + i * 150), 42.4 + i * .12, .3)
-add(sfx, shimmer(), 43.4, .45)
+    add(sfx, impact(), T(s), .65); add(sfx, pop(800), T(s + .2), .3); add(sfx, impact(False), T(s + .35), .5)
+    add(sfx, whoosh(.6), T(s + .6), .45); add(sfx, pop(600), T(s + 1.2), .45); add(sfx, shimmer(), T(s + 1.6), .25)
+    add(sfx, impact(False), T(s + 2.0), .65)
+    for k in range(4): add(sfx, tick(2200 + k * 200), T(s + 2.8 + k * .22), .25)
+    add(sfx, riser(1.0), T(s + 7.6), .4); add(sfx, whoosh(.5), T(s + 8.15), .5)
+add(sfx, impact(), T(35.8), .7); add(sfx, pop(800), T(36.0), .4); add(sfx, impact(False), T(36.2), .55)
+for i in range(3): add(sfx, whoosh(.5), T(36.6 + i * .25), .35, (-.5, 0, .5)[i])
+for i in range(3): add(sfx, tick(1800 + i * 400), T(38.0 + i * .7), .45); add(sfx, shimmer(), T(38.0 + i * .7), .15)
+add(sfx, pop(900), T(40.0), .4); add(sfx, whoosh(.5), T(40.35), .45)
+add(sfx, impact(), T(40.8), .6); add(sfx, pop(700), T(42.0), .4)
+for i in range(5): add(sfx, tick(2400 + i * 150), T(42.4 + i * .12), .3)
+add(sfx, shimmer(), T(43.4), .45)
 
 out = sys.argv[1] if len(sys.argv) > 1 else '.'
 os.makedirs(out, exist_ok=True)
