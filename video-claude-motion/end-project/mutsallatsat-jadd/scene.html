@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<title>Muthallathat Al-Jadd</title>
+<style>
+@font-face { font-family: Amiri; src: url(../../style/fonts/Amiri-Bold.ttf); font-weight: 700; }
+@font-face { font-family: Mon; src: url(../../style/fonts/Montserrat.ttf); font-weight: 100 900; }
+@font-face { font-family: MonI; src: url(../../style/fonts/Montserrat-Italic.ttf); font-weight: 100 900; font-style: italic; }
+:root { --gold: #e7b552; --gold2: #ffe6a6; --ink: #07110e; --cream: #fbf1dc; --red: #d9364b; --green: #1fa36a; --blue: #3a6fd8; }
+html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #050b09; }
+#stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #050b09; }
+.abs { position: absolute; }
+.c { position: absolute; left: 0; width: 100%; text-align: center; white-space: nowrap; }
+.ar { font-family: Amiri; font-weight: 700; }
+.mo { font-family: Mon; }
+.gt { background: linear-gradient(180deg, #fff3cc 0%, #f1c86a 45%, #b9842c 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.glow { filter: drop-shadow(0 0 18px rgba(240,190,90,.55)) drop-shadow(0 6px 0 rgba(0,0,0,.35)); }
+.pill { display: inline-flex; align-items: center; gap: 12px; padding: 14px 34px; border-radius: 999px; font-family: Mon; font-weight: 800; letter-spacing: 3px; font-size: 30px; }
+.chip { position: absolute; padding: 14px 30px; border-radius: 22px; font-family: Mon; font-weight: 800; font-size: 34px; color: #fff; border: 3px solid rgba(255,255,255,.25); box-shadow: 0 12px 30px rgba(0,0,0,.4); white-space: nowrap; }
+.bc { position: absolute; width: 170px; height: 170px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 6px solid #fff; box-shadow: 0 0 40px rgba(0,0,0,.4); }
+.bc span { font-family: Amiri; font-weight: 700; font-size: 92px; color: #fff; margin-top: -26px; }
+.blab { position: absolute; width: 260px; text-align: center; font-family: Mon; font-weight: 800; font-size: 28px; color: #fff; }
+.blab i { display: block; font-style: normal; font-weight: 500; font-size: 22px; color: rgba(255,255,255,.65); }
+.sec { position: absolute; inset: 0; visibility: hidden; }
+.frame { position: absolute; left: 180px; top: 640px; width: 720px; height: 740px; border-radius: 360px 360px 40px 40px; overflow: hidden;
+  border: 8px solid var(--gold); box-shadow: 0 0 0 4px rgba(0,0,0,.4), 0 30px 80px rgba(0,0,0,.6); background: radial-gradient(circle at 50% 40%, #fff6dd, #e9c98d); }
+.frame img { position: absolute; left: 50%; top: 52%; width: 92%; transform-origin: center; }
+.badge { position: absolute; width: 150px; height: 150px; border-radius: 50%; border: 6px solid #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 40px rgba(0,0,0,.5); }
+.badge span { font-family: Amiri; font-weight: 700; font-size: 84px; color: #fff; margin-top: -22px; }
+.mini { position: absolute; top: 640px; width: 316px; height: 640px; border-radius: 160px 160px 28px 28px; border: 5px solid var(--gold); background: linear-gradient(180deg, rgba(20,30,26,.92), rgba(5,10,8,.95)); overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,.5); }
+.mini .w { position: absolute; left: 0; width: 100%; top: 40px; text-align: center; font-family: Amiri; font-weight: 700; font-size: 96px; }
+.mini .im { position: absolute; left: 28px; top: 210px; width: 260px; height: 260px; border-radius: 50%; overflow: hidden; border: 4px solid var(--gold); background: #f5e2b8; }
+.mini .im img { position: absolute; left: 50%; top: 50%; width: 120%; transform: translate(-50%, -48%); }
+.mini .m { position: absolute; left: 0; width: 100%; top: 500px; text-align: center; font-family: Mon; font-weight: 900; font-size: 34px; color: #fff; letter-spacing: 1px; }
+.mini .h { position: absolute; left: 0; width: 100%; top: 556px; text-align: center; font-family: Mon; font-weight: 600; font-size: 22px; color: rgba(255,255,255,.6); }
+.soc { width: 84px; height: 84px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; }
+#grain { position: absolute; inset: 0; z-index: 50; pointer-events: none; mix-blend-mode: overlay; opacity: .25; }
+#flash { position: absolute; inset: 0; z-index: 55; background: #fff; opacity: 0; pointer-events: none; }
+#tint { position: absolute; inset: 0; z-index: 2; pointer-events: none; mix-blend-mode: screen; }
+#fade { position: absolute; inset: 0; z-index: 60; background: #000; opacity: 0; }
+#vig { position: absolute; inset: 0; z-index: 48; pointer-events: none; background: radial-gradient(ellipse at 50% 45%, transparent 45%, rgba(0,0,0,.65)); }
+</style>
+</head>
+<body>
+<div id="stage">
+ <div class="abs" id="cam" style="inset:0;transform-origin:540px 900px">
+  <!-- ===== LATAR WOW ===== -->
+  <div class="abs" id="bg" style="inset:0;background:radial-gradient(circle at 50% 42%,#123a2e 0%,#0a1d17 45%,#040907 100%)"></div>
+  <div class="abs" id="floorWrap" style="left:-540px;top:1100px;width:2160px;height:1400px;perspective:900px;perspective-origin:50% 0">
+    <div class="abs" id="floor" style="left:0;top:0;width:2160px;height:2400px;transform-origin:50% 0;transform:rotateX(68deg)">
+      <svg width="2160" height="2400"><defs><pattern id="fl" width="120" height="120" patternUnits="userSpaceOnUse"><path d="M0,0 H120 M0,0 V120" stroke="#e7b552" stroke-width="2" fill="none" opacity=".5"/>
+        <path d="M60,30 L90,60 L60,90 L30,60Z" stroke="#e7b552" stroke-width="1.5" fill="none" opacity=".35"/></pattern>
+        <linearGradient id="flF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".25" stop-color="#fff" stop-opacity="1"/></linearGradient>
+        <mask id="flM"><rect width="2160" height="2400" fill="url(#flF)"/></mask></defs>
+        <rect id="flR" x="0" y="-120" width="2160" height="2640" fill="url(#fl)" mask="url(#flM)"/></svg>
+    </div>
+  </div>
+  <div class="abs" id="rays" style="left:-460px;top:-160px;width:2000px;height:2000px;opacity:.55"></div>
+  <div class="abs" id="mandala" style="left:-60px;top:300px;width:1200px;height:1200px"></div>
+  <div id="tint"></div>
+  <div class="abs" id="parts" style="inset:0;z-index:3"></div>
+  <!-- bingkai gerbang -->
+  <svg class="abs" width="1080" height="1920" style="left:0;top:0;z-index:4" id="arch">
+    <defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe6a6"/><stop offset=".5" stop-color="#e7b552"/><stop offset="1" stop-color="#9c6a1f"/></linearGradient></defs>
+    <path id="archP" d="M40,1880 L40,330 C40,200 300,150 420,90 C470,65 510,40 540,20 C570,40 610,65 660,90 C780,150 1040,200 1040,330 L1040,1880 Z" fill="none" stroke="url(#gg)" stroke-width="6" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+    <path id="archP2" d="M58,1862 L58,336 C58,214 310,166 428,106 C476,82 514,58 540,40 C566,58 604,82 652,106 C770,166 1022,214 1022,336 L1022,1862 Z" fill="none" stroke="#e7b552" stroke-width="2" opacity=".5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+  </svg>
+
+  <!-- ===== S0 INTRO ===== -->
+  <div class="sec" id="s0" style="z-index:10">
+    <img id="lajnah" src="aset/logo-lajnah-emas.png" class="abs" style="left:330px;top:250px;width:420px">
+    <div class="c" id="pillL" style="top:520px"><span class="pill" style="background:#0b1612;color:#ffe6a6;border:3px solid #e7b552">✦ LAJNAH AKADEMIK IQRA' ✦</span></div>
+    <div class="c ar gt glow" id="title" style="top:680px;font-size:160px;line-height:1.5">مُثَلَّثَاتُ الْيَوْمِ</div>
+    <div class="c mo" id="sama" style="top:990px;font-size:52px;font-weight:800;color:#ffe6a6">Sama tetapi <span style="color:#fff">tidak serupa</span></div>
+    <div class="chip" id="ch0" style="left:150px;top:1110px;background:var(--red)">1 perkataan</div>
+    <div class="chip" id="ch1" style="left:455px;top:1110px;background:var(--green)">3 baris</div>
+    <div class="chip" id="ch2" style="left:690px;top:1110px;background:var(--blue)">3 makna</div>
+  </div>
+
+  <!-- ===== S1 PERKATAAN HARI INI ===== -->
+  <div class="sec" id="s1" style="z-index:11">
+    <div class="c" id="phi" style="top:300px"><span class="pill" style="background:#e7b552;color:#07110e">PERKATAAN HARI INI</span></div>
+    <div class="abs" id="wbox" style="left:120px;top:420px;width:840px;height:480px;border-radius:44px;border:6px solid #e7b552;background:radial-gradient(circle at 50% 40%,#1d2b25,#050a08);box-shadow:0 0 80px rgba(231,181,82,.35),0 40px 80px rgba(0,0,0,.6)">
+      <div class="c ar gt glow" id="bigW" style="top:20px;font-size:290px;line-height:1.4">الجدّ</div>
+      <div class="abs" id="qm" style="left:380px;top:-50px;width:90px;height:90px;border-radius:50%;background:var(--red);border:5px solid #fff;display:flex;align-items:center;justify-content:center;font-family:Mon;font-weight:900;font-size:56px;color:#fff">?</div>
+    </div>
+    <div class="chip" id="j0" style="left:150px;top:960px;background:#0b1612;border-color:#e7b552"><span class="ar" style="color:#ffe6a6">ج</span> Jim</div>
+    <div class="chip" id="j1" style="left:425px;top:960px;background:#0b1612;border-color:#e7b552"><span class="ar" style="color:#ffe6a6">د</span> Dal</div>
+    <div class="chip" id="j2" style="left:680px;top:960px;background:#0b1612;border-color:#e7b552"><span class="ar" style="color:#ffe6a6">ـّ</span> Sabdu</div>
+    <div class="bc" id="b0" style="left:455px;top:1160px;background:var(--red)"><span>جَ</span></div>
+    <div class="bc" id="b1" style="left:455px;top:1160px;background:var(--green)"><span>جِ</span></div>
+    <div class="bc" id="b2" style="left:455px;top:1160px;background:var(--blue)"><span>جُ</span></div>
+    <div class="blab" id="l0" style="left:80px;top:1360px">Baris Atas<i>Fathah</i></div>
+    <div class="blab" id="l1" style="left:410px;top:1360px">Baris Bawah<i>Kasrah</i></div>
+    <div class="blab" id="l2" style="left:740px;top:1360px">Baris Hadapan<i>Dhammah</i></div>
+    <div class="c mo" id="berubah" style="top:1500px;font-size:44px;font-weight:800;color:#fff">Baris berubah <span style="color:#e7b552">➜</span> <span class="gt">makna berubah!</span></div>
+  </div>
+
+  <!-- ===== S2–S4 TIGA PERKATAAN ===== -->
+  <div id="words"></div>
+
+  <!-- ===== S5 RUMUSAN ===== -->
+  <div class="sec" id="s5" style="z-index:20">
+    <div class="c" id="rTitle" style="top:330px"><span class="pill" style="background:#e7b552;color:#07110e;font-size:36px">1 PERKATAAN • 3 MAKNA</span></div>
+    <div class="c ar gt glow" id="rWord" style="top:400px;font-size:150px;line-height:1.4">الجدّ</div>
+    <div id="minis"></div>
+    <div class="c mo" id="rTag" style="top:1340px;font-size:44px;font-weight:800;color:#fff">Baris berubah <span style="color:#e7b552">➜</span> <span class="gt">makna berubah!</span></div>
+  </div>
+
+  <!-- ===== S6 PENUTUP ===== -->
+  <div class="sec" id="s6" style="z-index:21">
+    <div class="abs" id="panel" style="left:110px;top:330px;width:860px;height:900px;border-radius:50px;background:linear-gradient(180deg,rgba(251,241,220,.97),rgba(240,222,186,.97));border:6px solid #e7b552;box-shadow:0 0 90px rgba(231,181,82,.35)">
+      <div class="abs" id="lgRow" style="left:40px;top:70px;width:780px;height:260px;display:flex;align-items:center;justify-content:center;gap:40px">
+        <img src="aset/logo-unisza.png" style="width:360px"><img src="aset/logo-iqra.png" style="width:340px"></div>
+      <div class="c" id="web" style="top:400px"><span class="mo" style="font-weight:900;font-size:64px;color:#1a1208">iqraunisza</span><span class="mo" style="margin-left:10px;font-weight:800;font-size:52px;color:#1a1208;border:5px solid #1a1208;border-radius:40px;padding:0 18px">.com</span></div>
+      <div class="abs" id="socRow" style="left:0;width:100%;top:540px;display:flex;justify-content:center;gap:18px"></div>
+      <div class="c mo" id="handle" style="top:650px;font-size:46px;font-weight:800;color:#1a1208">iqrauniszaofficial</div>
+    </div>
+    <div class="c mo" id="terb" style="top:1300px;font-size:30px;font-weight:800;letter-spacing:8px;color:#e7b552">TERBITAN</div>
+    <img id="lajnah2" src="aset/logo-lajnah-emas.png" class="abs" style="left:350px;top:1360px;width:380px">
+  </div>
+ </div>
+ <div id="vig"></div><div id="grain"></div><div id="flash"></div><div id="fade"></div>
+</div>
+<script>
+window.WIDTH = 1080; window.HEIGHT = 1920; window.FPS = 30; window.DURATION = 45;
+const $ = id => document.getElementById(id);
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const prog = (t, s, d) => clamp((t - s) / d);
+const lerp = (a, b, p) => a + (b - a) * p;
+const ease = { out: p => 1 - Math.pow(1 - p, 3), io: p => p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2, expo: p => p === 1 ? 1 : 1 - Math.pow(2, -10 * p), inp: p => p * p * p,
+  back: p => { const c1 = 1.8, c3 = c1 + 1; return 1 + c3 * Math.pow(p - 1, 3) + c1 * Math.pow(p - 1, 2); } };
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function tf(el, o) { el.style.transform = `perspective(1400px) translate(${o.x || 0}px,${o.y || 0}px) rotate(${o.r || 0}deg) rotateX(${o.rx || 0}deg) rotateY(${o.ry || 0}deg) scale(${o.s ?? 1})`;
+  el.style.opacity = o.o ?? 1; el.style.filter = (o.b || 0) > .3 ? `blur(${o.b}px)` : ''; }
+const rise = (t, st, d = .6, dist = 60) => { const p = ease.out(prog(t, st, d)); return { y: lerp(dist, 0, p), o: p, b: lerp(12, 0, p) }; };
+const pop = (t, st, d = .5) => { const p = prog(t, st, d); return { s: Math.max(0, ease.back(p)), o: clamp(p * 4) }; };
+const slam = (t, st, d = .45) => { const p = ease.out(prog(t, st, d)); return { s: lerp(3, 1, p), o: clamp(p * 2.5), b: lerp(30, 0, p) }; };
+const shake = (t, st, d = .4, a = 18) => { const p = prog(t, st, d); return p <= 0 || p >= 1 ? 0 : Math.sin(t * 85) * a * (1 - p); };
+
+// ---------- Mandala emas ----------
+function star8(r, w = 2, op = .6) { const pts = []; for (let i = 0; i < 16; i++) { const a = i / 16 * Math.PI * 2 - Math.PI / 2, rr = i % 2 ? r * .72 : r; pts.push(`${(Math.cos(a) * rr).toFixed(1)},${(Math.sin(a) * rr).toFixed(1)}`); } return `<polygon points="${pts.join(' ')}" fill="none" stroke="#e7b552" stroke-width="${w}" opacity="${op}"/>`; }
+$('mandala').innerHTML = `<svg viewBox="-600 -600 1200 1200" width="1200" height="1200"><defs><radialGradient id="mg"><stop offset="0" stop-color="#e7b552" stop-opacity=".35"/><stop offset=".6" stop-color="#e7b552" stop-opacity=".05"/><stop offset="1" stop-color="#e7b552" stop-opacity="0"/></radialGradient></defs>
+  <circle r="580" fill="url(#mg)"/>
+  <g id="m1">${star8(540, 3, .55)}${star8(470, 1.5, .4)}<circle r="560" fill="none" stroke="#e7b552" stroke-width="2" stroke-dasharray="4 16" opacity=".6"/></g>
+  <g id="m2">${Array.from({ length: 16 }, (_, i) => `<g transform="rotate(${i * 22.5})">${star8(70, 2, .5)}</g>`).map((s, i) => s.replace('<g transform', `<g transform="translate(${Math.cos(i / 16 * Math.PI * 2) * 380} ${Math.sin(i / 16 * Math.PI * 2) * 380})"><g transform`) + '</g>').join('')}</g>
+  <g id="m3">${star8(300, 3, .7)}${star8(250, 1.5, .5)}<circle r="200" fill="none" stroke="#e7b552" stroke-width="2" opacity=".5"/><circle r="320" fill="none" stroke="#e7b552" stroke-width="1" stroke-dasharray="2 8" opacity=".6"/></g>
+  <g id="m4">${Array.from({ length: 32 }, (_, i) => `<line x1="0" y1="-120" x2="0" y2="-190" stroke="#e7b552" stroke-width="2" opacity=".5" transform="rotate(${i * 11.25})"/>`).join('')}${star8(110, 2.5, .8)}</g></svg>`;
+$('rays').innerHTML = `<svg viewBox="-1000 -1000 2000 2000" width="2000" height="2000"><g id="rayG" fill="#e7b552" opacity=".07">${Array.from({ length: 20 }, (_, i) => { const a = i / 20 * Math.PI * 2, w = .05; return `<path d="M0,0 L${Math.cos(a - w) * 1000},${Math.sin(a - w) * 1000} L${Math.cos(a + w) * 1000},${Math.sin(a + w) * 1000}Z"/>`; }).join('')}</g></svg>`;
+{ const r = rng(13); let h = ''; for (let i = 0; i < 80; i++) { const s = 2 + r() * 7, bk = r() < .2; h += `<div class="abs pt" data-x="${r() * 1080}" data-y="${r() * 1920}" data-sp="${20 + r() * 80}" data-ph="${r() * 6}" style="width:${bk ? s * 6 : s}px;height:${bk ? s * 6 : s}px;border-radius:50%;background:${bk ? 'radial-gradient(circle,rgba(255,220,140,.35),transparent 70%)' : '#ffe6a6'};${bk ? '' : 'box-shadow:0 0 ' + s * 2 + 'px #e7b552'}"></div>`; } $('parts').innerHTML = h; }
+const ptEls = [...document.querySelectorAll('.pt')];
+
+// ---------- Seksyen perkataan ----------
+const W = [
+  { n: 1, lab: 'BARIS ATAS (FATHAH)', col: '#d9364b', rgb: '217,54,75', w: 'الْجَدُّ', bd: 'جَ', m: 'DATUK', ex: 'هَذَا جَدِّي', tr: 'Ini datuk saya.', img: 'datuk' },
+  { n: 2, lab: 'BARIS BAWAH (KASRAH)', col: '#1fa36a', rgb: '31,163,106', w: 'الْجِدُّ', bd: 'جِ', m: 'KESUNGGUHAN', ex: 'الْجِدُّ طَرِيقُ النَّجَاحِ', tr: 'Kesungguhan ialah jalan kejayaan.', img: 'pelajar' },
+  { n: 3, lab: 'BARIS HADAPAN (DHAMMAH)', col: '#3a6fd8', rgb: '58,111,216', w: 'الْجُدُّ', bd: 'جُ', m: 'PERIGI', ex: 'مَاءُ الْجُدِّ بَارِدٌ', tr: 'Air perigi itu sejuk.', img: 'perigi' }];
+const WS = [10.0, 18.6, 27.2], WLEN = 8.6;
+$('words').innerHTML = W.map((d, i) => `<div class="sec" id="w${i}" style="z-index:${12 + i}">
+  <div class="abs" style="left:150px;top:150px;width:780px;height:12px;display:flex;gap:16px">${[0, 1, 2].map(k => `<div style="flex:1;height:10px;border-radius:5px;background:rgba(255,255,255,.15);overflow:hidden"><div class="pb" data-k="${k}" style="height:100%;width:0;background:${W[k].col}"></div></div>`).join('')}</div>
+  <div class="c hd" style="top:205px"><span class="pill" style="background:${d.col};color:#fff">${d.n} · ${d.lab}</span></div>
+  <div class="c ar gt glow wd" style="top:285px;font-size:${i === 1 ? 200 : 210}px;line-height:1.55">${d.w}</div>
+  <div class="frame fr"><img src="aset/ilus-${d.img}.png" class="im"><div class="abs sh" style="left:-300px;top:0;width:200px;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-15deg)"></div></div>
+  <div class="badge bd" style="left:800px;top:620px;background:${d.col}"><span>${d.bd}</span></div>
+  <div class="c mo mn" style="top:1395px;font-size:${d.m.length > 8 ? 90 : 124}px;font-weight:900;color:#fff;letter-spacing:2px;text-shadow:0 0 30px rgba(${d.rgb},.9),0 8px 0 rgba(0,0,0,.4)">${d.m}</div>
+  <div class="abs ar ex" style="left:90px;width:900px;top:1530px;font-size:78px;line-height:1.5;color:#ffe6a6;display:flex;justify-content:center;gap:20px;direction:rtl">${d.ex.split(' ').map(x => `<span style="display:inline-block">${x}</span>`).join('')}</div>
+  <div class="c tr" style="top:1665px;font-family:MonI;font-style:italic;font-weight:600;font-size:44px;color:rgba(255,255,255,.85)">${d.tr}</div>
+</div>`).join('');
+$('minis').innerHTML = W.map((d, i) => `<div class="mini" id="mn${i}" style="left:${34 + i * 340}px;border-color:${d.col}">
+  <div class="w gt">${d.w}</div><div class="im"><img src="aset/ilus-${d.img}.png"></div><div class="m">${d.m}</div><div class="h">${['Fathah', 'Kasrah', 'Dhammah'][i]}</div></div>`).join('');
+// Ikon sosial
+const SOC = [`<path d="M14,40 V24 H8 V17 H14 V12 C14,6 17,3 23,3 H28 V10 H24 C22,10 21,11 21,13 V17 H28 L27,24 H21 V40Z" fill="#1a1208" transform="translate(4 0)"/>`,
+  `<rect x="6" y="6" width="32" height="32" rx="10" fill="none" stroke="#1a1208" stroke-width="4"/><circle cx="22" cy="22" r="7" fill="none" stroke="#1a1208" stroke-width="4"/><circle cx="32" cy="12" r="2.5" fill="#1a1208"/>`,
+  `<path d="M4,21 L38,7 L32,38 L22,30 L17,36 L16,27 L32,13 L13,25Z" fill="#1a1208"/>`,
+  `<rect x="3" y="10" width="38" height="25" rx="8" fill="#1a1208"/><path d="M18,16 L28,22.5 L18,29Z" fill="#e7b552"/>`,
+  `<path d="M24,4 H31 C31,10 35,14 40,14 V21 C36,21 33,20 31,18 V29 C31,36 26,40 20,40 C13,40 8,35 8,29 C8,22 14,17 21,18 V25 C18,24 15,26 15,29 C15,32 17,34 20,34 C23,34 24,32 24,29Z" fill="#1a1208"/>`];
+$('socRow').innerHTML = SOC.map(s => `<div class="soc"><svg width="44" height="44" viewBox="0 0 44 44">${s}</svg></div>`).join('');
+const grainTiles = []; for (let k = 0; k < 4; k++) { const cv = document.createElement('canvas'); cv.width = cv.height = 300; const cx = cv.getContext('2d'); const img = cx.createImageData(300, 300), r = rng(200 + k);
+  for (let i = 0; i < img.data.length; i += 4) { const v = r() * 255; img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255; } cx.putImageData(img, 0, 0); grainTiles.push(cv.toDataURL()); }
+
+const SEC = [['s0', 0, 4.7], ['s1', 4.4, 10.4], ['w0', 10.0, WS[1] + .4], ['w1', WS[1], WS[2] + .4], ['w2', WS[2], 36.2], ['s5', 35.8, 41.2], ['s6', 40.8, 45]];
+// warna tema ikut masa
+function themeAt(t) {
+  const cols = [[231, 181, 82], [217, 54, 75], [31, 163, 106], [58, 111, 216], [231, 181, 82]];
+  const marks = [0, 10.0, WS[1], WS[2], 35.8];
+  let k = 0; while (k + 1 < marks.length && t >= marks[k + 1]) k++;
+  const p = ease.io(prog(t, marks[k], .8)), a = cols[Math.max(0, k - 1)], b = cols[k];
+  return a.map((v, i) => Math.round(lerp(v, b[i], k === 0 ? 1 : p)));
+}
+
+// ================= Fungsi utama =================
+window.seek = function (t) {
+  const frame = Math.round(t * FPS);
+  $('grain').style.backgroundImage = `url(${grainTiles[frame % 4]})`; $('grain').style.backgroundPosition = `${(frame * 37) % 300}px ${(frame * 53) % 300}px`;
+  $('fade').style.opacity = Math.max(1 - prog(t, 0, .4), prog(t, 44.2, .8));
+  const fl = (st, a = 1, d = .35) => t >= st ? Math.max(0, a * (1 - prog(t, st, d))) : 0;
+  $('flash').style.opacity = Math.max(fl(.3, .9), fl(5.0, .6), fl(10.0, .8), fl(WS[1], .8), fl(WS[2], .8), fl(35.8, .7), fl(40.8, .6));
+
+  // Latar
+  const [r, g, b] = themeAt(t);
+  $('tint').style.background = `radial-gradient(circle at 50% 45%, rgba(${r},${g},${b},.35) 0%, rgba(${r},${g},${b},.08) 45%, transparent 75%)`;
+  $('m1').setAttribute('transform', `rotate(${t * 6})`); $('m2').setAttribute('transform', `rotate(${-t * 9})`); $('m3').setAttribute('transform', `rotate(${t * 14})`); $('m4').setAttribute('transform', `rotate(${-t * 20}) scale(${1 + .05 * Math.sin(t * 4)})`);
+  const mIn = ease.back(prog(t, .2, 1.0)); $('mandala').style.transform = `scale(${Math.max(0, mIn) * (1 + .03 * Math.sin(t * 1.2))})`; $('mandala').style.opacity = clamp(prog(t, .2, .3) * 3) * .9;
+  $('rayG').setAttribute('transform', `rotate(${t * 8})`);
+  $('flR').setAttribute('transform', `translate(0,${(t * 160) % 120})`);
+  ptEls.forEach(p => { const y = ((+p.dataset.y - t * +p.dataset.sp) % 1920 + 1920) % 1920; p.style.transform = `translate(${+p.dataset.x + Math.sin(t * .7 + +p.dataset.ph) * 30}px,${y}px)`; p.style.opacity = .25 + .6 * Math.abs(Math.sin(t * 1.6 + +p.dataset.ph)); });
+  const ad = ease.io(prog(t, .5, 1.6)); $('archP').setAttribute('stroke-dashoffset', 1 - ad); $('archP2').setAttribute('stroke-dashoffset', 1 - ease.io(prog(t, .8, 1.6)));
+
+  // Kamera: zum keluar perlahan + punch-in pada saat penting
+  const punches = [.3, 5.0, 10.0, WS[1], WS[2], 35.8, 40.8];
+  let pz = 0; punches.forEach(p => { if (t >= p) pz += .12 * Math.exp(-(t - p) * 5); });
+  const drift = 1.04 - .04 * ((t % 8.6) / 8.6);
+  $('cam').style.transform = `scale(${drift + pz}) rotate(${Math.sin(t * .4) * .4}deg)`;
+
+  // Paparan seksyen
+  SEC.forEach(([id, st, en]) => {
+    const el = $(id), on = t >= st && t < en; el.style.visibility = on ? 'visible' : 'hidden'; if (!on) return;
+    // zum keluar (tembus) di hujung seksyen
+    const out = ease.inp(prog(t, en - .45, .45)); const inn = 1 - ease.out(prog(t, st, .45));
+    el.style.transform = `scale(${1 + out * 2.2 - inn * .3})`; el.style.opacity = (1 - out) * (1 - inn * .9); el.style.filter = out > .05 ? `blur(${out * 20}px)` : '';
+  });
+
+  // ---- S0 ----
+  if (t < 4.8) {
+    tf($('lajnah'), { ...pop(t, .6, .7), y: Math.sin(t * 2) * 6 });
+    tf($('pillL'), pop(t, 1.2, .5));
+    tf($('title'), { ...slam(t, 1.6, .5), x: shake(t, 2.05) });
+    tf($('sama'), rise(t, 2.5));
+    [0, 1, 2].forEach(i => tf($('ch' + i), { ...pop(t, 3.0 + i * .2, .45), r: [-6, 3, 6][i] * (1 - prog(t, 3.0 + i * .2, .5)) }));
+  }
+  // ---- S1 ----
+  if (t > 4.3 && t < 10.5) {
+    tf($('phi'), pop(t, 4.8, .5));
+    const wp = ease.back(prog(t, 5.0, .6)); tf($('wbox'), { s: Math.max(0, wp), o: clamp(prog(t, 5.0, .15) * 6), rx: lerp(40, 0, ease.out(prog(t, 5.0, .6))), x: shake(t, 5.45) });
+    tf($('bigW'), { s: 1 + .03 * Math.sin(t * 3), o: 1 });
+    tf($('qm'), { ...pop(t, 5.6, .5), y: Math.abs(Math.sin((t - 5.6) * 5)) * -14 * (t > 6.1 && t < 7.2 ? 1 : 0), r: Math.sin(t * 6) * 8 });
+    [0, 1, 2].forEach(i => tf($('j' + i), pop(t, 6.1 + i * .25, .45)));
+    // tiga bulatan baris keluar dari perkataan
+    const BX = [120, 455, 790];
+    [0, 1, 2].forEach(i => { const p = ease.back(prog(t, 7.2 + i * .25, .6)); const el = $('b' + i);
+      el.style.left = lerp(455, BX[i], clamp(p)) + 'px'; el.style.top = lerp(620, 1160, clamp(p)) + 'px';
+      tf(el, { s: Math.max(0, p) * (1 + .06 * Math.sin(t * 4 + i)), o: clamp(prog(t, 7.2 + i * .25, .2) * 5), r: lerp(-180, 0, clamp(p)) });
+      tf($('l' + i), rise(t, 7.6 + i * .25, .5, 30)); });
+    tf($('berubah'), { ...pop(t, 8.6, .5) });
+    // zum menembusi bulatan merah
+    const z = ease.inp(prog(t, 9.5, .5)); if (z > 0) { $('b0').style.transform += ` scale(${1 + z * 14})`; $('b0').style.zIndex = 30; }
+  }
+  // ---- Perkataan ----
+  W.forEach((d, i) => {
+    const s = WS[i], root = $('w' + i); if (t < s - .1 || t > s + WLEN + .5) return;
+    root.querySelectorAll('.pb').forEach(pb => { const k = +pb.dataset.k; pb.style.width = (k < i ? 100 : k > i ? 0 : 100 * ease.out(prog(t, s + .2, 1.2))) + '%'; });
+    tf(root.querySelector('.hd'), pop(t, s + .2, .5));
+    tf(root.querySelector('.wd'), { ...slam(t, s + .35, .5), x: shake(t, s + .8) });
+    const fp = ease.expo(prog(t, s + .7, .8)); const fr = root.querySelector('.fr');
+    tf(fr, { y: lerp(700, 0, fp), rx: lerp(-50, 0, fp), o: clamp(fp * 2), s: 1 + .015 * Math.sin(t * 2) });
+    const kb = 1.0 + .18 * prog(t, s + .7, WLEN - 1); root.querySelector('.im').style.transform = `translate(-50%,-50%) scale(${kb}) translateY(${lerp(10, -20, prog(t, s + .7, WLEN - 1))}px)`;
+    root.querySelector('.sh').style.left = `${lerp(-300, 900, prog(t, s + 1.6, .8))}px`;
+    tf(root.querySelector('.bd'), { ...pop(t, s + 1.2, .55), r: lerp(-200, 0, clamp(ease.out(prog(t, s + 1.2, .55)))) + Math.sin(t * 3) * 4 });
+    tf(root.querySelector('.mn'), { ...slam(t, s + 2.0, .45), x: shake(t, s + 2.4, .35, 14) });
+    [...root.querySelectorAll('.ex span')].forEach((sp, k) => tf(sp, rise(t, s + 2.8 + k * .22, .5, 40)));
+    tf(root.querySelector('.tr'), rise(t, s + 3.7, .6, 30));
+  });
+  // ---- S5 ----
+  if (t > 35.7 && t < 41.3) {
+    tf($('rTitle'), pop(t, 36.0, .5)); tf($('rWord'), slam(t, 36.2, .5));
+    [0, 1, 2].forEach(i => { const p = ease.expo(prog(t, 36.7 + i * .25, .7)); const hl = Math.max(0, Math.sin(prog(t, 38.0 + i * .7, .7) * Math.PI));
+      const el = $('mn' + i); tf(el, { y: lerp(900, 0, p) - hl * 30, ry: lerp(90, 0, p), o: clamp(p * 2), s: 1 + hl * .08 });
+      el.style.boxShadow = `0 30px 60px rgba(0,0,0,.5), 0 0 ${60 * hl}px ${W[i].col}`; });
+    tf($('rTag'), pop(t, 40.0, .5));
+  }
+  // ---- S6 ----
+  if (t > 40.7) {
+    tf($('panel'), { ...pop(t, 41.0, .7), rx: lerp(30, 0, ease.out(prog(t, 41.0, .7))) });
+    tf($('lgRow'), rise(t, 41.4, .6)); tf($('web'), pop(t, 42.0, .5));
+    [...$('socRow').children].forEach((c, i) => tf(c, pop(t, 42.4 + i * .12, .4)));
+    tf($('handle'), rise(t, 43.0, .5, 20)); tf($('terb'), rise(t, 43.2, .5, 20)); tf($('lajnah2'), { ...pop(t, 43.4, .6), y: Math.sin(t * 2) * 5 });
+  }
+};
+
+if (!new URLSearchParams(location.search).has('render')) {
+  const t0 = performance.now();
+  (function loop() { seek(((performance.now() - t0) / 1000) % DURATION); requestAnimationFrame(loop); })();
+} else { seek(0); }
+</script>
+</body>
+</html>
